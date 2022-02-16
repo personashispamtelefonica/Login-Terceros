@@ -1,0 +1,15 @@
+<h1>Validar pase de Ingreso</h1>
+
+<small style="color: rgb(0, 4, 255);">Felicidades, ya estas autenticado..!</small>
+
+<pre>{{usuario | json}}</pre>
+
+<div class="form-group text-center m-t-20">
+  <button
+    class="btn btn-warning btn-center text-uppercase"
+    type="submit"
+    (click)="logout()"
+  >
+    Escanear QR
+  </button>
+</div>
