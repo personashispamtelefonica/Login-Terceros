@@ -13,12 +13,6 @@ export class AuthService {
   private baseUrl: string = environment.baseUrl;
   private _usuario!: Usuario;
 
-  /* private _usuario: Usuario = {
-    uid:'abc',
-    name: 'Yovani',
-    email:'yovany.21se@gmail.com'
-  }; */
-
   get usuario(){
     return {... this._usuario}
   }

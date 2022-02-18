@@ -4,24 +4,22 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { MainComponent } from './pages/main/main.component';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
-    MainComponent,
-    LoginComponent,
-    RegisterComponent
-  ],
+            MainComponent,
+            LoginComponent,
+          ],
 
   imports: [
-    CommonModule,
-    AuthRoutingModule,
+            CommonModule,
+            AuthRoutingModule,
+            ReactiveFormsModule,
 
-    ReactiveFormsModule,
-
-  ]
+            MatIconModule
+          ],
 })
-export class AuthModule { }
+export class AuthModule {}

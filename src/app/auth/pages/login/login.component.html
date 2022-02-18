@@ -1,61 +1,47 @@
+<form [formGroup]="myLoginForm" class="loginform my-5">
+  <div class="tf-hispam"><span class="c-male">Web </span> Terceros</div>
 
-<img class="logo" src="../../../../assets/images/logos/telefonica-po.png" />
-<div class="tf-hispam"><span class="c-male">Web </span> Terceros</div>
-
-<form class="loginform" (ngSubmit)="submitLogin()" [formGroup]="myLoginForm">
   <!-- email de usuario -->
   <div class="form-group" style="width: 300px">
-      <label class="col-form-label" style="color:white">Correo del usuario</label>
-      <div style="width: 300px">
-        <input
-          type="email"
-          class="form-control"
-          formControlName="email"
-          placeholder="name@example.com"
-        />
-        <small class="form-text text-danger" *ngIf="campoNoValido('email')">
-          * El correo es obligatorio
-        </small>
-      </div>
+    <label class="col-form-label lab-color">Correo del usuario</label>
+    <div>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="name@example.com"
+      />
+      <small class="form-text text-danger" *ngIf="campoNoValido('email')">
+        * El correo es obligatorio
+      </small>
+    </div>
   </div>
 
   <!-- Contraseña -->
   <div class="form-group" style="width: 300px">
-      <label class="col-form-label" style="color:white">Contraseña</label>
-      <div class="">
-        <input
-          type="password"
-          class="form-control"
-          required=""
-          placeholder="Contraseña"
-          formControlName="password"
-        /><small class="form-text text-danger" *ngIf="campoNoValido('password')">
-          * Ingrese una contraseña válida
-        </small>
-      </div>
+    <label class="col-form-label lab-color">Contraseña</label>
+    <div class="">
+      <input
+        type="password"
+        class="form-control"
+        required=""
+        placeholder="Contraseña"
+        formControlName="password"
+      /><small class="form-text text-danger" *ngIf="campoNoValido('password')">
+        * Ingrese una contraseña válida
+      </small>
+    </div>
   </div>
 
   <!-- Iniciar sesión-->
   <div class="form-group text-center">
     <button
-      class="btn btn-primary text-uppercase my-4"
+      class="cli-btn btn-l btn-blue text-uppercase my-4"
       type="submit"
       (click)="logIn()"
       [disabled]="myLoginForm.invalid"
     >
-      INICIAR SESIÓN
+      <mat-icon class="icon-cent"></mat-icon> INICIAR SESIÓN
     </button>
   </div>
-
-  <br />
-  <div class="form-group">
-    <div class="text-center" style="color:white">
-      ¿No tienes una cuenta?
-      <a routerLink="/auth/registro" class="text-primary"><b>Únete</b></a>
-    </div>
-  </div>
 </form>
-
-
-
-

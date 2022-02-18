@@ -50,5 +50,4 @@ export class LoginComponent implements OnInit {
 
   }
 
-  submitLogin() {}
 }
