@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl:'http://localhost:4200'
+ // baseUrl:'http://localhost:4200',
+  baseUrl: 'https://aks-hispam-dev.eastus.cloudapp.azure.com/third/v1'
 };
 
 /*

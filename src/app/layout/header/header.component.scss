@@ -1,0 +1,76 @@
+.cli-header{
+  background-color: #0e3f58;
+  color: #0066FF;
+  line-height: 56px - 20;
+  height: 56px;
+  box-shadow: 0 1px 1px 0 #00000020, 0 2px 5px 0 #00000020;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 97;
+  display: flex;
+  flex-direction: row;
+}
+.logoheader{
+  overflow: hidden;
+  height:56px;
+  width: 265px;
+  display: flex;
+  color: #e9e1db;
+  font-size: 1.1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-let{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin: 0 10px;
+  color: #F2F4FF;
+}
+
+.personname{
+      color: #FFF;
+      line-height: 56px;
+      margin: 0 5px;
+      text-shadow: 0 1px 3px #0000002a;
+  }
+
+.header-nav-items{
+  flex: 1;
+}
+.hlogo{
+  height: 40px;
+}
+
+.logo-let{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin: 0 10px;
+  color: white;
+}
+
+.header-icon{
+  display: none;
+  align-items: center;
+  width: 48px;
+  transition: .3s ease;
+  color: 04eafa;
+}
+
+.header-icon:active{
+  cursor: pointer;
+}
+
+.header-icon .mat-icon{
+  margin: auto;
+}

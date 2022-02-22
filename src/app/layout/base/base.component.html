@@ -1,0 +1,17 @@
+<div class="cli-body">
+  <app-header></app-header>
+  <app-aside></app-aside>
+
+  <div
+    class="cli-canvas"
+    [ngClass]="{
+      'cli-canvas-fixedaside': fixedAside,
+      'cli-canvas-hiddenaside': !fixedAside
+    }"
+  >
+   <app-users-qr></app-users-qr>
+
+    <app-footer></app-footer>
+  </div>
+  <!-- <app-user-panel></app-user-panel> -->
+</div>

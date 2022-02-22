@@ -1,0 +1,91 @@
+<div
+  class="cli-aside"
+  [ngClass]="{ 'cli-aside-fixed': fixedAside, 'cli-aside-hover': !fixedAside }"
+>
+  <!-- MENÚ -->
+  <div
+    [ngClass]="{ 'cli-aside-overflow': fixedAside }"
+    class="cli-aside-container"
+  >
+    <div style="height: 40px"></div>
+    <ul class="cli-aside-menu">
+      <li>
+        <a
+          (click)="clickLinkMenu()"
+          class="menu-link"
+          [routerLink]="'/home'"
+          routerLinkActive="active-link"
+        >
+          <i class="submenu-icon">
+            <mat-icon>home</mat-icon>
+          </i>
+
+          <span *ngIf="fixedAside">Inicio</span>
+        </a>
+      </li>
+
+      <ng-container *ngFor="let menu of menuConfig"></ng-container>
+    </ul>
+  </div>
+</div>
+
+<!-- LSITA DE SUB MENUS -->
+<!-- <ng-template #subMenuItems let-item="item">
+  <div
+    class="sub-menu"
+    [ngClass]="{ 'sub-menu-displayed': item.displayed && fixedAside }"
+  >
+    <ul>
+      <ng-container
+        *ngFor="let submenu of item.submenus"
+        [ngTemplateOutlet]="subMenuItem"
+        [ngTemplateOutletContext]="{ item: submenu }"
+      ></ng-container>
+    </ul>
+  </div>
+</ng-template> -->
+
+<!-- SUB MENU -->
+<!-- <ng-template #subMenuItem let-item="item">
+  <li>
+    <a
+      class="submenu-link"
+      [routerLink]="item.link"
+      routerLinkActive="active-sublink"
+    >
+      <i class="submenu-icon">
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </i>
+      <span>{{ item.text }}</span>
+    </a>
+  </li>
+</ng-template> -->
+
+<!-- HOVER -->
+<!-- LSITA DE SUB MENUS HOVER -->
+<!-- <ng-template #subMenuItemsHover let-item="item">
+  <div class="sub-menu sub-menu-displayed">
+    <ul>
+      <ng-container
+        *ngFor="let submenu of item.submenus"
+        [ngTemplateOutlet]="subMenuItemHover"
+        [ngTemplateOutletContext]="{ item: submenu }"
+      ></ng-container>
+    </ul>
+  </div>
+</ng-template> -->
+
+
+<!-- SUB MENU -->
+<!-- <ng-template #subMenuItemHover let-item="item">
+  <li>
+    <a
+      class="submenu-link"
+      style="padding: 10px 15px; width: 150px"
+      [routerLink]="item.link"
+      routerLinkActive="active-sublink"
+    >
+      <span>{{ item.text }}</span>
+    </a>
+  </li>
+</ng-template> -->
