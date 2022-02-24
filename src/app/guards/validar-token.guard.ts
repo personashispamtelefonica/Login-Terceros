@@ -19,7 +19,7 @@ export class ValidarTokenGuard implements CanActivate, CanLoad {
           .pipe(
             tap( estaAutenticado => {
               if (!estaAutenticado) {
-                this.router.navigateByUrl('/api/login');
+                this.router.navigateByUrl('/login');
               }
             })
           )
@@ -30,7 +30,7 @@ export class ValidarTokenGuard implements CanActivate, CanLoad {
     .pipe(
       tap( estaAutenticado => {
         if (!estaAutenticado) {
-          this.router.navigateByUrl('/api/login');
+          this.router.navigateByUrl('/login');
         }
       })
     )

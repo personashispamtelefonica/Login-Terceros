@@ -18,6 +18,11 @@
   text-align: center;
 }
 
+.user-form{
+ //| border: red solid;
+  margin: 40px;
+}
+
 .icon-18{
   width: 18px !important;
   height: 18px !important;
@@ -26,7 +31,7 @@
 
 
 .btn-blue{
-  background-color: #0066FF;
+  background-color: #00BEC0;
   color: #fff;
   transition: ease .3s;
   &:hover:enabled{
@@ -67,8 +72,6 @@
   }
 }
 
-
-
 .icon-center{
   display: flex;
   justify-content: center;
@@ -78,4 +81,9 @@
   position: relative;
   float: right;
   height: 0px;
+}
+
+
+@media screen and (max-width: 856px) {
+
 }

@@ -23,7 +23,10 @@
   justify-content: center;
 }
 
-.logo-let{
+.title-header{
+  font-size: 20px;
+}
+/* .logo-let{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,8 +34,8 @@
   font-size: 1.2rem;
   line-height: 1.2rem;
   margin: 0 10px;
-  color: #F2F4FF;
-}
+  color: #fff9f2;
+} */
 
 .personname{
       color: #FFF;
@@ -45,7 +48,7 @@
   flex: 1;
 }
 .hlogo{
-  height: 40px;
+  height: 30px;
 }
 
 .logo-let{
@@ -74,3 +77,18 @@
 .header-icon .mat-icon{
   margin: auto;
 }
+
+
+
+
+@media  (max-width: 850px) {
+  .title-header{
+    font-size: 15px;
+  }
+
+  .logoheader{
+    margin-left: -40px;
+  }
+
+}
+

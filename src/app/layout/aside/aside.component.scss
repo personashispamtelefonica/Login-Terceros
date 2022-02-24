@@ -83,9 +83,9 @@
   color: #fff;
 }
 .active-link{
-  color: #0066FF !important;
+  color: #00BEC0 !important;
   background-color: #F2F4FF;
-  border-right: 4px #0042AA solid;
+  border-right: 4px #00BEC0 solid;
 }
 .active-sublink{
   background-color: #B4DEE6;
@@ -187,3 +187,8 @@
   }
 } */
 
+@media (max-width: 850px) {
+  .cli-aside{
+    display: none;
+}
+}
