@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: ()=> import('./layout/layout.module').then((m) => m.LayoutModule),
     canActivate: [ValidarTokenGuard],
   },
-  {
+  /* {
     path:'',
     component: BaseComponent,
     children:[
@@ -23,7 +23,13 @@ const routes: Routes = [
 
       },
     ]
-  }
+  } */
+
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+
+  {path: '**', redirectTo: '/login'}
+
+
 ];
 
 @NgModule({

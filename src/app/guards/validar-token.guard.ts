@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanLoad, Router } from '@angular/router';
+import { CanActivate, Router} from '@angular/router';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { AuthService } from '../views/auth/services/auth.service';
 
 @Injectable({
@@ -15,10 +14,11 @@ export class ValidarTokenGuard implements CanActivate {
 
   canActivate(): Observable<boolean> | boolean {
     if (!this.authService.isLoggedIn()){
-      this.router.navigate(['/login'])
+      this.router.navigateByUrl('/login')
       return false;
     }
     return true;
   }
+
 
 }

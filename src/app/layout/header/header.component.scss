@@ -16,16 +16,13 @@
 .logoheader {
   overflow: hidden;
   height: 56px;
-  width: 265px;
+  //width: 265px;
   display: flex;
   color: #e9e1db;
   font-size: 1.1rem;
   align-items: center;
   justify-content: center;
-}
-
-.title-header {
-  font-size: 20px;
+  margin-left: 10px;
 }
 
 .personname {
@@ -100,11 +97,11 @@
   }
 
   .logoheader {
-    margin-left: -66px;
+    margin-left: 0px;
   }
 
   .personname {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .header-icon {

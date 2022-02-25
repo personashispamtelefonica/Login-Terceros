@@ -29,11 +29,13 @@ export class LoginComponent implements OnInit {
 
     this.authService.login( username, password )
       .subscribe( ok => {
-        console.log('XL:',ok)
+        console.log('VALOR :',ok)
         if ( ok === true ) {
+
           this.router.navigateByUrl('/dashboard');
-        } else {
-          Swal.fire('Error', 'Credenciales incorrectas', 'error');
+        } else{
+          Swal.fire('Error', 'Credenciales Erroneas', 'error');
+
         }
       });
   }
