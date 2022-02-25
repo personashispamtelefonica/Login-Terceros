@@ -32,9 +32,7 @@
 }
 
 .userName {
-  color: rgb(14, 13, 13);
   margin: 0 0px;
-  text-shadow: 0 1px 2px #0000002a;
 }
 
 .header-nav-items {
@@ -91,13 +89,30 @@
   padding-bottom: 0px;
 }
 
+.header-popUp{
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  height: 48px;
+  text-align: left;
+  text-decoration: none;
+  max-width: 100%;
+  position: relative;
+}
+
+
 @media (max-width: 850px) {
   .title-header {
     font-size: 13px;
   }
 
   .logoheader {
-    margin-left: 0px;
+    margin-left: -8px;
   }
 
   .personname {
@@ -119,5 +134,10 @@
   .menu-icon {
     font-size: 25px;
     margin-top: 16px;
+  }
+
+  .logo-let {
+    font-size: 0.9rem;
+    margin-left: 4px;
   }
 }

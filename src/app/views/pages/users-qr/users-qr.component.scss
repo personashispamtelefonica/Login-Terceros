@@ -3,10 +3,10 @@
 }
 
 .qrcode-wrapper{
-  width: 400px;
+  width: 260px;
   min-height: 250px;
   padding: 10px;
-  margin: 10px auto;
+  margin: 0px 0px 20px 0px;
   border: solid 1px #B6B7B7;
   border-radius: 2px;
   font-size: .9rem;
@@ -37,9 +37,11 @@ margin-left: 140px;
 
 
 .btn-emerald{
+  height: 26px;
   background-color: #00BEC0;
   color: #fff;
   transition: ease .3s;
+  cursor: pointer;
   &:hover:enabled{
       background-color: #b4dee6;
   }
@@ -52,6 +54,7 @@ margin-left: 140px;
   background-color: #E66C64;
   color: #fff;
   transition: ease .3s;
+  cursor: pointer;
   &:hover:enabled{
       background-color: #E3A19A;
   }
@@ -63,20 +66,37 @@ margin-left: 140px;
 .cli-btn{
   border: none;
   border-radius: 2px;
-  margin: 0 5px;
-  height: 30px;
-  padding: 0 10px;
+  margin: 0 4px;
+  padding: 0 6px;
   font-family: 'Telefonica-Bold' !important;
   display: flex;
   align-items: center;
-
-  margin-top: 10px;
+  height: 30px;
   & mat-icon{
       margin: 0 5px;
   }
   &:disabled{
       background-color: #b4dee6;
       color: #fff;
+  }
+}
+.cli-input{
+  border: solid 0.5px;
+  background-color: #F4F4F3;
+  border-radius: 2px;
+  padding: 4px 10px;
+  transition: ease .3s;
+  &:hover:enabled{
+      background-color: #f8f8f8;
+  }
+  &:focus:enabled{
+      background-color: transparent;
+      border-color: #00BEC0;
+  }
+  &:disabled{
+      background-color: transparent;
+      color: #86888C;
+      border-color: transparent;
   }
 }
 
@@ -91,6 +111,12 @@ margin-left: 140px;
   height: 0px;
 }
 
+.container-search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
 @media screen and (max-width: 856px) {
 
