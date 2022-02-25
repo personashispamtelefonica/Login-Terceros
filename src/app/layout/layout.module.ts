@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgQrScannerModule } from 'angular2-qrscanner';
 import { PagesModule } from '../views/pages/pages.module';
 import { MatMenuModule } from '@angular/material/menu';
+import { MenuMobileComponent } from './header/menu-mobile/menu-mobile.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MatMenuModule } from '@angular/material/menu';
     FooterComponent,
     AsideComponent,
     UserSectionComponent,
+    MenuMobileComponent,
   ],
 
   exports: [
