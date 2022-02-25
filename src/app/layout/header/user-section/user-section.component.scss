@@ -1,9 +1,9 @@
-.user-bag{
+.user-bag {
   display: flex;
   align-items: center;
   border-radius: 50%;
   justify-content: center;
-  background-color: #00BEC0;
+  background-color: #00bec0;
   color: #fff;
   font-weight: 600;
   font-size: 16px;
@@ -11,8 +11,8 @@
   width: 40px;
   height: 40px;
   margin: 8px;
-  &:hover{
-      cursor: pointer;
-      box-shadow: 0 1px 1px 0 #00000020, 0 2px 5px 0 #00000080;;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 1px 1px 0 #00000020, 0 2px 5px 0 #00000080;
   }
 }

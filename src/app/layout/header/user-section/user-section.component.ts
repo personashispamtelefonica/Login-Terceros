@@ -4,27 +4,24 @@ import { AuthService } from 'src/app/views/auth/services/auth.service';
 @Component({
   selector: 'app-user-section',
   templateUrl: './user-section.component.html',
-  styleUrls: ['./user-section.component.scss']
+  styleUrls: ['./user-section.component.scss'],
 })
 export class UserSectionComponent implements OnInit {
-
-  @Input("nameini") nameini!:string;
-  @Input("photouri") photouri!:string;
+  @Input('nameini') nameini: string = '';
+  @Input('photouri') photouri:string = 'NONE';
 
   hasphoto = false;
 
-
-
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    if (this.photouri!= 'NONE') {
+    if (this.photouri != 'NONE') {
+
       this.hasphoto = true;
     }
   }
 
-
-  openPanel(){
+  openPanel() {
     this.authService.toggleUserPanel$.emit(true);
   }
 }

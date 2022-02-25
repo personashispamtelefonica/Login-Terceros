@@ -9,18 +9,16 @@ import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
-            LoginComponent,
-          ],
+    LoginComponent
+  ],
 
   imports: [
-            CommonModule,
-            AuthRoutingModule,
-            ReactiveFormsModule,
+    CommonModule,
+    AuthRoutingModule,
+    ReactiveFormsModule,
 
-            MatIconModule
-          ],
-  exports:[
-    LoginComponent
-  ]
+    MatIconModule,
+  ],
+  exports: [LoginComponent],
 })
 export class AuthModule {}

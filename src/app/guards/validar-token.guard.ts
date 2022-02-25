@@ -7,32 +7,18 @@ import { AuthService } from '../views/auth/services/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class ValidarTokenGuard implements CanActivate, CanLoad {
+export class ValidarTokenGuard implements CanActivate {
 
 
   constructor(private authService: AuthService,
               private router: Router){ }
 
   canActivate(): Observable<boolean> | boolean {
-    //redirigimos al '/auth' al usuario si en caso borra el token del localStorage
-    return this.authService.validarToken()
-          .pipe(
-            tap( estaAutenticado => {
-              if (!estaAutenticado) {
-                this.router.navigateByUrl('/login');
-              }
-            })
-          )
+    if (!this.authService.isLoggedIn()){
+      this.router.navigate(['/login'])
+      return false;
+    }
+    return true;
   }
 
-  canLoad(): Observable<boolean> | boolean {
-    return this.authService.validarToken()
-    .pipe(
-      tap( estaAutenticado => {
-        if (!estaAutenticado) {
-          this.router.navigateByUrl('/login');
-        }
-      })
-    )
-  }
 }

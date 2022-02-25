@@ -12,12 +12,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   public myLoginForm: FormGroup = this.fb.group({
-    username: [
-      localStorage.getItem('username') || 'gherson.perez@telefonica.com',
-      [Validators.required, Validators.email],
-    ],
-    password: ['hola', [Validators.required, Validators.minLength(4)]],
-    remember: [false],
+     username: [ localStorage.getItem('username') || 'gherson.perez@telefonica.com', [Validators.required, Validators.email]],
+     password: ['hola', [Validators.required, Validators.minLength(4)]],
   });
 
   constructor(
@@ -27,6 +23,22 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  login() {
+    const { username, password } = this.myLoginForm.value;
+
+    this.authService.login( username, password )
+      .subscribe( ok => {
+        console.log('XL:',ok)
+        if ( ok === true ) {
+          this.router.navigateByUrl('/dashboard');
+        } else {
+          Swal.fire('Error', 'Credenciales incorrectas', 'error');
+        }
+      });
+  }
+
+
 
   campoNoValido(campo: string): boolean {
     if (
@@ -39,33 +51,4 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login() {
-    const request: LoginForm = {
-      username: this.myLoginForm.value.username,
-      password: this.myLoginForm.value.password,
-    };
-
-
-    this.authService.loginUser(request).subscribe(
-      (resp) => {
-        if (this.myLoginForm.get('remember')?.value) {
-          localStorage.setItem(
-            'username',
-            this.myLoginForm.get('username')?.value
-          );
-        } else {
-          localStorage.removeItem('username');
-        }
-
-        //Navegamos al Dashboard
-        this.router.navigateByUrl('/dashboard');
-      },
-      (err) => {
-        console.log(err);
-        if (err && err.error && err.error.message) {
-          Swal.fire('ERROR', err.error.message, 'error');
-        }
-      }
-    );
-  }
 }

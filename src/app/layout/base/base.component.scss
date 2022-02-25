@@ -1,86 +1,91 @@
 :host {
-	height: 100vh;
-    width: 100%;
+  height: 100vh;
+  width: 80%;
+  position: absolute;
 }
-.error-message{
-	margin: auto;
-    max-width: 300px;
-    text-align: center;
-}
-.error-icon{
-	display: block;
-	margin: auto;
-}
-.cli-canvas{
+
+.cli-canvas {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
 }
-
-.cli-canvas-fixedaside{
+.cli-content{
+  padding: 20px;
+  flex: 1 0 auto;
+}
+.cli-canvas-fixedaside {
   padding-left: 265px;
 }
 
-.disclaimer{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: #0b273973;
-    z-index: 100;
+.disclaimer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #0b273973;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-content {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 90%;
+    width: 90%;
+    overflow: auto;
+    z-index: 101;
+    padding: 20px;
+    box-shadow: 0 1px 1px 0 #00000020, 0 2px 5px 0 #00000050;
+  }
+  &-btn-ok {
+    color: #fff;
+    margin: 10px;
+    background-color: #00bec0;
+  }
+  &-btns {
     display: flex;
     align-items: center;
     justify-content: center;
-    &-content{
-		background-color: #fff;
-		display: flex;
-		flex-direction: column;
-        margin: auto;
-        height: 90%;
-        width: 90%;
-        overflow: auto;
-        z-index: 101;
-        padding: 20px;
-        box-shadow: 0 1px 1px 0 #00000020, 0 2px 5px 0 #00000050;;
-	}
-	&-btn-ok{
-        color: #fff;
-        margin: 10px;
-		background-color: #00BEC0
-    }
-    &-btns{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-	&-btn-cancel{
-        margin: 10px;
-		background-color: #E9EAE8;
-    }
-    &-text{
-        padding: 5px;
-        color: #2B3447;
-    }
-    &-title{
-        padding: 5px;
-        font-family: "Telefonica-Bold";
-        color: #00BEC0
-    }
-    &-g-title{
-        padding: 5px;
-        text-align: center;
-        font-size: 1.2rem;
-        font-family: "Telefonica-Bold";
-        color: #00BEC0
-	}
+  }
+  &-btn-cancel {
+    margin: 10px;
+    background-color: #e9eae8;
+  }
+  &-text {
+    padding: 5px;
+    color: #2b3447;
+  }
+  &-title {
+    padding: 5px;
+    font-family: "Telefonica-Bold";
+    color: #00bec0;
+  }
+  &-g-title {
+    padding: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: "Telefonica-Bold";
+    color: #00bec0;
+  }
 }
-
 
 /* ------------------ */
 @media (max-width: 850px) {
-  .cli-canvas-fixedaside{
+  .cli-canvas-fixedaside {
     padding-left: 0px;
   }
 
+  .cli-canvas-hiddenaside{
+    padding-left: 0;
+}
+.cli-content{
+    padding: 0;
+    background-color: #fff;
+}
+.cli-shadow-1{
+    box-shadow: none;
+}
 }

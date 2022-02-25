@@ -1,4 +1,4 @@
-<div class="user-form form-group text-center mt-20" style="margin-top: 80px;">
+<div class="user-form text-center mt-20" style="margin-top: 80px;">
   <h1>Validar pase de Ingreso</h1>
 
    <!-- QR CODE: JUST TODAY RESERVATIONS -->
@@ -24,7 +24,7 @@
     <!-- BUTTON READ QR -->
     <div style="display: flex; justify-content: center;">
         <button *ngIf="!scanningQR"
-                class="cli-btn btn-blue"
+                class="cli-btn btn-emerald"
                 (click)="scanSiteQrCode()"
                 >
             <mat-icon class="icon-18">qr_code_scanner</mat-icon>
@@ -36,19 +36,6 @@
                 >Dejar de escanear
         </button>
     </div>
-
-
 </ng-container>
-
-<div style="display: flex; justify-content: center;">
-  <button
-      class="cli-btn btn-orange btn-sm text-uppercase my-5"
-      type="submit"
-      (click)="logout()">
-      <mat-icon class="icon-center btn-sm">logout</mat-icon>
-    Salir
-    </button>
-</div>
-
 </div>
 

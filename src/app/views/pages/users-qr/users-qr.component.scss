@@ -1,10 +1,10 @@
 *{
-  margin:20px
+  margin:0px;
 }
 
 .qrcode-wrapper{
-  width: 200px;
-  min-height: 100px;
+  width: 400px;
+  min-height: 250px;
   padding: 10px;
   margin: 10px auto;
   border: solid 1px #B6B7B7;
@@ -16,11 +16,17 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+
 }
 
 .user-form{
- //| border: red solid;
-  margin: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+width: 100%;
+
+margin-left: 140px;
+
 }
 
 .icon-18{
@@ -30,15 +36,15 @@
 }
 
 
-.btn-blue{
+.btn-emerald{
   background-color: #00BEC0;
   color: #fff;
   transition: ease .3s;
   &:hover:enabled{
-      background-color: #80B0FF;
+      background-color: #b4dee6;
   }
   &:hover:enabled:active{
-      background-color: #003180;
+      background-color: #b4dee6;
   }
 }
 
@@ -63,11 +69,13 @@
   font-family: 'Telefonica-Bold' !important;
   display: flex;
   align-items: center;
+
+  margin-top: 10px;
   & mat-icon{
       margin: 0 5px;
   }
   &:disabled{
-      background-color: #F4F4F3;
+      background-color: #b4dee6;
       color: #fff;
   }
 }
@@ -86,4 +94,15 @@
 
 @media screen and (max-width: 856px) {
 
+  .qrcode-wrapper{
+    width: 260px;
+    margin: 2px;
+    padding: auto;
+  }
+
+  .user-form{
+
+  margin-left: 35px;
+
+  }
 }

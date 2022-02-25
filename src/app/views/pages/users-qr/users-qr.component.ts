@@ -13,18 +13,11 @@ export class UsersQrComponent implements OnInit {
 
   @ViewChild(QrScannerComponent) qrScannerComponent!: QrScannerComponent;
 
-  //detail!: reservationDetail;
   detail!: any;
 
-
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  logout() {
-    this.router.navigateByUrl('/login');
-    this.authService.logout();
-  }
 
   /* QR SCANER ======================================================== */
   scanningQR = false;

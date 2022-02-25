@@ -11,8 +11,7 @@ const routes: Routes = [
   {
     path:'dashboard',
     loadChildren: ()=> import('./layout/layout.module').then((m) => m.LayoutModule),
-    //canActivate: [ValidarTokenGuard],
-    //canLoad: [ValidarTokenGuard],
+    canActivate: [ValidarTokenGuard],
   },
   {
     path:'',

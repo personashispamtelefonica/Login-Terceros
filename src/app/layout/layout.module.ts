@@ -7,14 +7,11 @@ import { FooterComponent } from './footer/footer.component';
 import { AsideComponent } from './aside/aside.component';
 import { HeaderComponent } from './header/header.component';
 
-
 import { UserSectionComponent } from './header/user-section/user-section.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NgQrScannerModule } from 'angular2-qrscanner';
 import { PagesModule } from '../views/pages/pages.module';
-
-
-
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -22,15 +19,15 @@ import { PagesModule } from '../views/pages/pages.module';
     HeaderComponent,
     FooterComponent,
     AsideComponent,
-    UserSectionComponent
+    UserSectionComponent,
   ],
 
-  exports:[
+  exports: [
     BaseComponent,
     HeaderComponent,
     FooterComponent,
     AsideComponent,
-    UserSectionComponent
+    UserSectionComponent,
   ],
 
   imports: [
@@ -41,8 +38,8 @@ import { PagesModule } from '../views/pages/pages.module';
 
     NgQrScannerModule,
 
-    MatIconModule
-
-  ]
+    MatIconModule,
+    MatMenuModule,
+  ],
 })
-export class LayoutModule { }
+export class LayoutModule {}

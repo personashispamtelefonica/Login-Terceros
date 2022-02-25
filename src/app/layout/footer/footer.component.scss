@@ -1,21 +1,32 @@
-.cli-footer{
-  padding: 20px;
-  background-color: #2B3447;
-  color: #B6B7B7;
+.cli-footer {
+  padding: 10px;
+  background-color: #2b3447;
+  color: #b6b7b7;
   display: flex;
 
-  margin-top: 756px;
+  bottom: 0;
+  position: fixed;
+  right: 0;
+  left: 266px;
+
+letter-spacing: 2px;
 }
-.cli-footer a{
+.cli-footer a {
   text-decoration: none;
   color: #c3c5ca;
-
 }
 
 @media (max-width: 850px) {
-  .cli-footer{
-    margin-top: 320px;
+  .cli-footer {
+    font-size: 11px;
+
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 0px;
+    right: -78px;
+
+  letter-spacing: 2px;
 
   }
-
 }

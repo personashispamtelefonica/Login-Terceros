@@ -18,9 +18,7 @@ import { AuthModule } from './views/auth/auth.module';
     HttpClientModule,
 
     AuthModule,
-
     LayoutModule,
-
     BrowserAnimationsModule,
   ],
   providers: [],
