@@ -181,12 +181,6 @@
   display: block;
 }
 
-/* @include mobile{
-  .cli-aside{
-      display: none;
-  }
-} */
-
 @media (max-width: 850px) {
   .cli-aside{
     display: none;

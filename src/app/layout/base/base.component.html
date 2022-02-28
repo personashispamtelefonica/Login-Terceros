@@ -1,16 +1,77 @@
-<div class="cli-body">
-  <app-header></app-header>
-  <app-aside></app-aside>
 
-  <div class="cli-canvas"
-       [ngClass]="{
-      'cli-canvas-fixedaside': fixedAside,
-      'cli-canvas-hiddenaside': !fixedAside
-    }"
-  >
-    <div class="cli-content">
-      <app-users-qr></app-users-qr>
-    </div>
-    <app-footer style="width: 100%;"></app-footer>
+<!-- new sidebar -->
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="push">
+    <mat-toolbar style="color: #00bec0">
+      <span>Menú</span>
+
+      <div style="flex: 1 1 auto"></div>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a routerLink="./inicio" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>label</mat-icon>
+        <span>Inicio</span>
+      </a>
+
+      <a routerLink="/lista" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>add</mat-icon>
+        <span>Lista de usuarios</span>
+      </a>
+
+      <a routerLink="/buscar" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>search</mat-icon>
+        <span>buscar usuarios</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar style="background-color: #0e3f58">
+    <button mat-icon-button (click)="sidenav.toggle()" style="color: #fff">
+      <mat-icon mat-list-icon>menu</mat-icon>
+      <span></span>
+    </button>
+
+      <div class="logoheader">
+        <img
+          class="hlogo"
+          src="../../../assets/images/logos/tercerosLogoHeader.svg"
+        />
+        <div class="logo-let">
+          <div style="font-weight: bold">Emp. colaboradores</div>
+        </div>
+      </div>
+
+      <!-- User Secction -->
+      <div style="flex: 1 1 auto"></div>
+      <div class="personname">{{ fullName | uppercase }}</div>
+      <app-user-section
+                    [nameini]="userAbbreviation"
+      ></app-user-section>
+
+      <mat-icon class="menu-icon" [matMenuTriggerFor]="menu"
+        >keyboard_arrow_down</mat-icon
+      >
+
+    <mat-menu class="mat-menu-header" #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span class="userName">{{ fullName | uppercase }}</span>
+      </button>
+      <hr />
+      <button mat-menu-item (click)="logout()" class="btn-header">
+        <mat-icon>close</mat-icon>
+        <span>Cerrar Sesión</span>
+      </button>
+    </mat-menu>
+
+  </mat-toolbar>
+
+  <app-footer></app-footer>
+  <div class="container">
+    <router-outlet></router-outlet>
   </div>
-</div>
+</mat-sidenav-container>

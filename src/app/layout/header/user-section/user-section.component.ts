@@ -16,7 +16,6 @@ export class UserSectionComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.photouri != 'NONE') {
-
       this.hasphoto = true;
     }
   }

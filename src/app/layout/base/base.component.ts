@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AuthService } from 'src/app/views/auth/services/auth.service';
 
 @Component({
   selector: 'app-base',
@@ -6,12 +7,33 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./base.component.scss']
 })
 export class BaseComponent implements OnInit {
+
+  hasphoto = false;
+  fullName: string = '';
+  userAbbreviation = '';
   fixedAside:boolean = true;
 
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.initializeUser();
   }
 
+  initializeUser(){
+    this.fullName = this.authService.getUsername();
+    if (this.fullName) {
+      const fullNameToArray = this.fullName.split(' ').map((item: string) => {
+        return item.substring(0, 1).toUpperCase();
+      });
+      this.userAbbreviation = fullNameToArray.join('');
+    }
+  }
+
+
+  logout() {
+    this.authService.logout();
+  }
 }
