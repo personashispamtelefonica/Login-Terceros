@@ -1,7 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { QrScannerComponent } from 'angular2-qrscanner';
-import { AuthService } from 'src/app/views/auth/services/auth.service';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,56 +10,40 @@ import Swal from 'sweetalert2';
   styleUrls: ['./users-qr.component.scss']
 })
 export class UsersQrComponent implements OnInit {
+  @BlockUI()
+  blockUI!: NgBlockUI;
 
   @ViewChild(QrScannerComponent) qrScannerComponent!: QrScannerComponent;
 
   detail!: any;
 
-  constructor() {}
+  constructor(private http:HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   /* QR SCANER ======================================================== */
   scanningQR = false;
 
   scanSiteQrCode() {
     this.scanningQR = true;
-
+    
     setTimeout(() => {
       this.qrReader();
-      const s = this.qrScannerComponent.capturedQr.subscribe((result) => {
-        this.checkInSite(result);
-
-        console.log('IMPRIMIR QR', result);
+      const s = this.qrScannerComponent.capturedQr.subscribe((result) => { 
+        this.callApi(result);
         this.scanningQR = false;
         s.unsubscribe();
       });
     }, 1000);
   }
 
-  checkInSite(sitecode: string) {
-    if (!this.validateCode(sitecode)) {
-      Swal.fire(
-        'Error de Código QR',
-        'El código escaneado no está registrado.',
-        'error'
-      );
-    } else {
-      if (
-        (this.detail.typec == 'FLEX' &&
-          this.detail.idplace == this.getPartOfCode(sitecode, 2)) ||
-        (this.detail.typec == 'FIX' &&
-          this.detail.idplace == this.getPartOfCode(sitecode, 3))
-      ) {
-
-      } else {
-        Swal.fire(
-          'Código incorrecto',
-          'El código escaneado no está asociado al lugar reservado previamente. Por favor, escanee el QR correcto.',
-          'warning'
-        );
-      }
-    }
+  videoDevices: MediaDeviceInfo[] = [];
+  chooseCamera(id:string){
+    console.log(id);
+    const dev:(MediaDeviceInfo | undefined) = this.videoDevices.find(p=>p.deviceId == id);
+    this.qrScannerComponent.chooseCamera.next( dev );
   }
 
   validateCode(code: string): boolean {
@@ -84,31 +68,76 @@ export class UsersQrComponent implements OnInit {
     this.scanningQR = false;
   }
 
-  qrReader() {
-    this.qrScannerComponent.getMediaDevices().then((devices) => {
-      console.log(devices);
+  callApi(result:string){
+    this.blockUI.start("Validando");
+    this.http.get<qrvalidator>("https://aks-hispam-prod.eastus.cloudapp.azure.com/workstationsapi/v1/check-qr?code=" + result)
+    .subscribe( resp => {
+      this.blockUI.stop();
+      if (resp.valid){
+        if ( this.getTodayDateAsString() == resp.string.substring(0,10)  ){
+          const place = (resp.place!=null? resp.place : 'cualquiera');
+          Swal.fire({
+            title:"Código válido",
+            html: 
+               " <div> <b>Usuario:</b> " + resp.user 
+              +" </div><div> <b>Sede:</b> " +  place 
+              +" </div><div> <b>Fecha:</b> "+ resp.string.substring(0,10) +" </div> "
+          });
+        }else{
+          Swal.fire("","Esta reserva es para otro día","warning");
+        }
+      }else{
+        Swal.fire("Código inválido",resp.message,"error");
+      }
+    },()=>{
+      Swal.fire("Código inválido","No se pudo leer","error");
+      this.blockUI.stop();
+    });
+  }
 
-      const videoDevices: MediaDeviceInfo[] = [];
+  qrReader() {
+    this.videoDevices = [];
+    this.qrScannerComponent.getMediaDevices().then((devices) => {
       for (const device of devices) {
         if (device.kind.toString() === 'videoinput') {
-          videoDevices.push(device);
+          this.videoDevices.push(device);
         }
       }
-      if (videoDevices.length > 0) {
-        let choosenDev;
-        for (const dev of videoDevices) {
-          if (dev.label.includes('front')) {
+      if (this.videoDevices.length > 0){
+        let choosenDev = null;; 
+        for (const dev of this.videoDevices){
+          if ( dev.label.includes('back') || dev.label.includes('rear') ){
             choosenDev = dev;
             break;
           }
         }
         if (choosenDev) {
           this.qrScannerComponent.chooseCamera.next(choosenDev);
-        } else {
-          this.qrScannerComponent.chooseCamera.next(videoDevices[0]);
+          
+        }else {
+          this.qrScannerComponent.chooseCamera.next(this.videoDevices[0]);
         }
+        this.qrScannerComponent.videoElement.setAttribute('playsinline', 'true');
       }
     });
 
   }
+
+  getTodayDateAsString():string{
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    return now.toISOString().slice(0, 10);
+    //return "2022-02-21";
+  }
+}
+
+
+export interface qrvalidator{
+	valid:boolean,
+	message:string,
+	code:string,
+	user:string,
+	string:string,
+	period:string,
+	place:string,
 }

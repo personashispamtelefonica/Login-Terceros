@@ -1,8 +1,14 @@
-<div class="user-form text-center mt-20" style="margin-top: 80px;">
+<div class="user-form text-center mt-20" style="margin-top: 10px;">
   <h1>Validar pase de Ingreso</h1>
 
    <!-- QR CODE: JUST TODAY RESERVATIONS -->
    <ng-container>
+    <h3 style="margin-bottom: 0;">Ingresar código:</h3>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;"> 
+        <input #searcher class="cli-input" type="text">
+        <button (click)="callApi(searcher.value)"  style="margin: 0 5px;" class="cli-btn btn-emerald"> <mat-icon>search</mat-icon> </button>
+    </div>
+    <h3 style="margin-bottom: 0;">O Escanear QR:</h3>
     <div  class="qrcode-wrapper">
 
         <!-- MY QR CODE -->
@@ -10,15 +16,17 @@
             <!-- <qr-code value="RE-{{detail.id | number:'9.0'}}"></qr-code>
             <div>RE-{{detail.id | number:'9.0'}}</div> -->
         </ng-container>
-
         <!-- QR READER -->
         <qr-scanner *ngIf="scanningQR"
                 [debug]="false"
-                [canvasWidth]="620"
-                [canvasHeight]="620"
+                [canvasWidth]="320"
+                [canvasHeight]="320"
                 [stopAfterScan]="true"
                 [updateTime]="500">
         </qr-scanner>
+        <select *ngIf="scanningQR" style="width: 180px;" class="cli-input-white" (change)=" chooseCamera($event.target.value) ">
+            <option *ngFor="let d of videoDevices" [value]="d.deviceId"> {{d.label}} </option>
+        </select>
     </div>
 
     <!-- BUTTON READ QR -->
@@ -38,4 +46,5 @@
     </div>
 </ng-container>
 </div>
+
 

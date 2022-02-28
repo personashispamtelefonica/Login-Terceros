@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './views/auth/auth.module';
+import { BlockUIModule } from 'ng-block-ui';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,8 @@ import { AuthModule } from './views/auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
     AuthModule,
+    BlockUIModule.forRoot(),
     LayoutModule,
     BrowserAnimationsModule,
   ],

@@ -14,7 +14,6 @@ import { NgQrScannerModule } from 'angular2-qrscanner';
   imports: [
     CommonModule,
     PagesRoutingModule,
-
     MatIconModule,
     NgQrScannerModule
   ],
