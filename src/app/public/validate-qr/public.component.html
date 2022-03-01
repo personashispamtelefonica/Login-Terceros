@@ -1,0 +1,27 @@
+<mat-sidenav-container fullscreen>
+  <mat-toolbar style="background-color: #0e3f58; padding: 0 8px;">
+    <div class="logoheader">
+      <img
+        class="hlogo"
+        src="../../../assets/images/logos/tercerosLogoHeader.svg"
+      />
+      <div class="logo-let">
+        <div style="font-weight: bold">Emp. colaboradoras</div>
+      </div>
+    </div>
+
+    <div style="flex: 1 1 auto"></div>
+    <button class="cli-btn btn-emerald"
+            routerLink="/login"
+            >
+      Iniciar sesión
+    </button>
+  </mat-toolbar>
+
+  <!-- <users-qr></users-qr> -->
+
+  <app-footer  [footer]="footerPublic" ></app-footer>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

@@ -4,7 +4,7 @@
 
 .qrcode-wrapper {
   width: 260px;
-  min-height: 250px;
+  min-height: 200px;
   padding: 10px;
   margin: 0px 0px 20px 0px;
   border: solid 1px #b6b7b7;
@@ -125,4 +125,9 @@
   .user-form {
     margin-left: 0px;
   }
+
+
+.cli-btn {
+  margin-top: 15px;
+}
 }

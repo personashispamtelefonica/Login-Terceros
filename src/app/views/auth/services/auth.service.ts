@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   logout() {
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('public/qr');
     localStorage.clear();
   }
 

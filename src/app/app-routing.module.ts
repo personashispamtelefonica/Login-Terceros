@@ -5,6 +5,11 @@ import { ValidarTokenGuard } from './guards/validar-token.guard';
 
 const routes: Routes = [
   {
+    path:'public',
+    loadChildren:()=> import('./public/public.module').then((m)=>m.PublicModule),
+   // canActivate:[NoAuthGuard]
+  },
+  {
     path: 'login',
     loadChildren: () => import('./views/auth/auth.module').then((m) => m.AuthModule),
     canActivate:[NoAuthGuard]
@@ -14,8 +19,7 @@ const routes: Routes = [
     loadChildren: ()=> import('./layout/layout.module').then((m) => m.LayoutModule),
     canActivate: [ValidarTokenGuard],
   },
-
-  {path: '**',pathMatch:'full' ,redirectTo: '/dashboard'}
+  {path: '**',pathMatch:'full' ,redirectTo: '/public'}
 
 
 ];

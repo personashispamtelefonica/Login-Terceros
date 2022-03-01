@@ -1,17 +1,20 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/views/auth/services/auth.service';
 
 @Component({
-  selector: 'app-base',
-  templateUrl: './base.component.html',
-  styleUrls: ['./base.component.scss']
+  selector: 'app-aside',
+  templateUrl: './public.component.html',
+  styleUrls: ['./public.component.scss']
 })
-export class BaseComponent implements OnInit {
+export class PublicComponent implements OnInit {
+  codeQr=''
+  footerPublic = ''
 
   hasphoto = false;
   fullName: string = '';
-  userAbbreviation = '';  //input user-section
+  userAbbreviation = '';
   fixedAside:boolean = true;
+
 
 
   constructor(
@@ -36,4 +39,9 @@ export class BaseComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
+
+  irPublic(){
+
+  }
+
 }
