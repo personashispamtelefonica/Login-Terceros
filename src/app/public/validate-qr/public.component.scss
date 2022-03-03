@@ -87,8 +87,8 @@
 .cli-btn {
   border: none;
   border-radius: 2px;
-  margin: 8px;
-  padding: 0 6px;
+  margin: 20px;
+  padding: 0 25px;
   font-family: "roboto light" !important;
   display: flex;
   align-items: center;
@@ -128,5 +128,8 @@
 
   .cli-btn {
   height: 28px;
+  margin: 4px;
+  padding: 0 14px;
+  font-size: 12px;
   }
 }

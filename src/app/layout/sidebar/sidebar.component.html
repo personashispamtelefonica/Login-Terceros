@@ -1,0 +1,50 @@
+<mat-sidenav-container class="example-container main-sidenav" autosize>
+  <mat-sidenav mode="side" #sidenav opened>
+    <mat-accordion>
+      <mat-expansion-panel
+        [hideToggle]="!sideNavState"
+        *ngFor="let menu of menuList; let i = index"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title
+          (click)="setMenuIndex(i)"
+          >
+            <a [ngClass]="{ active: menuSelected == i}"
+                class="menu-link">
+              <mat-icon [matTooltip]="menu.info" class="menu-icon">{{ menu.icon }}</mat-icon>
+              <span class="menu-info" *ngIf="sideNavState">
+                {{ menu.name }}
+              </span>
+            </a>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let subMenu of menu.subMenuList" class="sub-menu-sidenav">
+          <mat-icon class="submenu-icon" [matTooltip]="subMenu.info">
+            {{ subMenu.icon }}</mat-icon
+          >
+          <span *ngIf="sideNavState">
+            {{ subMenu.name }}
+          </span>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <button
+      id="sidenav_expanded"
+      mat-button
+      class="sinenav-expanded"
+      [ngClass]="{ opened: sideNavState }"
+      (click)="onSinenavToggle()"
+    >
+      <mat-icon *ngIf="sideNavState">chevron_left</mat-icon>
+      <mat-icon *ngIf="!sideNavState">chevron_right</mat-icon>
+    </button>
+  </mat-sidenav>
+
+ <!--  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content> -->
+</mat-sidenav-container>

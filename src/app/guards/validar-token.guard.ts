@@ -14,7 +14,7 @@ export class ValidarTokenGuard implements CanActivate {
 
   canActivate(): Observable<boolean> | boolean {
     if (!this.authService.isLoggedIn()){
-      this.router.navigateByUrl('/login')
+      this.router.navigateByUrl('/public/qr')
       return false;
     }
     return true;

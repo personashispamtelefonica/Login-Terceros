@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path:'public',
     loadChildren:()=> import('./public/public.module').then((m)=>m.PublicModule),
-   // canActivate:[NoAuthGuard]
+    canActivate:[NoAuthGuard]
   },
   {
     path: 'login',
@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: ()=> import('./layout/layout.module').then((m) => m.LayoutModule),
     canActivate: [ValidarTokenGuard],
   },
-  {path: '**',pathMatch:'full' ,redirectTo: '/public'}
+  {path: '**',pathMatch:'full' ,redirectTo: '/dashboard'},
 
 
 ];

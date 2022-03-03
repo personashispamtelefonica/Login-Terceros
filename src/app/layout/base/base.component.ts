@@ -12,7 +12,35 @@ export class BaseComponent implements OnInit {
   fullName: string = '';
   userAbbreviation = '';  //input user-section
   fixedAside:boolean = true;
+  sideNavState = false;
 
+
+  menuList = [
+    {
+      icon: 'home',
+      name: 'Inicio',
+      info: 'Inicio',
+      subMenuList: [
+        { icon: 'engineering', name: 'Listas', info: 'usuarios guardados' },
+        { icon: 'search', name: 'codigos', info: 'Coóigos guardados' },
+      ],
+    },
+    {
+      icon: 'brightness_7',
+      name: 'Informes',
+      info: 'Inicio',
+      subMenuList: [
+        { icon: 'spatial_tracking', name: 'Lista cod. QR', info: 'usuarios guardados' },
+        { icon: 'search', name: 'codigos', info: 'Coóigos guardados' },
+      ],
+    },
+    {
+      icon: 'connect_without_contact',
+      name: 'Configuración',
+      info: 'Creación de usuarios',
+      subMenuList: [{ icon: 'person', name: 'Usuarios nuevos', info: 'Usuarios nuevos' }],
+    },
+  ];
 
   constructor(
     private authService: AuthService
@@ -30,6 +58,9 @@ export class BaseComponent implements OnInit {
       });
       this.userAbbreviation = fullNameToArray.join('');
     }
+  }
+  onSinenavToggle() {
+    this.sideNavState = !this.sideNavState;
   }
 
 

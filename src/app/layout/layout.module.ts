@@ -11,6 +11,10 @@ import { PagesModule } from '../views/pages/pages.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MaterialModule } from '../material/material.module';
 import { MainComponent } from './main/main.component';
+import { PagesComponent } from './pages/pages.component';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { BlockUIModule } from 'ng-block-ui';
 
 @NgModule({
   declarations: [
@@ -18,12 +22,18 @@ import { MainComponent } from './main/main.component';
     FooterComponent,
     UserSectionComponent,
     MainComponent,
+    PagesComponent,
+    HeaderComponent,
+    SidebarComponent,
   ],
 
   exports: [
     BaseComponent,
+    HeaderComponent,
     FooterComponent,
+    SidebarComponent,
     UserSectionComponent,
+    MainComponent,
   ],
 
   imports: [
@@ -34,6 +44,8 @@ import { MainComponent } from './main/main.component';
     NgQrScannerModule,
     MatMenuModule,
     MaterialModule,
+    BlockUIModule.forRoot(),
+
 
   ],
 })

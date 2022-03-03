@@ -1,39 +1,60 @@
-<!-- new sidebar -->
 <mat-sidenav-container fullscreen>
-  <mat-sidenav #sidenav mode="push">
-    <mat-toolbar style="color: #00bec0">
-      <span>Menú</span>
-
-      <div style="flex: 1 1 auto"></div>
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
+  <!-- <mat-sidenav mode="side" #sidenav  mode="push"> -->
+  <mat-sidenav mode="side" #sidenav opened class="cli-aside-container">
+    <mat-toolbar style="background-color: #2b3447">
+      <span style="text-align: center; color: #fff">Menú</span>
     </mat-toolbar>
 
-    <mat-nav-list>
+    <mat-accordion>
+      <mat-expansion-panel
+        [hideToggle]="!sideNavState"
+        *ngFor="let menu of menuList; let i = index"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title class="menu-link" (click)="setMenuIndex(i)">
+            <a [ngClass]="{ active: menuSelected == i }">
+              <mat-icon [matTooltip]="menu.info" class="menu-icon">{{
+                menu.icon
+              }}</mat-icon>
+              <span class="menu-info" *ngIf="sideNavState">
+                {{ menu.name }}
+              </span>
+            </a>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
 
-      <a routerLink="/lista" mat-list-item (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>home</mat-icon>
-        <span>inicio</span>
-      </a>
+        <div *ngFor="let subMenu of menu.subMenuList" >
+          <a class="submenu-link">
 
-      <a routerLink="/lista" mat-list-item (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>add</mat-icon>
-        <span>Lista de usuarios</span>
-      </a>
+          <i class="submenu-icon">
+            <mat-icon [matTooltip]="subMenu.info"> {{ subMenu.icon }}</mat-icon>
+          </i>
+          <span *ngIf="sideNavState">
+            {{ subMenu.name }}
+          </span>
+        </a>
 
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
 
-      <a routerLink="/buscar" mat-list-item (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>search</mat-icon>
-        <span>buscar usuarios</span>
-      </a>
-    </mat-nav-list>
+    <button
+      id="sidenav_expanded"
+      mat-button
+      class="sidenav-expanded"
+      [ngClass]="{ opened: sideNavState }"
+      (click)="onSinenavToggle()"
+    >
+      <mat-icon *ngIf="sideNavState">chevron_left</mat-icon>
+      <mat-icon *ngIf="!sideNavState">chevron_right</mat-icon>
+    </button>
   </mat-sidenav>
 
-  <mat-toolbar style="background-color: #0e3f58">
+  <mat-toolbar style="background-color: #00bec0">
     <button mat-icon-button (click)="sidenav.toggle()" style="color: #fff">
       <mat-icon mat-list-icon>menu</mat-icon>
-      <span></span>
     </button>
 
     <div class="logoheader">
@@ -49,9 +70,12 @@
     <!-- User Secction -->
     <div style="flex: 1 1 auto"></div>
     <div class="personname">{{ fullName | uppercase }}</div>
-    <app-user-section [nameini]="userAbbreviation"></app-user-section>
+    <app-user-section
+      [nameini]="userAbbreviation"
+      class="user-bag"
+    ></app-user-section>
 
-    <mat-icon class="menu-icon" [matMenuTriggerFor]="menu"
+    <mat-icon class="menu-icon-header" [matMenuTriggerFor]="menu"
       >keyboard_arrow_down</mat-icon
     >
 
@@ -61,9 +85,7 @@
         <span class="userName">{{ fullName | uppercase }}</span>
       </button>
       <hr />
-      <button mat-menu-item
-              (click)="logout()"
-              class="btn-header">
+      <button mat-menu-item (click)="logout()" class="btn-header">
         <mat-icon>close</mat-icon>
         <span>Cerrar Sesión</span>
       </button>
