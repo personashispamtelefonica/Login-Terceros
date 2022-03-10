@@ -18,6 +18,13 @@
   text-align: center;
 }
 
+.qr-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .user-form {
   display: flex;
   align-items: center;
@@ -78,13 +85,13 @@
   }
 }
 .cli-input {
-  border: solid 0.5px;
+  border: solid 0.5px #78cccc;
   background-color: #f4f4f3;
   border-radius: 2px;
-  padding: 4px 10px;
+  padding: 4px 2px;
   transition: ease 0.3s;
   &:hover:enabled {
-    background-color: #f8f8f8;
+    background-color: #f2f4ff;
   }
   &:focus:enabled {
     background-color: transparent;
@@ -95,6 +102,20 @@
     color: #86888c;
     border-color: transparent;
   }
+}
+
+.input-codigo {
+  width: 25px;
+  // max-width: 25px;
+  min-width: 25px;
+  text-align: center;
+  margin-left: 1px;
+}
+.spacer-input {
+  margin-top: 20px;
+  font-size: larger;
+  margin-block-end: 2px;
+  padding: 2px;
 }
 
 .icon-center {
@@ -115,6 +136,34 @@
   margin-bottom: 20px;
 }
 
+.cli-input-white {
+  border: solid 0.5px #b6b7b7;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 5px 10px;
+  transition: ease 0.3s;
+
+  margin: 0px -8px;
+  &:hover:enabled {
+    border-color: #00bec0;
+  }
+  &:focus:enabled {
+    border-color: #00bec0;
+  }
+  &:disabled {
+    background-color: #f8f8f8;
+    color: #86888c;
+  }
+}
+
+.cli-form-element {
+  margin-bottom: 0px !important;
+}
+
+.col-f-2 {
+  width: 50%;
+  padding: 5px 10px;
+}
 @media screen and (max-width: 856px) {
   .qrcode-wrapper {
     width: 260px;
@@ -126,8 +175,13 @@
     margin-left: 0px;
   }
 
-
-.cli-btn {
-  margin-top: 15px;
-}
+  .cli-btn {
+    margin-top: 15px;
+  }
+  .cli-input-white {
+    padding: 5px 1px;
+  }
+  .input-codigo {
+    width: 20px;
+  }
 }

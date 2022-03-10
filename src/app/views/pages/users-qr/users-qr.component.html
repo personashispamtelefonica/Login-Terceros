@@ -4,14 +4,7 @@
   <!-- QR CODE: JUST TODAY RESERVATIONS -->
   <ng-container>
     <h3 style="margin-bottom: 0">Ingresar código:</h3>
-    <div
-      style="
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-      "
-    >
+    <div class="qr-input">
       <input #searcher class="cli-input" type="text" />
       <button
         (click)="callApi(searcher.value)"
@@ -21,8 +14,60 @@
         <mat-icon>search</mat-icon>
       </button>
     </div>
-    <h3 style="margin-bottom: 0">O Escanear QR:</h3>
 
+    <label style="margin-left: -110px"
+      >Selecione el tipo e ingrese su código</label
+    >
+    <form
+      class="row row-cols-lg-auto g-3 align-items-center"
+      [formGroup]="myInputCodForm"
+    >
+      <div>
+        <div class="cli-form-element col-f-2">
+          <select class="cli-input-white">
+            <!-- <option value="" disabled>Selecione</option> -->
+            <option value="RE">RE</option>
+            <option value="MP">MP</option>
+          </select>
+        </div>
+      </div>
+        <span>-</span>
+        <input
+          *ngFor="let cod of listCod"
+          #searcher
+          class="cli-input input-codigo"
+          placeholder="{{ cod.value }}"
+          formControlName="value"
+        />
+        <span class="spacer-input">,</span>
+
+        <input
+          *ngFor="let cod of listCod"
+          #searcher
+          class="cli-input input-codigo"
+          placeholder="{{ cod.value }}"
+          formControlName="value"
+        />
+        <span class="spacer-input">,</span>
+        <input
+        *ngFor="let cod of listCod"
+        #searcher
+        class="cli-input input-codigo"
+        placeholder="{{ cod.value }}"
+        formControlName="value"
+      />
+
+
+      <button
+        (click)="callApi(searcher.value)"
+        style="margin: 0 5px"
+        class="cli-btn btn-emerald"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+    </form>
+
+    <h3 style="margin-bottom: 0">O Escanear QR:</h3>
     <div class="qrcode-wrapper">
       <!-- MY QR CODE -->
       <ng-container *ngIf="!scanningQR">

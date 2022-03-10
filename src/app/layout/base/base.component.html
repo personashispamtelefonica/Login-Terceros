@@ -1,8 +1,18 @@
 <mat-sidenav-container fullscreen>
-  <!-- <mat-sidenav mode="side" #sidenav  mode="push"> -->
-  <mat-sidenav mode="side" #sidenav opened class="cli-aside-container">
+  <mat-sidenav mode="side" #sidenav  >
+  <!-- <mat-sidenav mode="side" #sidenav opened class="cli-aside-container"> -->
     <mat-toolbar style="background-color: #2b3447">
-      <span style="text-align: center; color: #fff">Menú</span>
+      <span style="text-align: center; color: #fff">Menú
+        <div
+        mat-button
+        [ngClass]="{ opened: sideNavState }"
+        (click)="onSinenavToggle()"
+      >
+        <mat-icon *ngIf="sideNavState">chevron_left</mat-icon>
+        <mat-icon *ngIf="!sideNavState">chevron_right</mat-icon>
+      </div>
+      </span>
+
     </mat-toolbar>
 
     <mat-accordion>
@@ -40,19 +50,9 @@
       </mat-expansion-panel>
     </mat-accordion>
 
-    <button
-      id="sidenav_expanded"
-      mat-button
-      class="sidenav-expanded"
-      [ngClass]="{ opened: sideNavState }"
-      (click)="onSinenavToggle()"
-    >
-      <mat-icon *ngIf="sideNavState">chevron_left</mat-icon>
-      <mat-icon *ngIf="!sideNavState">chevron_right</mat-icon>
-    </button>
   </mat-sidenav>
 
-  <mat-toolbar style="background-color: #00bec0">
+  <mat-toolbar class="toolbar-header">
     <button mat-icon-button (click)="sidenav.toggle()" style="color: #fff">
       <mat-icon mat-list-icon>menu</mat-icon>
     </button>

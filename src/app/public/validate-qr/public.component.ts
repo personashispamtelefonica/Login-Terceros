@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/views/auth/services/auth.service';
 })
 export class PublicComponent implements OnInit {
   codeQr=''
-  footerPublic = ''
+  // footerPublic = ''
 
   hasphoto = false;
   fullName: string = '';

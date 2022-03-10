@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { QrScannerComponent } from 'angular2-qrscanner';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import Swal from 'sweetalert2';
@@ -14,13 +15,17 @@ export interface qrvalidator {
   place: string;
 }
 
+export interface Codigos {
+  value: number;
+}
+
 @Component({
   selector: 'app-users-qr',
   templateUrl: './users-qr.component.html',
   styleUrls: ['./users-qr.component.scss'],
 })
 export class UsersQrComponent implements OnInit {
-  @Input('usersQR') usersQR:string = ''
+  @Input('usersQR') usersQR: string = '';
   @BlockUI()
   blockUI!: NgBlockUI;
   @ViewChild(QrScannerComponent) qrScannerComponent!: QrScannerComponent;
@@ -28,7 +33,16 @@ export class UsersQrComponent implements OnInit {
   detail!: any;
   scanningQR = false;
 
-  constructor(private http: HttpClient) {}
+  public myInputCodForm: FormGroup = this.fb.group({
+    value: [
+      '0',
+      [Validators.required, Validators.minLength(1), Validators.maxLength(2)],
+    ],
+  });
+
+  listCod: Codigos[] = [{ value: 1 }, { value: 2 }, { value: 3 }];
+
+  constructor(private http: HttpClient, private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
