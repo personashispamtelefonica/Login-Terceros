@@ -27,13 +27,19 @@
 
 .user-form {
   display: flex;
-  align-items: center;
+  align-items:baseline;
   flex-direction: column;
   width: 100%;
 
   margin-left: 0px;
 }
 
+.user-form-qr {
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+  margin-left: 0px;
+}
 .icon-18 {
   width: 18px !important;
   height: 18px !important;
@@ -90,6 +96,7 @@
   border-radius: 2px;
   padding: 4px 2px;
   transition: ease 0.3s;
+  text-align: center;
   &:hover:enabled {
     background-color: #f2f4ff;
   }
@@ -164,6 +171,13 @@
   width: 50%;
   padding: 5px 10px;
 }
+
+.c-male {
+  color: #FF4081;
+  margin-left: -65px;
+}
+
+
 @media screen and (max-width: 856px) {
   .qrcode-wrapper {
     width: 260px;
@@ -171,17 +185,30 @@
     padding: auto;
   }
 
+  .user-form-qr {
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    margin-left: 15%;
+  }
   .user-form {
+    display: flex;
+    align-items:baseline;
+    flex-direction: column;
+    width: 100%;
+
     margin-left: 0px;
   }
 
-  .cli-btn {
-    margin-top: 15px;
-  }
   .cli-input-white {
     padding: 5px 1px;
   }
   .input-codigo {
     width: 20px;
+  }
+
+  .c-male {
+    color: #fa6381;
+    margin-left: 0px;
   }
 }

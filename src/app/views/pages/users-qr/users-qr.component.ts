@@ -1,6 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { QrScannerComponent } from 'angular2-qrscanner';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import Swal from 'sweetalert2';
@@ -25,6 +31,8 @@ export interface Codigos {
   styleUrls: ['./users-qr.component.scss'],
 })
 export class UsersQrComponent implements OnInit {
+  code: FormControl = new FormControl();
+
   @Input('usersQR') usersQR: string = '';
   @BlockUI()
   blockUI!: NgBlockUI;
@@ -32,19 +40,50 @@ export class UsersQrComponent implements OnInit {
 
   detail!: any;
   scanningQR = false;
-
-  public myInputCodForm: FormGroup = this.fb.group({
-    value: [
-      '0',
-      [Validators.required, Validators.minLength(1), Validators.maxLength(2)],
-    ],
+  myInputCodForm: FormGroup = this.fb.group({
+    codeList: this.fb.array([]),
+    codeType: ['RE'],
   });
-
-  listCod: Codigos[] = [{ value: 1 }, { value: 2 }, { value: 3 }];
 
   constructor(private http: HttpClient, private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initializeCodeList();
+  }
+
+  initializeCodeList() {
+    for (let i = 0; i < 9; i++) {
+      this.addNewForm();
+    }
+  }
+
+  viewValues() {
+    /* console.log(this.myInputCodForm.value)
+    console.log(this.myInputCodForm.value.codeList.join()); */
+    this.concatFormValues(this.myInputCodForm.value.codeList);
+  }
+
+  concatFormValues(codeList: any[]) {
+    let codeValue = this.myInputCodForm.value.codeType + '-';
+    codeList.map((code, index) => {
+      codeValue =
+        codeValue + (index == 3 || index == 6 ? ',' : '') + code.codeValue;
+    });
+
+    console.log(codeValue);
+    this.callApi(codeValue);
+  }
+
+  addNewForm() {
+    const codeForm: FormGroup = this.fb.group({
+      codeValue: ['0', [Validators.required]],
+    });
+    this.codeList.push(codeForm);
+  }
+
+  get codeList(): FormArray {
+    return this.myInputCodForm.controls['codeList'] as FormArray;
+  }
 
   scanSiteQrCode() {
     this.scanningQR = true;
@@ -157,5 +196,16 @@ export class UsersQrComponent implements OnInit {
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     return now.toISOString().slice(0, 10);
     //return "2022-02-21";
+  }
+
+  campoNoValido(campo: string): boolean {
+    if (
+      this.myInputCodForm.get(campo)?.invalid &&
+      this.myInputCodForm.get(campo)?.touched
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

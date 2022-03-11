@@ -1,119 +1,120 @@
-<div class="user-form text-center mt-20" style="margin-top: 10px">
+<div class="user-form" style="margin-top: 15px">
   <h1>Validar pase de Ingreso</h1>
+  <br />
+  <h3 class="user-form" style="color: dodgerblue">
+    Usted tiene 3 opciones de validar su pase
+  </h3>
 
-  <!-- QR CODE: JUST TODAY RESERVATIONS -->
   <ng-container>
-    <h3 style="margin-bottom: 0">Ingresar código:</h3>
+    <span class="c-male">Opción 1: </span>
+    <label style="margin-left: 0px">Ingresar su código</label>
     <div class="qr-input">
-      <input #searcher class="cli-input" type="text" />
+      <input #searcher class="cli-input"
+             type="text" [formControl]="code"
+             placeholder="RE-000,000,012"
+             />
+
       <button
         (click)="callApi(searcher.value)"
-        style="margin: 0 5px"
         class="cli-btn btn-emerald"
+        [disabled]="!code.value"
       >
         <mat-icon>search</mat-icon>
       </button>
     </div>
-
-    <label style="margin-left: -110px"
+    <br />
+    <span class="c-male">Opción 2: </span>
+    <label style="margin-left: 0px"
       >Selecione el tipo e ingrese su código</label
     >
+
     <form
       class="row row-cols-lg-auto g-3 align-items-center"
       [formGroup]="myInputCodForm"
     >
       <div>
         <div class="cli-form-element col-f-2">
-          <select class="cli-input-white">
+          <select class="cli-input-white"
+          formControlName="codeType"
+          >
             <!-- <option value="" disabled>Selecione</option> -->
             <option value="RE">RE</option>
             <option value="MP">MP</option>
           </select>
         </div>
       </div>
-        <span>-</span>
-        <input
-          *ngFor="let cod of listCod"
-          #searcher
-          class="cli-input input-codigo"
-          placeholder="{{ cod.value }}"
-          formControlName="value"
-        />
-        <span class="spacer-input">,</span>
+      <span>-</span>
 
-        <input
-          *ngFor="let cod of listCod"
-          #searcher
-          class="cli-input input-codigo"
-          placeholder="{{ cod.value }}"
-          formControlName="value"
-        />
-        <span class="spacer-input">,</span>
-        <input
-        *ngFor="let cod of listCod"
-        #searcher
-        class="cli-input input-codigo"
-        placeholder="{{ cod.value }}"
-        formControlName="value"
-      />
-
-
-      <button
-        (click)="callApi(searcher.value)"
-        style="margin: 0 5px"
-        class="cli-btn btn-emerald"
-      >
-        <mat-icon>search</mat-icon>
-      </button>
-    </form>
-
-    <h3 style="margin-bottom: 0">O Escanear QR:</h3>
-    <div class="qrcode-wrapper">
-      <!-- MY QR CODE -->
-      <ng-container *ngIf="!scanningQR">
-        <!-- <qr-code value="RE-{{detail.id | number:'9.0'}}"></qr-code>
-            <div>RE-{{detail.id | number:'9.0'}}</div> -->
+      <ng-container formArrayName="codeList">
+        <ng-container *ngFor="let codeForm of codeList.controls; let i = index">
+          <div [formGroup]="codeForm">
+            <input
+              class="cli-input input-codigo"
+              placeholder="0"
+              formControlName="codeValue"
+              maxlength="1"
+            />
+          </div>
+          <span *ngIf="i==2 || i==5" class="spacer-input">,</span>
+        </ng-container>
       </ng-container>
-
-      <!-- QR READER -->
-      <qr-scanner
-        *ngIf="scanningQR"
-        [debug]="false"
-        [canvasWidth]="320"
-        [canvasHeight]="320"
-        [stopAfterScan]="true"
-        [updateTime]="500"
-      >
-      </qr-scanner>
-      <select
-        *ngIf="scanningQR"
-        style="width: 180px"
-        class="cli-input-white"
-        (change)="chooseCamera($event.target.value)"
-      >
-        <option *ngFor="let d of videoDevices" [value]="d.deviceId">
-          {{ d.label }}
-        </option>
-      </select>
-    </div>
-
-    <!-- BUTTON READ QR -->
-    <div style="display: flex; justify-content: center">
       <button
-        *ngIf="!scanningQR"
         class="cli-btn btn-emerald"
-        (click)="scanSiteQrCode()"
-      >
-        <mat-icon class="icon-18">qr_code_scanner</mat-icon>
-        Scanea tu código
+        (click)="viewValues()"
+        [disabled]="myInputCodForm.invalid"
+      ><mat-icon>search</mat-icon>
       </button>
-      <button
-        *ngIf="scanningQR"
-        class="cli-btn btn-orange"
-        (click)="stopScanningQr()"
-      >
-        Dejar de escanear
-      </button>
+      <small class="form-text text-danger" *ngIf="campoNoValido('value')">
+        * Debe de ingresar todos los caracteres
+      </small>
+    </form>
+    <br />
+    <span class="c-male">Opción 3: </span>
+    <label style="margin-left: 0px">Escanear QR:</label>
+
+    <div class="user-form-qr">
+      <div class="qrcode-wrapper">
+        <ng-container *ngIf="!scanningQR">
+        </ng-container>
+
+        <qr-scanner
+          *ngIf="scanningQR"
+          [debug]="false"
+          [canvasWidth]="320"
+          [canvasHeight]="320"
+          [stopAfterScan]="true"
+          [updateTime]="500"
+        >
+        </qr-scanner>
+        <select
+          *ngIf="scanningQR"
+          style="width: 180px"
+          class="cli-input-white"
+          (change)="chooseCamera($event.target.value)"
+        >
+          <option *ngFor="let d of videoDevices" [value]="d.deviceId">
+            {{ d.label }}
+          </option>
+        </select>
+      </div>
+
+      <div style="display: flex; justify-content: center">
+        <button
+          *ngIf="!scanningQR"
+          class="cli-btn btn-emerald"
+          (click)="scanSiteQrCode()"
+        >
+          <mat-icon class="icon-18">qr_code_scanner</mat-icon>
+          Scanea tu código
+        </button>
+        <button
+          *ngIf="scanningQR"
+          class="cli-btn btn-orange"
+          (click)="stopScanningQr()"
+        >
+          Dejar de escanear
+        </button>
+      </div>
     </div>
   </ng-container>
 </div>

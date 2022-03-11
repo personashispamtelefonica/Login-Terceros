@@ -4,6 +4,8 @@
   position: absolute;
 }
 
+// background: linear-gradient(45deg, black, transparent);
+
 .logoheader {
   overflow: hidden;
   height: 56px;
@@ -69,20 +71,21 @@
   padding-bottom: 0px;
 }
 
-/* Styles button */
-.btn-emerald {
-  height: 24px;
-  background-color: #00bec0;
+.btn-fucsia {
+  background-color: #FF4081;
+
+
   color: #fff;
   transition: ease 0.3s;
   cursor: pointer;
   &:hover:enabled {
-    background-color: #b4dee6;
+    background-color: #ecd0e8;
   }
   &:hover:enabled:active {
     background-color: #b4dee6;
   }
 }
+
 
 .cli-btn {
   border: none;
@@ -93,7 +96,7 @@
   display: flex;
   align-items: center;
   height: 30px;
-  font-size: 14px;
+  font-size: 16px;
   & mat-icon {
     margin: 0 5px;
   }
@@ -127,9 +130,9 @@
   }
 
   .cli-btn {
-  height: 28px;
+  // height: 28px;
   margin: 4px;
-  padding: 0 14px;
-  font-size: 12px;
+  // padding: 0 14px;
+  // font-size: 12px;
   }
 }

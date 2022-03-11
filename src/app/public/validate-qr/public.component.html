@@ -1,4 +1,4 @@
-<mat-sidenav-container fullscreen>
+<mat-sidenav-container fullscreen style="background:#f2f4ff">
   <mat-toolbar style="background-color: #0e3f58; padding: 0 8px;">
     <div class="logoheader">
       <img
@@ -11,7 +11,7 @@
     </div>
 
     <div style="flex: 1 1 auto"></div>
-    <button class="cli-btn btn-emerald"
+    <button class="cli-btn btn-fucsia"
             routerLink="/login"
             >
       Login
@@ -20,7 +20,9 @@
 
   <!-- <users-qr></users-qr> -->
   <app-footer ></app-footer>
-  <div class="container">
+  <div class="container"
+  style="max-width:max-content;"
+  >
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>
