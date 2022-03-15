@@ -13,7 +13,7 @@ import { MaterialModule } from './material/material.module';
 @NgModule({
   declarations: [
     AppComponent,
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

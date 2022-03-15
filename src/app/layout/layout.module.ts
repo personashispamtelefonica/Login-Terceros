@@ -15,6 +15,7 @@ import { PagesComponent } from './pages/pages.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BlockUIModule } from 'ng-block-ui';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { BlockUIModule } from 'ng-block-ui';
   imports: [
     CommonModule,
     LayoutRoutingModule,
+
+    ComponentsModule,
 
     PagesModule,
     NgQrScannerModule,

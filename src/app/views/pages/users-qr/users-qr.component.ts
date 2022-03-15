@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { QrScannerComponent } from 'angular2-qrscanner';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import Swal from 'sweetalert2';
 import {
   FormArray,
   FormBuilder,
@@ -7,9 +10,6 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { QrScannerComponent } from 'angular2-qrscanner';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
-import Swal from 'sweetalert2';
 
 export interface qrvalidator {
   valid: boolean;

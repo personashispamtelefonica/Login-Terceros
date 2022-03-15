@@ -1,0 +1,37 @@
+<button (click)="close()"
+        class="icon-btn btn-trans c-orange moda-close-btn">
+  <mat-icon>close</mat-icon>
+</button>
+
+<div class="modal-title">Crear usuario</div>
+
+<form class="cli-row"
+      [formGroup]="usuariosForm"
+>
+  <div class="cli-form-element col-f-2">
+    <label>Nombres y apellidos:</label>
+    <input class="cli-input-white"
+           formControlName="nombre"
+    />
+  </div>
+  <div class="cli-form-element col-f-2">
+    <label>Género:</label>
+    <select class="cli-input-white"
+            formControlName="genero">
+      <option value="" disabled>-- Seleccionar --</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+    </select>
+  </div>
+
+  <div class="cli-form-element col-f-2">
+    <label>Cargo:</label>
+    <input class="cli-input-white"
+           formControlName="cargo">
+  </div>
+</form>
+
+<div class="cli-form-buttons">
+  <button (click)="close()" class="cli-btn btn-grey">Cancelar</button>
+  <button (click)="addUser()" class="cli-btn btn-blue">Guardar</button>
+</div>

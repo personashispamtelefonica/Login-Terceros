@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 export class SidebarService {
 
   //public menu = [];
-
-
   menu: any[] = [
     {
       titulo: 'Usuarios Registrados',

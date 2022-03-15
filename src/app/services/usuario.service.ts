@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { tap, map, catchError } from 'rxjs/operators';
+import { tap} from 'rxjs/operators';
 
 
 
