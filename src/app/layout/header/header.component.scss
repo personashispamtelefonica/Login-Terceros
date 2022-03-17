@@ -12,12 +12,6 @@
   display: flex;
   flex-direction: row;
 }
-/* .mat-drawer-container[fullscreen] {
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-} */
 
 .personname{
   color: #fff;
@@ -190,38 +184,3 @@
   height: 30px;
 
 }
-
-/* @include mobile{
-  .cli-mobile-menu{
-      width: 100%;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      z-index: 101;
-      transition: 0.3s ease;
-  }
-  .header-hiddenaside{
-      left: 0;
-  }
-  .personas{
-      left: 60px;
-  }
-  .personname{
-      display: none;
-  }
-  .header-fixedaside{
-      left: 0;
-  }
-  .name-cicle{
-      margin: 3px;
-  }
-  .header-icon{
-      display: flex;
-  }
-  .logoheader{
-      width: 130px;
-  }
-} */

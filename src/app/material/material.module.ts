@@ -9,7 +9,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [],
   exports: [
@@ -23,8 +27,11 @@ import {MatTableModule} from '@angular/material/table';
     MatTooltipModule,
     MatDialogModule,
     MatTableModule,
-
-
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatCardModule,
 
   ],
 })

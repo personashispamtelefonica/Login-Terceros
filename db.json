@@ -1,0 +1,80 @@
+{
+  "UsuariosList": [
+    {
+      "nombre": "Carlos mendieta",
+      "genero": "Masculino",
+      "cargo": "UI-UX",
+      "id": 2
+    },
+    {
+      "nombre": "nilton Quiroz",
+      "genero": "Masculino",
+      "cargo": "UI-UX",
+      "id": 5
+    },
+    {
+      "nombre": "Martin Quiroz",
+      "genero": "Masculino",
+      "cargo": "UI-UX",
+      "id": 6
+    },
+    {
+      "nombre": "Camila Diaz M.",
+      "genero": "Femenino",
+      "cargo": "Diseñadora",
+      "id": 7
+    },
+    {
+      "nombre": "Manuel Quiroz",
+      "genero": "Masculino",
+      "cargo": "Scrum",
+      "id": 8
+    },
+    {
+      "nombre": "Cesar 3",
+      "genero": "Masculino",
+      "cargo": "Desarrollador",
+      "id": 9
+    },
+    {
+      "nombre": "Marcos Quiroz 4",
+      "genero": "Masculino",
+      "cargo": "UI-UX",
+      "id": 10
+    },
+    {
+      "nombre": "Cesar 4",
+      "genero": "Masculino",
+      "cargo": "Desarrollador",
+      "id": 11
+    },
+    {
+      "nombre": "Marcos Quiroz",
+      "genero": "Masculino",
+      "cargo": "UI",
+      "id": 12
+    },
+    {
+      "nombre": "Nelit Herrera",
+      "genero": "Femenino",
+      "cargo": "Admin",
+      "id": 13
+    },
+    {
+      "nombre": "Patricia M",
+      "genero": "Femenino",
+      "cargo": "Coordinadora",
+      "id": 14
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

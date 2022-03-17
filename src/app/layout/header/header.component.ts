@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from 'src/app/services/menu.service';
 import { AuthService } from 'src/app/views/auth/services/auth.service';
 
 @Component({
@@ -10,12 +9,11 @@ import { AuthService } from 'src/app/views/auth/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   fullName: string = '';
-  userAbbreviation = '';  //input user-section
+  userAbbreviation = '';
   fixedAside:boolean = true;
 
   constructor(
     private authService: AuthService,
-    private menuService: MenuService
   ) { }
 
   ngOnInit(): void {
@@ -36,9 +34,4 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
-
-  openMobileMenu(){
-    this.menuService.activeMenuMobile$.emit(true);
-  }
-
 }

@@ -58,8 +58,6 @@ export class UsersQrComponent implements OnInit {
   }
 
   viewValues() {
-    /* console.log(this.myInputCodForm.value)
-    console.log(this.myInputCodForm.value.codeList.join()); */
     this.concatFormValues(this.myInputCodForm.value.codeList);
   }
 

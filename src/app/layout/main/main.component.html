@@ -3,39 +3,50 @@
   <div style="margin-top: 5px">Empresas Colaboradoras</div>
 </div>
 
-<div class="row mt-5">
+<div class="row global-content">
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <h4 class="car-title">Usuarios</h4>
-        <h6 class="card-subtitlte">
+        <h4 class="card-title">Usuarios registrados</h4>
+        <h5 class="card-subtitlte">
           Usuarios registrados en la Web de Terceros
-        </h6>
+        </h5>
 
-        <button
-          type="button"
-          class="btn btn-outline-primary btn-sm mb-3"
-          (click)="openDialog()"
-        >
-          Nuevo usuario
-        </button>
-
-        <!-- BOTONES-OPCION -->
-        <td>
-          <mat-icon style="color: rgb(93, 188, 243)">mode_edit</mat-icon>
-          <mat-icon style="color: #ff4081; margin-left: 6px">delete</mat-icon>
-        </td>
-
-        <!-- <mat-form-field appearance="standard">
-          <mat-label>Filter</mat-label>
-          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-        </mat-form-field> -->
+        <div class="row">
+          <div class="flex-1">
+            <mat-form-field
+              appearance="outline"
+              style="margin-left: 10px; color: #00bec0; width: 40%"
+            >
+              <mat-label>Buscar Usuario</mat-label>
+              <input
+                matInput
+                (keyup)="applyFilter($event)"
+                #input
+                autocomplete="off"
+                type="text"
+              />
+              <button mat-button matSuffix class="pass-btn">
+                <mat-icon>search</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: end; margin-bottom: 4px">
+          <button
+            type="button"
+            class="cli-btn btn-emerald mb-2"
+            (click)="createUser()"
+          >
+            <mat-icon class="icon-18">add</mat-icon>Nuevo usuario
+          </button>
+        </div>
 
         <div class="mat-elevation-z8">
           <table mat-table [dataSource]="dataSource" matSort>
             <!-- ID Column -->
             <ng-container matColumnDef="id">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+              <th mat-header-cell *matHeaderCellDef>ID</th>
               <td mat-cell *matCellDef="let row">{{ row.id }}</td>
             </ng-container>
 
@@ -45,18 +56,35 @@
             </ng-container>
 
             <ng-container matColumnDef="genero">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>Genero</th>
+              <th mat-header-cell *matHeaderCellDef>Genero</th>
               <td mat-cell *matCellDef="let row">{{ row.genero }}</td>
             </ng-container>
 
             <ng-container matColumnDef="cargo">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>Cargo</th>
+              <th mat-header-cell *matHeaderCellDef>Cargo</th>
               <td mat-cell *matCellDef="let row">{{ row.cargo }}</td>
             </ng-container>
 
-            <ng-container matColumnDef="opcion">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>opcion</th>
-              <td mat-cell *matCellDef="let row">{{ row.opcion }}</td>
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef>Acciones</th>
+              <td mat-cell *matCellDef="let row">
+
+                <button
+                  (click)="editUsers(row)"
+                  class="icon-btn btn-trans c-blue moda-close-btn"
+                >
+                  <mat-icon>edit</mat-icon>
+                </button>
+
+                <button
+                  (click)="deleteUsers(row.id)"
+                  style="margin-left: 35px;"
+                  class="icon-btn btn-trans c-fucsia moda-close-btn"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+
+              </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -69,8 +97,24 @@
             </tr>
           </table>
 
-          <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page of users"
+          ></mat-paginator>
         </div>
+
+        <!-- <div class="paginator">
+          <div style="flex: 1 1">Mostrando 5 de 100</div>
+          <div class="pag-btn pag-btn-bl">
+            <mat-icon>navigate_before</mat-icon>
+          </div>
+          <div class="pag-btn">1</div>
+          <div class="pag-btn">2</div>
+          <div class="pag-btn pag-btn-br">
+            <mat-icon>navigate_next</mat-icon>
+          </div>
+        </div>
+         -->
       </div>
     </div>
   </div>

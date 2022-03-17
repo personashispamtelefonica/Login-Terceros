@@ -1,38 +1,38 @@
-:host{
+:host {
   display: block;
   position: relative;
   padding: 0 20px;
   // width: 500px;
 }
-.modal-title{
+.modal-title {
   font-size: 1.7rem;
   font-weight: 400;
-  color: #0066FF;
+  color: #0066ff;
   margin: 10px 0;
   text-align: center;
 }
 
-.icon-btn{
+.icon-btn {
   padding: 2px;
   border: none;
   display: flex;
   align-items: center;
   margin: 0 2px;
   border-radius: 2px;
-  &:disabled{
-      background-color: #F4F4F3;
-      color: #fff;
+  &:disabled {
+    background-color: #f4f4f3;
+    color: #fff;
   }
 }
 
-.btn-trans{
+.btn-trans {
   background-color: transparent;
-  transition: ease .3s;
-  &:hover:enabled{
-      background-color: #00000014;
+  transition: ease 0.3s;
+  &:hover:enabled {
+    background-color: #00000014;
   }
-  &:hover:enabled:active{
-      background-color: #00000044;
+  &:hover:enabled:active {
+    background-color: #00000044;
   }
 }
 
@@ -40,148 +40,135 @@
   background-color: #E66C64;
 } */
 
-.c-orange{
-  color: #E66C64;
+.c-orange {
+  color: #e66c64;
 }
 
-.moda-close-btn{
+.moda-close-btn {
   position: absolute;
   top: -10px;
   right: -10px;
   z-index: 20;
 }
 
-
-.cli-row{
+.cli-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
 }
 
-.cli-form-element{
+.cli-form-element {
   margin-bottom: 0 !important;
 }
 
-.col-f-2{
+.col-f-2 {
   width: 100%;
   padding: 5px 10px;
 }
 
-.cli-input-white{
-  border: solid 1px #B6B7B7;
+.cli-input-white {
+  border: solid 1px #b6b7b7;
   background-color: #fff;
   border-radius: 2px;
   padding: 5px 10px;
-  transition: ease .3s;
-  &:hover:enabled{
-      border-color: #0066FF;
+  transition: ease 0.3s;
+  &:hover:enabled {
+    border-color: #0066ff;
   }
-  &:focus:enabled{
-      border-color: #0066FF;
+  &:focus:enabled {
+    border-color: #0066ff;
   }
-  &:disabled{
-      background-color: #f8f8f8;
-      color: #86888C;
+  &:disabled {
+    background-color: #f8f8f8;
+    color: #86888c;
   }
 }
 
-.cli-btn{
+.cli-btn {
   border: none;
   border-radius: 2px;
   margin: 0 5px;
   height: 30px;
   padding: 0 10px;
-  font-family: 'Telefonica-Bold' !important;
+  font-family: "Telefonica-Bold" !important;
   display: flex;
   align-items: center;
-  & mat-icon{
-      margin: 0 5px;
+  & mat-icon {
+    margin: 0 5px;
   }
-  &:disabled{
-      background-color: #F4F4F3;
-      color: #fff;
-  }
-}
-
-.btn-grey{
-  background-color: #E9EAE8;
-  transition: ease .3s;
-  &:hover:enabled{
-      background-color: #F4F4F3;
-  }
-  &:hover:enabled:active{
-      background-color: #D3D4D3;
+  &:disabled {
+    background-color: #f4f4f3;
+    color: #fff;
   }
 }
 
-.btn-blue{
-  background-color: #0066FF;
+.btn-grey {
+  background-color: #e9eae8;
+  transition: ease 0.3s;
+  &:hover:enabled {
+    background-color: #f4f4f3;
+  }
+  &:hover:enabled:active {
+    background-color: #d3d4d3;
+  }
+}
+
+.btn-blue {
+  background-color: #0066ff;
   color: #fff;
-  transition: ease .3s;
-  &:hover:enabled{
-      background-color: #80B0FF;
+  transition: ease 0.3s;
+  &:hover:enabled {
+    background-color: #80b0ff;
   }
-  &:hover:enabled:active{
-      background-color: #003180;
+  &:hover:enabled:active {
+    background-color: #003180;
   }
 }
-
 
 /* FOMR SYLES */
-.cli-form{
+.cli-form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  &-title{
-      width: 100%;
-      font-family: 'Telefonica-Bold';
-      text-align: center;
-      font-size: 1.6rem;
-      //margin: auto;
-      margin-bottom: 10px;
+  &-title {
+    width: 100%;
+    font-family: "Telefonica-Bold";
+    text-align: center;
+    font-size: 1.6rem;
+    //margin: auto;
+    margin-bottom: 10px;
   }
-  &-titleback{
-      margin-right: 100px;
-      display: flex;
-  }
-/*   &-subtitle{
-      width: 100%;
-      margin-bottom: 10px;
-      margin-top: 20px;
-      font-family: 'Telefonica-Bold';
-      border-bottom: 1px solid $color-grey-3;
-      display: flex;
-      align-items: center;
-      & mat-icon{
-          margin-right: 10px;
-      }
-  } */
-  &-buttons{
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 30px;
-  }
-  &-element{
-      display: flex;
-      margin-bottom: 10px;
-      flex-direction: column;
-      & label{
-          padding: 0;
-          margin: 0 2px;
-          font-size: .9rem;
-      }
-      &:focus-within label{
-          color: #0066FF;
-      }
+  &-titleback {
+    margin-right: 100px;
+    display: flex;
   }
 
-  &-icon{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: auto 5px;
+  &-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  &-element {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    & label {
+      padding: 0;
+      margin: 0 2px;
+      font-size: 0.9rem;
+    }
+    &:focus-within label {
+      color: #0066ff;
+    }
+  }
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 5px;
   }
 }

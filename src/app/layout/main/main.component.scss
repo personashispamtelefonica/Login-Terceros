@@ -3,9 +3,8 @@
   color: #50535a;
   letter-spacing: 1px;
   text-align: center;
-  margin-top: 40PX;
+  margin-top: 40px;
 }
-
 
 .c-male {
   color: #00bec0;
@@ -20,6 +19,210 @@ table {
   width: 100%;
 }
 
-td, th {
-  width: 25%;
+td,
+th {
+  width: 22%;
+}
+
+.icon-18 {
+  width: 18px !important;
+  height: 18px !important;
+  font-size: 18px !important;
+}
+
+.btn-emerald {
+  height: 26px;
+  background-color: #ffffff;
+  color: #fff;
+  transition: ease 0.3s;
+  cursor: pointer;
+  &:hover:enabled {
+    background-color: #00bec0;
+    color: #fff;
+  }
+  &:hover:enabled:active {
+    background-color: #b4dee6;
+  }
+}
+
+.cli-btn {
+  border: solid 1px #00bec0;
+  border-radius: 2px;
+  margin: 0 4px;
+  padding: 0 6px;
+  font-family: "Telefonica-Bold" !important;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  color: #00bec0;
+  & mat-icon {
+    margin: 0 5px;
+  }
+  &:disabled {
+    background-color: #b4dee6;
+    color: #fff;
+  }
+}
+
+.flex-1 {
+  flex: 1 1;
+}
+
+/* Paginator */
+.paginator {
+  display: flex;
+  padding: 15px 0;
+}
+.pag-btn {
+  border: solid 1px #eff1f7;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  line-height: 24px;
+  padding: 3px;
+  width: 30px;
+  height: 30px;
+  margin-right: -1px;
+  transition: 0.3s;
+}
+.pag-btn:hover {
+  background-color: #f9fafd;
+  cursor: pointer;
+}
+.pag-btn-br {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.pag-btn-bl {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.pass-btn {
+  width: 36px;
+  min-width: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+.mat-form-field-flex {
+  height: 20px;
+}
+
+.mat-form-field-appearance-outline {
+  height: 40px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  line-height: 15px;
+}
+
+.cli-table {
+  width: 100%;
+  background-color: #fff;
+  &-sticky {
+    position: sticky;
+    top: 0;
+  }
+  & th {
+    padding: 5px;
+    font-weight: 500;
+    text-align: center;
+  }
+  & td {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 3px 10px;
+  }
+  &-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-flex {
+    margin-top: -8px;
+    height: 35px;
+  }
+}
+
+th.mat-header-cell {
+  color: rgb(56, 54, 54);
+  font-weight: 8px;
+  font-size: small;
+}
+
+td.mat-cell {
+  color: rgb(18, 18, 19);
+}
+
+/* style btn - options */
+.icon-btn {
+  padding: 2px;
+  border: none;
+  display: flex;
+  align-items: center;
+  margin: 0 2px;
+  border-radius: 2px;
+  margin-top: -15px;
+  &:disabled {
+    background-color: #f4f4f3;
+    color: #fff;
+  }
+}
+
+.btn-trans {
+  background-color: transparent;
+  transition: ease 0.3s;
+  &:hover:enabled {
+    background-color: #00000014;
+  }
+  &:hover:enabled:active {
+    background-color: #00000044;
+  }
+}
+
+.c-blue {
+  color: #6abcff;
+  background-color: rgb(240, 239, 239);
+  border: solid 0.5px #0e77ce;
+}
+
+.c-fucsia {
+  color: #ff4081;
+  background-color: rgb(240, 239, 239);
+  border: solid 0.5px #ff4081;
+}
+
+.moda-close-btn {
+  position: absolute;
+  z-index: 20;
+}
+
+th.mat-header-cell:last-of-type {
+  padding-right: 30px;
+}
+@media (max-width: 850px) {
+  th.mat-header-cell {
+    font-size: x-small;
+  }
+
+  td.mat-cell {
+    font-size: 11px;
+    height: 40px;
+  }
+
+  .mat-form-field {
+    font-size: 12px;
+    width: 100%;
+  }
 }

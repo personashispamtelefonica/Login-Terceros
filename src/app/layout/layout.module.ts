@@ -16,6 +16,9 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BlockUIModule } from 'ng-block-ui';
 import { ComponentsModule } from '../components/components.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -40,8 +43,9 @@ import { ComponentsModule } from '../components/components.module';
   imports: [
     CommonModule,
     LayoutRoutingModule,
-
+    MatFormFieldModule,
     ComponentsModule,
+    ReactiveFormsModule,
 
     PagesModule,
     NgQrScannerModule,

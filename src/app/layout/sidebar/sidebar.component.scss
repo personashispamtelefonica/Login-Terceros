@@ -54,14 +54,7 @@
   height: 40px;
   padding: 0 !important;
 }
-
-/* .menu-link {
-  width: 100%;
-  height: 40px;
-}
- */
-
-.menu-link{
+.menu-link {
   padding: 9px 25px;
   cursor: pointer;
   min-height: 44px;
@@ -72,15 +65,14 @@
   text-decoration: none;
   position: relative;
   transition: 0.3s ease;
-  background-color: #F2F4FF;
-  color: #00BEC0;
-  border-bottom: 1px solid #B4DEE6;
-  border-top: 1px solid #B4DEE6;
-
+  background-color: #f2f4ff;
+  color: #00bec0;
+  border-bottom: 1px solid #b4dee6;
+  border-top: 1px solid #b4dee6;
 }
-.menu-link:hover{
-  text-decoration: none ;
-  background-color: #99C0FF;
+.menu-link:hover {
+  text-decoration: none;
+  background-color: #99c0ff;
   color: #fff;
 }
 
