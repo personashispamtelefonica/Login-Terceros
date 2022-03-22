@@ -1,23 +1,22 @@
-<button (click)="close()"
-        class="icon-btn btn-trans c-orange moda-close-btn">
+<button (click)="close()" class="icon-btn btn-trans c-orange moda-close-btn">
   <mat-icon>close</mat-icon>
 </button>
 
-<div class="modal-title">{{editData? 'Actualizar':'Crear'}} Usuario</div>
+<div class="modal-title">{{ editData ? "Actualizar" : "Crear" }} Usuario</div>
 
-<form class="cli-row"
-      [formGroup]="usuariosForm"
->
+<form class="cli-row" [formGroup]="usuariosForm">
   <div class="cli-form-element col-f-2">
     <label>Nombres y apellidos:</label>
-    <input class="cli-input-white"
-           formControlName="nombre"
-    />
+    <input class="cli-input-white" formControlName="nombre" />
   </div>
   <div class="cli-form-element col-f-2">
+    <label>Correo del usuario:</label>
+    <input class="cli-input-white" formControlName="correo" />
+  </div>
+
+  <div class="cli-form-element col-f-2">
     <label>Género:</label>
-    <select class="cli-input-white"
-            formControlName="genero">
+    <select class="cli-input-white" formControlName="genero">
       <option value="" disabled>-- Seleccionar --</option>
       <option value="Masculino">Masculino</option>
       <option value="Femenino">Femenino</option>
@@ -25,13 +24,38 @@
   </div>
 
   <div class="cli-form-element col-f-2">
+    <label>País</label>
+    <select class="cli-input-white" formControlName="pais">
+      <option value="" disabled>-- Seleccionar --</option>
+      <option value="ARGENTINA">Argentina</option>
+      <option value="CHILE">Chile</option>
+      <option value="COLOMBIA">Colombia</option>
+      <option value="URUGUAY">Uruguay</option>
+      <option value="MEXICO">Mexico</option>
+      <option value="PERÚ">Peru</option>
+      <option value="ECUADOR">Ecuador</option>
+    </select>
+  </div>
+
+  <div class="cli-form-element col-f-2">
     <label>Cargo:</label>
-    <input class="cli-input-white"
-           formControlName="cargo">
+    <input class="cli-input-white" formControlName="cargo" />
+  </div>
+  <div class="cli-form-element col-f-2">
+    <label>Empresa</label>
+    <select class="cli-input-white" formControlName="empresa">
+      <option value="" disabled>-- Seleccionar --</option>
+      <option value="EXPERIS">Experis</option>
+      <option value="INDRA">Indra</option>
+      <option value="ABC">Abc</option>
+      <option value="XYZ">Xyz</option>
+    </select>
   </div>
 </form>
 
 <div class="cli-form-buttons">
   <button (click)="close()" class="cli-btn btn-grey">Cancelar</button>
-  <button (click)="agregarUsuario()" class="cli-btn btn-blue">{{actionBtn}}</button>
+  <button (click)="agregarUsuario()" class="cli-btn btn-blue">
+    {{ actionBtn }}
+  </button>
 </div>

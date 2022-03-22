@@ -18,6 +18,7 @@ import { BlockUIModule } from 'ng-block-ui';
 import { ComponentsModule } from '../components/components.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CompanyListComponent } from './company-list/company-list.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     PagesComponent,
     HeaderComponent,
     SidebarComponent,
+    CompanyListComponent,
   ],
 
   exports: [
@@ -38,6 +40,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     SidebarComponent,
     UserSectionComponent,
     MainComponent,
+    CompanyListComponent
   ],
 
   imports: [

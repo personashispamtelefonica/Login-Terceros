@@ -13,27 +13,37 @@ export class ModalUsersComponent implements OnInit {
   usuariosForm!: FormGroup;
   actionBtn: string = 'Guardar';
 
+  pais:{id:number, name:string}[] = [];
+  genero:{id:number, name:string}[] = [];
+
+
   constructor(
     private fb: FormBuilder,
     private modalServices: ModalUserService,
     private dialogRef: MatDialogRef<ModalUsersComponent>,
-    @Inject(MAT_DIALOG_DATA) public editData: any
+    @Inject(MAT_DIALOG_DATA) public editData: {id:number,nombre:string, correo:string, pais:string[], genero:string[],cargo:string, empresa:string[]}
   ) {}
 
   ngOnInit(): void {
     this.usuariosForm = this.fb.group({
       nombre: ['', Validators.required],
+      correo: ['abc@gmail.com', [Validators.required, Validators.email]],
+      pais:   ['', Validators.required],
       genero: ['', Validators.required],
-      cargo: ['', Validators.required],
+      cargo:  ['', Validators.required],
+      empresa:['', Validators.required],
     });
 
-    console.log('Dataaa', this.editData);
+    console.log('Data Modal', this.editData);
 
     if (this.editData) {
       this.actionBtn = 'Actualizar';
       this.usuariosForm.controls['nombre'].setValue(this.editData.nombre);
+      this.usuariosForm.controls['correo'].setValue(this.editData.correo);
+      this.usuariosForm.controls['pais'].setValue(this.editData.pais);
       this.usuariosForm.controls['genero'].setValue(this.editData.genero);
       this.usuariosForm.controls['cargo'].setValue(this.editData.cargo);
+      this.usuariosForm.controls['empresa'].setValue(this.editData.empresa);
     }
   }
 

@@ -229,7 +229,7 @@ th {
   }
   & td {
     vertical-align: middle;
-    text-align: left;
+    text-align:left;
     font-size: 0.8rem;
     padding: 3px 10px;
   }
@@ -245,13 +245,8 @@ th {
 .table-container{
   width: 100%;
   overflow: auto;
-  // min-height: 460px;
   background-color: #EFF1F7;
 }
-
-
-
-
 
 
 /* style btn - options */
@@ -331,7 +326,7 @@ th {
     }
     & td {
       vertical-align: middle;
-      text-align: left;
+      text-align: center;
       font-size: 0.7rem;
       padding: 3px 6px;
     }

@@ -27,10 +27,10 @@ export class BaseComponent implements OnInit {
     },
     {
       icon: 'brightness_7',
-      name: 'Informes',
+      name: 'Mantenimiento',
       info: 'Inicio',
       subMenuList: [
-        { icon: 'spatial_tracking', name: 'Lista cod. QR', info: 'usuarios guardados' },
+        { icon: 'spatial_tracking', name: 'Empresas', info: 'Lista empresas' },
         { icon: 'search', name: 'codigos', info: 'Coóigos guardados' },
       ],
     },

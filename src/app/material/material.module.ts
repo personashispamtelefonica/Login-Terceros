@@ -22,7 +22,6 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     MatListModule,
-
     MatExpansionModule,
     MatTooltipModule,
     MatDialogModule,
@@ -32,7 +31,6 @@ import {MatCardModule} from '@angular/material/card';
     MatSortModule,
     MatInputModule,
     MatCardModule,
-
   ],
 })
 export class MaterialModule { }

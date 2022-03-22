@@ -1,29 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
-import { ModalUsersComponent } from 'src/app/components/modal-users/modal-users.component';
-import { ModalUserService } from 'src/app/services/modal-user.service';
-import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
-export interface UserData {
-  id: number;
-  nombre: string;
-  genero: string;
-  pais: string;
-  cargo: string;
-  empresa: string;
-  action: string;
-}
+import { MatTableDataSource } from '@angular/material/table';
+import { ModalCompaniesComponent } from 'src/app/components/modal-companies/modal-companies.component';
+import { ModalCompanyService } from 'src/app/services/modal-company.service';
+import Swal from 'sweetalert2';
+import { UserData } from '../main/main.component';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  selector: 'app-company-list',
+  templateUrl: './company-list.component.html',
+  styleUrls: ['./company-list.component.scss']
 })
-export class MainComponent implements OnInit {
-  usuariosForm=10;
+export class CompanyListComponent implements OnInit {
   loading: boolean = false;
   fixedAside: boolean = false;
   loadingItem = false;
@@ -39,11 +29,9 @@ export class MainComponent implements OnInit {
     'id',
     'nombre',
     'correo',
-    'genero',
-    'pais',
-    'cargo',
-    'empresa',
-    'action',
+    'ruc',
+    'nContacto',
+    'action'
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -52,19 +40,19 @@ export class MainComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private modalServices: ModalUserService
+    private modalServices: ModalCompanyService
   ) {}
 
   ngOnInit(): void {
-    this.obtenerUsuarios();
+    this.getCompany();
   }
 
-  createUser() {
-    const dialogRef = this.dialog.open(ModalUsersComponent, { width: '525px' });
+  createCompany() {
+    const dialogRef = this.dialog.open(ModalCompaniesComponent, { width: '525px' });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.obtenerUsuarios();
+        this.getCompany();
       }
       console.log(`Dialog result: ${result}`);
     });
@@ -74,38 +62,38 @@ export class MainComponent implements OnInit {
     this.fixedAside = e;
   }
 
-  obtenerUsuarios() {
-    this.modalServices.obtenerUsuario().subscribe({
+  getCompany() {
+    this.modalServices.getCompany().subscribe({
       next: (res) => {
-        console.log('USERS', res);
+        console.log('COMPANY', res);
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
       error: (err) => {
-        Swal.fire('Error', 'No se pudo cargar los Usuarios', 'warning');
+        Swal.fire('Error', 'No se pudo cargar la lista de Empresas', 'warning');
       },
     });
   }
 
-  editUsers(row: any) {
+  editCompany(row: any) {
     console.log(row);
     this.dialog
-      .open(ModalUsersComponent, {
+      .open(ModalCompaniesComponent, {
         width: '525px',
         data: row,
       })
       .afterClosed()
       .subscribe((val) => {
         if (val == 'update') {
-          this.obtenerUsuarios();
+          this.getCompany();
         }
       });
   }
 
-  deleteUsers(id: number) {
+  deleteCompany(id: number) {
     Swal.fire({
-      title: '¿Estas seguro que deseas eliminar el usuario?',
+      title: '¿Estas seguro que deseas eliminar la Empresa?',
       text: 'Ya no podrás revetir estos cambios',
       icon: 'warning',
       showCancelButton: true,
@@ -119,11 +107,11 @@ export class MainComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Exito',
-          text: 'El usuario se eliminó con exito',
+          text: 'La Empresa se eliminó con exito',
         });
 
-        this.modalServices.deleteUsers(id).subscribe((resp) => {
-          this.obtenerUsuarios();
+        this.modalServices.deleteCompany(id).subscribe((resp) => {
+          this.getCompany();
         });
       }
     });
@@ -137,4 +125,5 @@ export class MainComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
 }

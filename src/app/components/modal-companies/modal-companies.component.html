@@ -1,0 +1,36 @@
+<button (click)="close()" class="icon-btn btn-trans c-orange moda-close-btn">
+  <mat-icon>close</mat-icon>
+</button>
+
+<div class="modal-form">
+  <div class="modal-title">{{ editData ? "Actualizar" : "Crear" }} Empresa</div>
+
+  <form class="cli-row" [formGroup]="companyForm">
+    <div class="cli-form-element col-f-2">
+      <label>Nombre de la empresa:</label>
+      <input class="cli-input-white" formControlName="nombre" />
+    </div>
+
+    <div class="cli-form-element col-f-2">
+      <label> Correo del contacto:</label>
+      <input class="cli-input-white" formControlName="correo" />
+    </div>
+
+    <div class="cli-form-element col-f-2">
+      <label> RUC:</label>
+      <input class="cli-input-white" formControlName="ruc" />
+    </div>
+
+    <div class="cli-form-element col-f-2">
+      <label> Número del contacto:</label>
+      <input class="cli-input-white" formControlName="nContacto" />
+    </div>
+  </form>
+</div>
+
+<div class="cli-form-buttons">
+  <button (click)="close()" class="cli-btn btn-grey">Cancelar</button>
+  <button (click)="addCompany()" class="cli-btn btn-blue">
+    {{ actionBtn }}
+  </button>
+</div>

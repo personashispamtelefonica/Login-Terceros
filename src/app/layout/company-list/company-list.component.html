@@ -1,15 +1,12 @@
-<div class="tf-hispam">
-  <span class="c-male">Bienvenido a </span>
-  <div style="margin-top: 5px">Empresas Colaboradoras</div>
-</div>
 
+<!-- TABLA EMPRESAS -->
 <div class="global-content">
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Usuarios registrados ({{usuariosForm}})</h4>
+        <h4 class="card-title">Mantenimiento Empresas</h4>
         <h5 class="card-subtitlte">
-          Usuarios registrados en la Web de Terceros
+          Lista de Empresas
         </h5>
 
         <div class="row">
@@ -29,9 +26,9 @@
             <button
               type="button"
               class="cli-btn btn-emerald mb-2"
-              (click)="createUser()"
+              (click)="createCompany()"
             >
-              <mat-icon class="icon-18">add</mat-icon>Crear usuario
+              <mat-icon class="icon-18">add</mat-icon>Nueva Empresa
             </button>
           </div>
         </div>
@@ -49,29 +46,17 @@
             </ng-container>
 
             <ng-container matColumnDef="correo">
-              <th mat-header-cell *matHeaderCellDef>correo</th>
-              <td mat-cell *matCellDef="let row">
-                {{ row.correo }}
-              </td>
+              <th mat-header-cell *matHeaderCellDef>Correo del contacto</th>
+              <td mat-cell *matCellDef="let row">{{ row.correo }}</td>
             </ng-container>
-            <ng-container matColumnDef="genero">
-              <th mat-header-cell *matHeaderCellDef>Genero</th>
-              <td mat-cell *matCellDef="let row">{{ row.genero }}</td>
+            <ng-container matColumnDef="ruc">
+              <th mat-header-cell *matHeaderCellDef>RUC</th>
+              <td mat-cell *matCellDef="let row">{{ row.ruc }}</td>
             </ng-container>
 
-            <ng-container matColumnDef="cargo">
-              <th mat-header-cell *matHeaderCellDef>Cargo</th>
-              <td mat-cell *matCellDef="let row">{{ row.cargo }}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="pais">
-              <th mat-header-cell *matHeaderCellDef>pais</th>
-              <td mat-cell *matCellDef="let row">{{ row.pais }}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="empresa">
-              <th mat-header-cell *matHeaderCellDef>empresa</th>
-              <td mat-cell *matCellDef="let row">{{ row.empresa }}</td>
+            <ng-container matColumnDef="nContacto">
+              <th mat-header-cell *matHeaderCellDef>Número del Contacto</th>
+              <td mat-cell *matCellDef="let row">{{ row.nContacto }}</td>
             </ng-container>
 
             <ng-container matColumnDef="action">
@@ -79,7 +64,7 @@
               <td mat-cell *matCellDef="let row">
                 <div class="cli-table-actions">
                   <button
-                    (click)="editUsers(row)"
+                    (click)="editCompany(row)"
                     matTooltip="Editar"
 
                     class="icon-btn btn-trans c-blue"
@@ -88,7 +73,7 @@
                   </button>
 
                   <button
-                    (click)="deleteUsers(row.id)"
+                    (click)="deleteCompany(row.id)"
                     style="margin-left: 35px"
                     matTooltip="Eliminar"
 
@@ -121,11 +106,11 @@
       </div>
 
        <!-- PAGINACIÓN -->
-       <div class="cli-loader" *ngIf="loadingItem">
+       <!-- <div class="cli-loader" *ngIf="loadingItem">
         <mat-spinner style="margin-right: 20px;" diameter=20></mat-spinner> cargando...
       </div>
 
-      <!-- <div *ngIf="!loadingItem && data.length == 0" class="cli-loader">No hay elementos para mostrar</div> -->
+      <div *ngIf="!loadingItem && data.length == 0" class="cli-loader">No hay elementos para mostrar</div>
 
       <div *ngIf="!loadingItem && table_settings.pages>1" class="cli-pagination-container">
         <div class="cli-pagination-page">Página: </div>
@@ -143,11 +128,8 @@
         </button>
         de
         <div style="margin-left: 10px;"> {{ table_settings.pages}} </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
 </div>
-
-
-<app-company-list></app-company-list>
