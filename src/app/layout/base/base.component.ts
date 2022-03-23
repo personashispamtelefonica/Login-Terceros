@@ -1,11 +1,20 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/views/auth/services/auth.service';
+export interface Menu{
+  icon:string,
+  name:string,
+  info:string,
+  subMenuList:Menu[],
+  displayed?: boolean,
+}
 
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
   styleUrls: ['./base.component.scss']
 })
+
+
 export class BaseComponent implements OnInit {
 
   hasphoto = false;
@@ -13,6 +22,7 @@ export class BaseComponent implements OnInit {
   userAbbreviation = '';  //input user-section
   fixedAside:boolean = true;
   sideNavState = false;
+  menuConfig!:Menu[];
 
 
   menuList = [
@@ -30,8 +40,17 @@ export class BaseComponent implements OnInit {
       name: 'Mantenimiento',
       info: 'Inicio',
       subMenuList: [
-        { icon: 'spatial_tracking', name: 'Empresas', info: 'Lista empresas' },
-        { icon: 'search', name: 'codigos', info: 'Coóigos guardados' },
+        { icon: 'business',
+          link: 'company',
+          name: 'Empresas',
+          info: 'Lista empresas' },
+        { icon: 'people',
+          link: 'usuarios',
+          name: 'Usuarios',
+          info: 'Lista de Usuarios' },
+        { icon: 'search',
+          name: 'codigos',
+          info: 'Coóigos guardados' },
       ],
     },
     {
@@ -50,6 +69,13 @@ export class BaseComponent implements OnInit {
     this.initializeUser();
   }
 
+
+  clickLinkMenu(){
+    this.menuConfig.forEach(item => {
+      item.displayed = false;
+    })
+  }
+
   initializeUser(){
     this.fullName = this.authService.getUsername();
     if (this.fullName) {
@@ -59,7 +85,7 @@ export class BaseComponent implements OnInit {
       this.userAbbreviation = fullNameToArray.join('');
     }
   }
-  onSinenavToggle() {
+  onSidenavToggle() {
     this.sideNavState = !this.sideNavState;
   }
 

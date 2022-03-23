@@ -19,6 +19,7 @@ import { ComponentsModule } from '../components/components.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CompanyListComponent } from './company-list/company-list.component';
+import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CompanyListComponent } from './company-list/company-list.component';
     HeaderComponent,
     SidebarComponent,
     CompanyListComponent,
+    UsuariosListComponent,
   ],
 
   exports: [

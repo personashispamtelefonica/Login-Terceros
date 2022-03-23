@@ -1,44 +1,46 @@
 {
   "UsuariosList": [
     {
-      "nombre": "Experis 2",
-      "correo": "pablo@experis.com",
-      "ruc": "123 5543 22 3144",
-      "nContacto": "920080109",
+      "nombre": "Diana",
+      "correo": "diaan12@experis.com",
+      "pais": "URU",
+      "genero": "F",
+      "cargo": "analista",
+      "empresa": "EXPERIS",
       "id": 1
     },
     {
       "nombre": "Katerin V K",
       "correo": "Katy@gmail.com",
-      "pais": "ESP",
-      "genero": "Femenino",
+      "pais": "MEX",
+      "genero": "F",
       "cargo": "Diseño UI",
       "empresa": "MBL",
       "id": 2
     },
     {
-      "nombre": "Naomi Suarez L.",
+      "nombre": "Keny Suarez L.",
       "correo": "nao2022@experis.com",
-      "pais": "ESP",
-      "genero": "Femenino",
+      "pais": "PER",
+      "genero": "M",
       "cargo": "Analista",
       "empresa": "Experis",
       "id": 3
     },
     {
-      "nombre": "Mariana Cuenca Ch.",
+      "nombre": "Miguel Cuenca H.",
       "correo": "Mary@gmail.com",
-      "pais": "ESP",
-      "genero": "Femenino",
-      "cargo": "PIO",
-      "empresa": "Experis",
+      "pais": "URU",
+      "genero": "M",
+      "cargo": "scrum",
+      "empresa": "INDRA",
       "id": 4
     },
     {
       "nombre": "Mariana Cuenca Ch.",
       "correo": "Mary@gmail.com",
-      "pais": "ESP",
-      "genero": "Femenino",
+      "pais": "ARG",
+      "genero": "F",
       "cargo": "PIO",
       "empresa": "Experis",
       "id": 5
@@ -47,7 +49,7 @@
       "nombre": "Katerin V K",
       "correo": "Katy@gmail.com",
       "pais": "ESP",
-      "genero": "Femenino",
+      "genero": "F",
       "cargo": "Diseño UI",
       "empresa": "MBL",
       "id": 6
@@ -56,7 +58,7 @@
       "nombre": "Hugo Suarez L.",
       "correo": "Hugo2022@experis.com",
       "pais": "ESP",
-      "genero": "Masculino",
+      "genero": "M",
       "cargo": "Scrum",
       "empresa": "Experis",
       "id": 7
@@ -65,7 +67,7 @@
       "nombre": "Mariana Cuenca Ch.",
       "correo": "Mary@gmail.com",
       "pais": "ESP",
-      "genero": "Femenino",
+      "genero": "F",
       "cargo": "PIO",
       "empresa": "Experis",
       "id": 8
@@ -74,7 +76,7 @@
       "nombre": "Katerin V K",
       "correo": "Katy@gmail.com",
       "pais": "ESP",
-      "genero": "Femenino",
+      "genero": "F",
       "cargo": "Diseño UI",
       "empresa": "MBL",
       "id": 9
@@ -83,7 +85,7 @@
       "nombre": "Naomi Suarez L.",
       "correo": "nao2022@experis.com",
       "pais": "ESP",
-      "genero": "Femenino",
+      "genero": "F",
       "cargo": "Analista",
       "empresa": "Experis",
       "id": 10
@@ -92,7 +94,7 @@
       "nombre": "Mariana Cuenca Ch.",
       "correo": "Mary@gmail.com",
       "pais": "ESP",
-      "genero": "Femenino",
+      "genero": "F",
       "cargo": "PIO",
       "empresa": "Experis",
       "id": 11
@@ -101,7 +103,7 @@
       "nombre": "Katerin V K",
       "correo": "Katy@gmail.com",
       "pais": "ESP",
-      "genero": "Femenino",
+      "genero": "F",
       "cargo": "Diseño UI",
       "empresa": "MBL",
       "id": 12
@@ -110,24 +112,10 @@
       "nombre": "abc",
       "correo": "abc@gmail.com",
       "pais": "PERÚ",
-      "genero": "Masculino",
+      "genero": "M",
       "cargo": "asad",
       "empresa": "XYZ",
       "id": 13
-    },
-    {
-      "nombre": "adaf",
-      "correo": "company@indracompany.com",
-      "ruc": "123444",
-      "nContacto": "12345",
-      "id": 14
-    },
-    {
-      "nombre": "ABS",
-      "correo": "company@indracompany.com",
-      "ruc": "1234567890",
-      "nContacto": "999988865",
-      "id": 15
     }
   ],
   "CompanyList": [
@@ -158,13 +146,6 @@
       "ruc": "123 5543 22 001",
       "nContacto": "920080109",
       "id": 4
-    },
-    {
-      "nombre": "ABS",
-      "correo": "ABS@abs.com",
-      "ruc": "123786241 78",
-      "nContacto": "987654320",
-      "id": 5
     }
   ],
   "profile": {

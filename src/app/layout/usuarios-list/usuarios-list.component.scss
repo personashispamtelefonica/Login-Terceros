@@ -1,15 +1,3 @@
-.tf-hispam {
-  font-size: 1.6rem;
-  color: #50535a;
-  letter-spacing: 1px;
-  text-align: center;
-  margin-top: 40px;
-}
-
-.c-male {
-  color: #00bec0;
-}
-
 table {
   width: 100%;
 }
@@ -19,8 +7,9 @@ table {
   width: 100%;
 }
 
-td, th {
-  width: -1%;
+td,
+th {
+  width: -10%;
 }
 
 .icon-18 {
@@ -44,7 +33,6 @@ td, th {
   }
 }
 
-
 .cli-btn {
   border: solid 1px #00bec0;
   border-radius: 2px;
@@ -64,12 +52,12 @@ td, th {
   }
 }
 
-
 /* Paginator */
 .paginator {
   display: flex;
   padding: 15px 0;
 }
+
 .pag-btn {
   border: solid 1px #eff1f7;
   font-size: 12px;
@@ -96,7 +84,7 @@ td, th {
 }
 
 /* Pagination 2 */
-.cli-loader{
+.cli-loader {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,46 +92,45 @@ td, th {
   width: 100%;
 }
 
-.btn-blue{
-  background-color: #0066FF;
+.btn-blue {
+  background-color: #0066ff;
   color: #fff;
-  transition: ease .3s;
-  &:hover:enabled{
-      background-color: #80B0FF;
+  transition: ease 0.3s;
+  &:hover:enabled {
+    background-color: #80b0ff;
   }
-  &:hover:enabled:active{
-      background-color: #003180;
-  }
-}
-.cli-pagination{
-  &-container{
-      padding: 10px;
-      margin: 10px 0;
-      display: flex;
-      align-items: center;
-      border: solid 1px #E9EAE8;
-      border-radius: 2px;
-  }
-  &-page{
-      font-family: 'Telefonica-Bold';
-      margin: 0 10px;
+  &:hover:enabled:active {
+    background-color: #003180;
   }
 }
-.cli-pagination-sub{
-  &-container{
-      padding: 5px;
-      margin: 5px 0;
-      display: flex;
-      align-items: center;
-      border: solid 1px #E9EAE8;
-      border-radius: 2px;
+.cli-pagination {
+  &-container {
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    border: solid 1px #e9eae8;
+    border-radius: 2px;
   }
-  &-page{
-      font-family: 'Telefonica-Bold';
-      margin: 0 5px;
+  &-page {
+    font-family: "Telefonica-Bold";
+    margin: 0 10px;
   }
 }
-
+.cli-pagination-sub {
+  &-container {
+    padding: 5px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    border: solid 1px #e9eae8;
+    border-radius: 2px;
+  }
+  &-page {
+    font-family: "Telefonica-Bold";
+    margin: 0 5px;
+  }
+}
 
 .table-actions {
   display: flex;
@@ -161,15 +148,10 @@ td, th {
   flex: 1 1;
 }
 
-
-.search-user{
+.search-user {
   height: 35px;
   align-items: center;
 }
-
-
-
-
 
 .row {
   justify-content: space-between;
@@ -184,36 +166,35 @@ td, th {
   line-height: 15px;
 }
 
-.cli-th{
+.cli-th {
   display: flex;
   align-items: center;
 }
 
-.cli-table-search{
-  background-color: #E9EAE8;
+.cli-table-search {
+  background-color: #e9eae8;
   display: flex;
   align-items: center;
-  padding:3px;
+  padding: 3px;
   border-radius: 2px;
   width: 200px;
-  transition: ease .3s;
+  transition: ease 0.3s;
   border: solid 0.5px #d4d4d4;
-  & input{
-      border: none;
-      background-color: transparent;
-      flex: 1 1;
-      padding: 0 5px;
+  & input {
+    border: none;
+    background-color: transparent;
+    flex: 1 1;
+    padding: 0 5px;
   }
-  &:focus-within{
-      background-color: #F4F4F3;
+  &:focus-within {
+    background-color: #f4f4f3;
   }
 }
-
 
 .cli-table {
   width: 100%;
   // background-color: #fff;
-  background-color: #EFF1F7;
+  // color: #FFF;
 
   &-sticky {
     position: sticky;
@@ -223,10 +204,12 @@ td, th {
     padding: 3px;
     font-weight: 600;
     text-align: center;
+    background-color: #00bec0;
+    color: #fff;
   }
   & td {
     vertical-align: middle;
-    text-align:left;
+    text-align: left;
     font-size: 0.8rem;
     padding: 3px 10px;
   }
@@ -236,15 +219,13 @@ td, th {
     align-items: center;
     margin-top: 15px;
   }
-
 }
 
-.table-container{
+.table-container {
   width: 100%;
   overflow: auto;
-  background-color: #EFF1F7;
+  background-color: #eff1f7;
 }
-
 
 /* style btn - options */
 .icon-btn {
@@ -261,7 +242,7 @@ td, th {
     color: #fff;
   }
 }
-.icon-20{
+.icon-20 {
   width: 20px !important;
   height: 20px !important;
   font-size: 20px !important;
@@ -289,10 +270,6 @@ td, th {
   background-color: rgb(240, 239, 239);
   border: solid 0.5px #ff4081;
 }
-
-
-
-
 
 @media (max-width: 850px) {
   th.mat-header-cell {
@@ -323,18 +300,17 @@ td, th {
     }
     & td {
       vertical-align: middle;
-      text-align: center;
+      text-align: left;
       font-size: 0.7rem;
       padding: 3px 6px;
     }
   }
 
-  .cli-btn{
+  .cli-btn {
     margin-top: 15px;
-
   }
 
-  .row{
+  .row {
     flex-direction: column;
     justify-content: end;
     margin-bottom: 0px;
