@@ -16,10 +16,11 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BlockUIModule } from 'ng-block-ui';
 import { ComponentsModule } from '../components/components.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CompanyListComponent } from './company-list/company-list.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
+import { UserSurveyComponent } from './user-survey/user-survey.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
     SidebarComponent,
     CompanyListComponent,
     UsuariosListComponent,
+    UserSurveyComponent,
   ],
 
   exports: [
@@ -50,7 +52,9 @@ import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
     LayoutRoutingModule,
     MatFormFieldModule,
     ComponentsModule,
+
     ReactiveFormsModule,
+    FormsModule,
 
     PagesModule,
     NgQrScannerModule,

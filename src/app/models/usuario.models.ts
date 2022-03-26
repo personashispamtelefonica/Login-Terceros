@@ -10,3 +10,14 @@ export class Usuario {
     public empresa: string
   ) {}
 }
+
+export class Encuesta {
+  constructor(
+    public id: number,
+     public label:string,
+     public icon: string,
+     public country: string,
+     public enable: boolean
+
+  ){}
+}

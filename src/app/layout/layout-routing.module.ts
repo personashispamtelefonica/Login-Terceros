@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './base/base.component';
 import { CompanyListComponent } from './company-list/company-list.component';
 import { MainComponent } from './main/main.component';
+import { UserSurveyComponent } from './user-survey/user-survey.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: 'inicio', component: MainComponent },
       { path: 'usuarios', component: UsuariosListComponent },
       { path: 'company', component: CompanyListComponent },
+      { path: 'encuesta', component: UserSurveyComponent },
       { path: '**', redirectTo: 'inicio' },
     ],
   },

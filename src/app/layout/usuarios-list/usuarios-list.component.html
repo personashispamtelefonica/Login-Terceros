@@ -2,9 +2,9 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Usuarios registrados ({{totalUsuarios}})</h4>
+        <h4 class="card-title">Colaboradores registrados ({{totalUsuarios}})</h4>
         <h5 class="card-subtitlte">
-          Usuarios registrados en la Web de Terceros
+          Colaboradores registrados en la Web de Terceros
         </h5>
 
         <div class="row">
@@ -40,11 +40,11 @@
 
             <ng-container matColumnDef="nombre">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-              <td mat-cell *matCellDef="let row">{{ row.nombre }}</td>
+              <td class="w100" mat-cell *matCellDef="let row">{{ row.nombre }}</td>
             </ng-container>
 
             <ng-container matColumnDef="correo">
-              <th mat-header-cell *matHeaderCellDef>correo</th>
+              <th class="w100" mat-header-cell *matHeaderCellDef>correo</th>
               <td mat-cell *matCellDef="let row">
                 {{ row.correo }}
               </td>

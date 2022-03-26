@@ -166,10 +166,6 @@ th {
   line-height: 15px;
 }
 
-.cli-th {
-  display: flex;
-  align-items: center;
-}
 
 .cli-table-search {
   background-color: #e9eae8;
@@ -219,6 +215,10 @@ th {
     align-items: center;
     margin-top: 15px;
   }
+}
+
+.w100{
+  width: 150px;
 }
 
 .table-container {

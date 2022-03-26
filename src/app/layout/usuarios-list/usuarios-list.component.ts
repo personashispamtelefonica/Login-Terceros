@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./usuarios-list.component.scss']
 })
 export class UsuariosListComponent implements OnInit {
-  totalUsuarios:number=10;
+  totalUsuarios:number=13;
   loading: boolean = false;
   fixedAside: boolean = false;
   loadingItem = false;

@@ -120,11 +120,11 @@
   ],
   "CompanyList": [
     {
-      "id": 1,
       "nombre": "Experis",
-      "correo": "pablo@experis.com",
-      "ruc": "123 5543 22 3144",
-      "nContacto": "920080109"
+      "correo": "cesar123@experis.com",
+      "ruc": "123 5543 22 3100",
+      "nContacto": "920080144",
+      "id": 1
     },
     {
       "id": 2,
@@ -134,11 +134,11 @@
       "nContacto": "920080109"
     },
     {
-      "id": 3,
       "nombre": "Experis",
       "correo": "pablo@experis.com",
-      "ruc": "123 2341 22 3144",
-      "nContacto": "920080109"
+      "ruc": "123 2341 22 3121",
+      "nContacto": "920080102",
+      "id": 3
     },
     {
       "nombre": "Seguros",
