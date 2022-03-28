@@ -50,6 +50,7 @@
 .mat-icon {
   margin: auto;
   font-size: 26px;
+  // margin-right: 10px;
 }
 
 .btn-header {
@@ -64,10 +65,10 @@
   }
 }
 
-.mat-menu-header {
+/* .mat-menu-header {
   padding-top: 0px;
   padding-bottom: 0px;
-}
+} */
 .toolbar-header {
   background-color: #00bec0;
 }
@@ -81,11 +82,10 @@
   color: #00bec0;
 }
 .submenu-link{
-  // padding: 2px 2px 2px 1px;
-  padding: 0 2px 1px 25px;
+  padding: 0 2px 1px 15px;
   color: #5ac1d6;
   cursor: pointer;
-  min-height: 40px;
+  // min-height: 40px;
   display: flex;
   flex-grow: 1;
   align-items: center;
@@ -94,6 +94,7 @@
   position: relative;
   transition: 0.3s ease;
 }
+
 .submenu-link:hover{
   color: #2B3447;
   text-decoration: none;
@@ -108,7 +109,7 @@
 .menu-link {
   padding: 7px 10px;
   cursor: pointer;
-  min-height: 44px;
+  // min-height: 44px;
   display: flex;
   flex-grow: 1;
   align-items: stretch;
@@ -128,25 +129,28 @@
   color: #fff;
 }
 
+.active-link{
+  color: #FFF !important;
+  background-color: #B4DEE6;
+  border-right: 4px #00bec0 solid;
+}
+
 .mat-expansion-panel-header {
-  height: 45px;
+  // height: 45px;
   padding: 0 !important;
 }
 
 
-.side-height{
-  height: 1107px;
-  margin-top: 64px;
+/* .pad {
+  padding: 0 2px 2px !important;
 }
-
-.pad {
-  padding: 0 2px 2px;
-}
-
+ */
 .mat-expansion-panel-body {
   padding: 0 2px 2px;
+  background: #2B3447;
 }
 
+/* Burbuja */
 .cli-aside{
   position: fixed;
   /* top: 0; */
@@ -166,10 +170,11 @@
     flex:  1;
 }
 
+
 .aside-btn-float{
   // position: absolute;
   z-index: 60;
-  background-color: #fff ;
+  background-color: rgb(146, 30, 30) ;
   box-shadow: #b4dee6;
   right: -14px;
   top: 13px;

@@ -43,17 +43,15 @@
 .active {
   background-color: silver;
 }
-.mat-expansion-panel-header.mat-expanded {
-  height: auto;
-}
-.mat-expansion-panel-header-title {
-  margin-right: 0px;
+
+:host {
+  ::ng-deep {
+    .mat-expansion-panel-spacing {
+      margin: 0px 0 !important;
+    }
+  }
 }
 
-.mat-expansion-panel-header {
-  height: 40px;
-  padding: 0 !important;
-}
 .menu-link {
   padding: 9px 25px;
   cursor: pointer;

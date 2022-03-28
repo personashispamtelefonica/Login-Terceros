@@ -21,14 +21,16 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <div *ngFor="let subMenu of menu.subMenuList" class="sub-menu-sidenav">
-          <mat-icon class="submenu-icon" [matTooltip]="subMenu.info">
-            {{ subMenu.icon }}</mat-icon
-          >
-          <span *ngIf="sideNavState">
-            {{ subMenu.name }}
-          </span>
-        </div>
+          <div *ngFor="let subMenu of menu.subMenuList">
+            <mat-icon class="submenu-icon" [matTooltip]="subMenu.info">
+              {{ subMenu.icon }}</mat-icon
+            >
+            <span *ngIf="sideNavState">
+              {{ subMenu.name }}
+            </span>
+          </div>
+
+
       </mat-expansion-panel>
     </mat-accordion>
 

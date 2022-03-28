@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,10 +11,12 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-usuarios-list',
   templateUrl: './usuarios-list.component.html',
-  styleUrls: ['./usuarios-list.component.scss']
+  styleUrls: ['./usuarios-list.component.scss'],
 })
 export class UsuariosListComponent implements OnInit {
-  totalUsuarios:number=13;
+  companyValue = new FormControl();
+
+  totalUsuarios: number = 13;
   loading: boolean = false;
   fixedAside: boolean = false;
   loadingItem = false;
@@ -45,7 +48,17 @@ export class UsuariosListComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarUsuarios();
+    this.companyValue.valueChanges.subscribe(company=>{
+      console.log('COMPAN',company)
+      console.log('DDAT',this.dataSource)
+
+    this.dataSource.filter = company.trim().toLowerCase();
+
+
+    })
   }
+
+
 
   createUser() {
     const dialogRef = this.dialog.open(ModalUsersComponent, { width: '525px' });
@@ -91,7 +104,7 @@ export class UsuariosListComponent implements OnInit {
       });
   }
 
-  deleteUsers(id:number) {
+  deleteUsers(id: number) {
     Swal.fire({
       title: '¿Borrar usuario?',
       text: `¿Estas seguro que deseas eliminar el Usuario?`,
@@ -104,27 +117,25 @@ export class UsuariosListComponent implements OnInit {
       if (result.value) {
         console.log('Eliminandooo', result);
 
-        this.modalServices.deleteUsers(id)
-          .subscribe((resp) => {
-            this.cargarUsuarios();
-            Swal.fire({
-              title: 'Usuario eliminado',
-              text: 'El usuario se eliminó con exito',
-              icon: 'success',
-            });
+        this.modalServices.deleteUsers(id).subscribe((resp) => {
+          this.cargarUsuarios();
+          Swal.fire({
+            title: 'Usuario eliminado',
+            text: 'El usuario se eliminó con exito',
+            icon: 'success',
+          });
         });
-
       }
     });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
+    console.log('AAAA',filterValue)
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
-
 }

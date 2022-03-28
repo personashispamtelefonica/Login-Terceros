@@ -2,7 +2,9 @@
   <mat-icon>close</mat-icon>
 </button>
 
-<div class="modal-title">{{ editData ? "Actualizar" : "Crear" }} Usuario</div>
+<div class="modal-title">
+  {{ editData ? "Actualizar" : "Crear" }} Colaborador
+</div>
 
 <form class="cli-row" [formGroup]="usuariosForm">
   <div class="cli-form-element col-f-2">
@@ -10,7 +12,7 @@
     <input class="cli-input-white" formControlName="nombre" />
   </div>
   <div class="cli-form-element col-f-2">
-    <label>Correo del usuario:</label>
+    <label>Correo del representante</label>
     <input class="cli-input-white" formControlName="correo" />
   </div>
 
@@ -39,16 +41,23 @@
 
   <div class="cli-form-element col-f-2">
     <label>Cargo:</label>
-    <input class="cli-input-white" formControlName="cargo" />
+    <input
+      class="cli-input-white"
+      formControlName="cargo"
+      placeholder="Ingrese el cargo del colaborador"
+    />
   </div>
+
   <div class="cli-form-element col-f-2">
     <label>Empresa</label>
     <select class="cli-input-white" formControlName="empresa">
       <option value="" disabled>-- Seleccionar --</option>
       <option value="EXPERIS">Experis</option>
       <option value="INDRA">Indra</option>
-      <option value="ABC">Abc</option>
-      <option value="XYZ">Xyz</option>
+      <option value="CENTHOS">Centhos</option>
+      <option value="ALICORP">Alicorp</option>
+      <option value="INGENUA">Ingenua</option>
+      <option value="MBL">MBL</option>
     </select>
   </div>
 </form>

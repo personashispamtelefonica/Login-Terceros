@@ -1,80 +1,62 @@
 <div class="global-content">
-    <div class="cli-card">
-      <div class="cli-card-body">
-        <h4 class="cli-title-center c-male">Acceso a la encuesta</h4>
-        <h5 class="cli-subtitle">Ficha de sistematología de COVID-19</h5>
+  <div class="cli-card">
+    <div class="cli-card-body">
+      <h4 class="cli-title-center c-male">Acceso a la encuesta</h4>
+      <h5 class="cli-subtitle">Ficha de sistematología de COVID-19</h5>
 
-        <h4 style="color: #ff4081; text-align:left;">
-          Por favor marque el siguiente cuestionario
-        </h4>
+      <h4 style="color: #ff4081" class="cli-subtitle">
+        Por favor marque el siguiente cuestionario
+      </h4>
+      <form>
+        <table class="cli-table">
+          <thead>
+            <tr>
+              <th class="w30">N°</th>
+              <th class="w100">Preguntas</th>
+              <th class="w50">Seleccione</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let encuesta of encuestaList; let i = index">
+              <th>{{ i + 1 }}</th>
+              <td>{{ encuesta.label }}</td>
+              <td>
+                <div class="cli-form-buttons">
+                  <button
+                    class="cli-btn btn-l btn-magenta"
+                    (click)="changeAnswerValue(i, true)"
+                    [ngClass]="{
+                      'enabled-button': encuesta.responseValue == 'S'
+                    }"
+                  >
+                    Si
+                  </button>
+                  <button
+                    class="cli-btn btn-l btn-magenta"
+                    (click)="changeAnswerValue(i, false)"
+                    [ngClass]="{
+                      'enabled-button': encuesta.responseValue == 'N'
+                    }"
+                  >
+                    No
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
 
-        <form>
-          <table class="cli-table">
-            <thead>
-              <tr>
-                <th class="w30">N°</th>
-                <th class="w100">Preguntas</th>
-                <th class="w50">Seleccione</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let encuesta of encuestaList; let i = index">
-                <th>{{ i + 1 }}</th>
-                <td>{{ encuesta.label }}</td>
-                <td>
-                  <div class="cli-form-buttons">
-                    <button class="cli-btn btn-l btn-magenta">Si</button>
-                    <button class="cli-btn btn-l btn-magenta">No</button>
-                  </div>
-                </td>
-
-              </tr>
-            </tbody>
-          </table>
-        </form>
-        <!--  <td >
-  <mat-checkbox
-  name="enable"
-                 [(ngModel)]="encuesta.enable">{{encuesta.enable ? "SI" : "NO"}}
-  </mat-checkbox>
-</td> -->
-
-
-        <!--   <div class="row" *ngFor="let encuesta of encuestaList; let i=index">
-    <td>{{i+1}}</td>
-    <td> {{encuesta.label}}</td>
-
-    <td class="col-sm-10">
-      <div class="form-check form-check-inline">
-        <input type="radio"
-        value="SI"
-        name="enable"
-        class="form-check-input"
-        [(ngModel)]="encuesta.enable"
-
+      <div style="display: flex; justify-content: center; margin-top: 40px">
+        <button
+          class="cli-btn btn-emerald"
+          type="submit"
+          (click)="guardar()"
+          [disabled]="!validForm"
         >
-        <label>si</label>
-      </div>
-
-      <div class="form-check form-check-inline">
-        <input type="radio"
-        value="NO"
-        class="form-check-input"
-        name="enable"
-        [(ngModel)]="encuesta.enable"
-        >
-        <label  >No</label>
-
-      </div>
-
-    </td>
-  </div> -->
-
-        <div style="display: flex; justify-content: center; margin-top: 40px">
-          <button class="cli-btn btn-emerald" type="submit" (click)="guardar()">
-            <mat-icon class="icon-18">save</mat-icon> Guardar encuesta
-          </button>
-        </div>
+          <mat-icon class="icon-18">save</mat-icon> Guardar encuesta
+        </button>
       </div>
     </div>
+  </div>
 </div>

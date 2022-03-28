@@ -39,7 +39,7 @@
     </mat-menu>
   </mat-toolbar>
 
-  <mat-sidenav #sidenav class="siade-height cli-aside aside-btn-floaat">
+  <mat-sidenav #sidenav class="cli-aside">
     <mat-toolbar style="background-color: #2b3447">
       <span style="text-align: center; color: #fff"
         >Menú
@@ -57,18 +57,22 @@
     <mat-accordion>
       <mat-expansion-panel
         style="cursor: pointer"
-
         [hideToggle]="!sideNavState"
         *ngFor="let menu of menuList; let i = index"
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
-        <mat-expansion-panel-header class="cli-aside-container">
+        <mat-expansion-panel-header  class="cli-aside-container">
           <mat-panel-title class="menu-link" (click)="setMenuIndex(i)">
-            <a [ngClass]="{ active: menuSelected == i }">
-              <mat-icon [matTooltip]="menu.info" class="menu-icon">{{
-                menu.icon
-              }}</mat-icon>
+            <!-- [ngClass]="{'menu-link-open' : item.displayed}" -->
+            <a
+            [ngClass]="{ active: menuSelected == i }"
+            >
+            <i class="menu-icon">
+              <mat-icon [matTooltip]="menu.info">
+                {{ menu.icon }}
+              </mat-icon>
+            </i>
               <span *ngIf="sideNavState">
                 {{ menu.name }}
               </span>
@@ -80,6 +84,7 @@
         <div *ngFor="let subMenu of menu.subMenuList"
         >
           <a class="submenu-link" [routerLink]="subMenu.link"
+          routerLinkActive="active-link"
 
           >
             <i class="submenu-icon">

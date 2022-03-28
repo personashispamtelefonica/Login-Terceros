@@ -38,7 +38,8 @@
 
 .cli-table {
   margin-left: 25%;
-  width: 55%;
+  // width: 55%;
+  margin: 0 auto;
   background-color: #fff;
   & th {
     padding: 5px;
@@ -124,6 +125,7 @@
   border: solid 0.5px #9e9e9e;;
   color: #5b5f5b;
   transition: ease 0.3s;
+  cursor: pointer;
   &:hover:enabled {
     background-color: #fbc7de;
   }
@@ -132,6 +134,22 @@
     color: #fff;
   }
 }
+
+.enabled-button {
+  background-color: #FF4081;
+  border: solid 0.5px #9e9e9e;;
+  color: #fff;
+  transition: ease 0.3s;
+  cursor: pointer;
+  &:hover:enabled {
+    background-color: #fbc7de;
+  }
+
+}
+/* .enabled-button{
+  background: green;
+  color: #fff;
+} */
 
 .cli-form {
   width: 100%;
@@ -168,8 +186,17 @@
 
 
 
-@media (max-width: 850px) {
 
+@media (max-width: 850px) {
+  .cli-card-body {
+    min-height: 0.5px;
+    padding: 1rem 1rem;
+  }
+  .btn-l {
+    width: 30px;
+    padding: 0 10px;
+    margin-left: 5px;
+  }
   .cli-table {
 margin-left: 0%;
     width: 100%;

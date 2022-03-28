@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalUserService } from 'src/app/services/modal-user.service';
 import Swal from 'sweetalert2';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ModalCompanyService } from 'src/app/services/modal-company.service';
@@ -18,15 +17,16 @@ export class ModalCompaniesComponent implements OnInit {
     private fb: FormBuilder,
     private modalServices: ModalCompanyService,
     private dialogRef: MatDialogRef<ModalCompaniesComponent>,
-    @Inject(MAT_DIALOG_DATA) public editData: {id:number, nombre:string,correo:string,ruc:number, nContacto:string},
+    @Inject(MAT_DIALOG_DATA) public editData: {id:number, nombre:string, emailRep:string,correo:string,ruc:number, nContacto:string},
   ) {}
 
   ngOnInit(): void {
     this.companyForm = this.fb.group({
-      nombre: ['', Validators.required],
-      correo: ['company@indracompany.com', [Validators.required, Validators.email]],
-      ruc:    ['', Validators.required],
-      nContacto: ['', Validators.required],
+      nombre:   ['', Validators.required],
+      emailRep: ['company@indracompany.com', [Validators.required, Validators.email]],
+      correo:   ['abc@gmail.com', [Validators.required, Validators.email]],
+      ruc:      ['', [Validators.required, Validators.maxLength(11)]],
+      nContacto:['', Validators.required],
     });
 
     console.log('Data COMPANY', this.editData);
@@ -34,6 +34,7 @@ export class ModalCompaniesComponent implements OnInit {
     if (this.editData) {
       this.actionBtn = 'Actualizar';
       this.companyForm.controls['nombre'].setValue(this.editData.nombre);
+      this.companyForm.controls['emailRep'].setValue(this.editData.emailRep);
       this.companyForm.controls['correo'].setValue(this.editData.correo);
       this.companyForm.controls['ruc'].setValue(this.editData.ruc);
       this.companyForm.controls['nContacto'].setValue(this.editData.nContacto);

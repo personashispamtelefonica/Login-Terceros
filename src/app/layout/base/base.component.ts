@@ -17,44 +17,62 @@ export class BaseComponent implements OnInit {
   hasphoto = false;
   fullName: string = '';
   userAbbreviation = ''; //input user-section
-  fixedAside: boolean = true;
+  fixedAside: boolean = false;
   sideNavState = false;
   menuConfig!: Menu[];
 
   menuList = [
     {
       icon: 'home',
+      link: '',
       name: 'Inicio',
       info: 'Inicio',
       subMenuList: [
-        { icon: 'engineering', name: 'Listas', info: 'usuarios guardados' },
-        { icon: 'search', name: 'codigos', info: 'Coóigos guardados' },
+        {
+          icon: 'engineering',
+          name: 'Listas',
+          link: 'abcd',
+          info: 'usuarios guardados',
+        },
+        {
+          icon: 'search',
+          name: 'codigos',
+          link: 'abc',
+          info: 'Coóigos guardados',
+        },
       ],
     },
     {
       icon: 'brightness_7',
       name: 'Mantenimiento',
-      info: 'Inicio',
+      link: '',
+      info: 'Mantenimiento',
       subMenuList: [
         {
           icon: 'business',
           link: 'company',
-          name: 'Colaboradores',
+          name: 'Empresa',
           info: 'Lista empresas',
         },
         {
           icon: 'people',
           link: 'usuarios',
-          name: 'Usuarios',
-          info: 'Lista de Usuarios',
+          name: 'Colaboradores',
+          info: 'Lista de colaboradores',
         },
-        { icon: 'search', name: 'codigos', info: 'Coóigos guardados' },
+        {
+          icon: 'search',
+          link: 'xyz',
+          name: 'Todo',
+          info: 'Coóigos guardados',
+        },
       ],
     },
     {
       icon: 'groups',
       name: 'Encuestas',
-      info: 'Creación de usuarios',
+      link: '',
+      info: 'Encuestas a colaboradores',
       subMenuList: [
         {
           icon: 'person',

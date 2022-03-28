@@ -12,18 +12,28 @@
     </div>
 
     <div class="cli-form-element col-f-2">
-      <label> Correo del contacto:</label>
+      <label> Correo del Respresentante:</label>
+      <input class="cli-input-white" formControlName="emailRep" />
+    </div>
+
+    <div class="cli-form-element col-f-2">
+      <label> Correo del colaborador:</label>
       <input class="cli-input-white" formControlName="correo" />
     </div>
 
     <div class="cli-form-element col-f-2">
       <label> RUC:</label>
-      <input class="cli-input-white" formControlName="ruc" />
+      <input class="cli-input-white"
+      placeholder="Ingrese el Ruc de la empresa"
+      maxlength="11"
+      formControlName="ruc" />
     </div>
 
     <div class="cli-form-element col-f-2">
-      <label> Número del contacto:</label>
-      <input class="cli-input-white" formControlName="nContacto" />
+      <label> Número del colaborador:</label>
+      <input class="cli-input-white" formControlName="nContacto"
+      placeholder="Ingrese el número del colaborador"
+      />
     </div>
   </form>
 </div>

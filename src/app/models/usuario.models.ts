@@ -11,13 +11,11 @@ export class Usuario {
   ) {}
 }
 
-export class Encuesta {
-  constructor(
-    public id: number,
-     public label:string,
-     public icon: string,
-     public country: string,
-     public enable: boolean
-
-  ){}
+export interface Encuesta {
+    id: number;
+    label:string;
+    icon: string;
+    country: string;
+    enable: boolean;
+    responseValue?: string;
 }

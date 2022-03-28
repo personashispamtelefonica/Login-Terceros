@@ -2,7 +2,9 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Colaboradores registrados ({{totalUsuarios}})</h4>
+        <h4 class="card-title">
+          Colaboradores registrados ({{ totalUsuarios }})
+        </h4>
         <h5 class="card-subtitlte">
           Colaboradores registrados en la Web de Terceros
         </h5>
@@ -20,13 +22,27 @@
             <mat-icon class="icon-20">search</mat-icon>
           </div>
 
+          <div class="cli-formd-element">
+            <label for="" style="margin: 10px 12px; font-size: 12px;">Selecione la empresa</label>
+            <select class="cli-input-white" [formControl]="companyValue">
+              <option value="" disabled>-- Seleccionar --</option>
+              <option value="">Todas</option>
+              <option value="EXPERIS">Experis</option>
+              <option value="INDRA">Indra</option>
+              <option value="MBL">Mbl</option>
+              <option value="ALICORP">Alicorp</option>
+            </select>
+          </div>
+
+
+
           <div>
             <button
               type="button"
               class="cli-btn btn-emerald mb-2"
               (click)="createUser()"
             >
-              <mat-icon class="icon-18">add</mat-icon>Crear usuario
+              <mat-icon class="icon-18">add</mat-icon>Crear colaborador
             </button>
           </div>
         </div>
@@ -40,11 +56,15 @@
 
             <ng-container matColumnDef="nombre">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-              <td class="w100" mat-cell *matCellDef="let row">{{ row.nombre }}</td>
+              <td class="w100" mat-cell *matCellDef="let row">
+                {{ row.nombre }}
+              </td>
             </ng-container>
 
             <ng-container matColumnDef="correo">
-              <th class="w100" mat-header-cell *matHeaderCellDef>correo</th>
+              <th class="w100" mat-header-cell *matHeaderCellDef>
+                correo del representante
+              </th>
               <td mat-cell *matCellDef="let row">
                 {{ row.correo }}
               </td>
@@ -60,12 +80,12 @@
             </ng-container>
 
             <ng-container matColumnDef="pais">
-              <th mat-header-cell *matHeaderCellDef>pais</th>
+              <th mat-header-cell *matHeaderCellDef>Pais</th>
               <td mat-cell *matCellDef="let row">{{ row.pais }}</td>
             </ng-container>
 
             <ng-container matColumnDef="empresa">
-              <th mat-header-cell *matHeaderCellDef>empresa</th>
+              <th mat-header-cell *matHeaderCellDef>Empresa</th>
               <td mat-cell *matCellDef="let row">{{ row.empresa }}</td>
             </ng-container>
 
@@ -76,7 +96,6 @@
                   <button
                     (click)="editUsers(row)"
                     matTooltip="Editar"
-
                     class="icon-btn btn-trans c-blue"
                   >
                     <mat-icon>edit</mat-icon>
@@ -86,7 +105,6 @@
                     (click)="deleteUsers(row.id)"
                     style="margin-left: 35px"
                     matTooltip="Eliminar"
-
                     class="icon-btn btn-trans c-fucsia"
                   >
                     <mat-icon>delete</mat-icon>
@@ -111,35 +129,42 @@
             aria-label="Select page of users"
           ></mat-paginator>
         </div>
-
-
       </div>
 
-       <!-- PAGINACIÓN -->
-       <div class="cli-loader" *ngIf="loadingItem">
-        <mat-spinner style="margin-right: 20px;" diameter=20></mat-spinner> cargando...
+      <!-- PAGINACIÓN -->
+      <div class="cli-loader" *ngIf="loadingItem">
+        <mat-spinner style="margin-right: 20px" diameter="20"></mat-spinner>
+        cargando...
       </div>
 
       <!-- <div *ngIf="!loadingItem && data.length == 0" class="cli-loader">No hay elementos para mostrar</div> -->
 
-      <div *ngIf="!loadingItem && table_settings.pages>1" class="cli-pagination-container">
-        <div class="cli-pagination-page">Página: </div>
-        <button [disabled]="table_settings.page == 1"
-                (click)="doPageChange(-1)"
-                class="icon-btn btn-blue">
+      <div
+        *ngIf="!loadingItem && table_settings.pages > 1"
+        class="cli-pagination-container"
+      >
+        <div class="cli-pagination-page">Página:</div>
+        <button
+          [disabled]="table_settings.page == 1"
+          (click)="doPageChange(-1)"
+          class="icon-btn btn-blue"
+        >
           <mat-icon class="icon-20">chevron_left</mat-icon>
         </button>
         <div class="cli-pagination-page">
-          {{table_settings.page}}
+          {{ table_settings.page }}
         </div>
-        <button [disabled]="table_settings.page == table_settings.pages" (click)="doPageChange(1)"
-          class="icon-btn btn-blue" style="margin-right: 10px;">
+        <button
+          [disabled]="table_settings.page == table_settings.pages"
+          (click)="doPageChange(1)"
+          class="icon-btn btn-blue"
+          style="margin-right: 10px"
+        >
           <mat-icon class="icon-20">chevron_right</mat-icon>
         </button>
         de
-        <div style="margin-left: 10px;"> {{ table_settings.pages}} </div>
+        <div style="margin-left: 10px">{{ table_settings.pages }}</div>
       </div>
-
     </div>
   </div>
 </div>

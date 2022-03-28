@@ -33,6 +33,10 @@ th {
   }
 }
 
+.cli-form-element {
+  margin-bottom: 0 !important;
+}
+
 .cli-btn {
   border: solid 1px #00bec0;
   border-radius: 2px;
@@ -166,7 +170,6 @@ th {
   line-height: 15px;
 }
 
-
 .cli-table-search {
   background-color: #e9eae8;
   display: flex;
@@ -176,6 +179,7 @@ th {
   width: 200px;
   transition: ease 0.3s;
   border: solid 0.5px #d4d4d4;
+  height: 35px;
   & input {
     border: none;
     background-color: transparent;
@@ -184,6 +188,26 @@ th {
   }
   &:focus-within {
     background-color: #f4f4f3;
+  }
+}
+.cli-input-white {
+  border: solid 0.5px #b6b7b7;
+  height: 35px;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 5px 10px;
+  transition: ease 0.3s;
+
+  margin: 0px -8px;
+  &:hover:enabled {
+    border-color: #00bec0;
+  }
+  &:focus:enabled {
+    border-color: #00bec0;
+  }
+  &:disabled {
+    background-color: #f8f8f8;
+    color: #86888c;
   }
 }
 
@@ -217,7 +241,7 @@ th {
   }
 }
 
-.w100{
+.w100 {
   width: 150px;
 }
 
@@ -270,6 +294,12 @@ th {
   background-color: rgb(240, 239, 239);
   border: solid 0.5px #ff4081;
 }
+.col-f-2 {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+
 
 @media (max-width: 850px) {
   th.mat-header-cell {
@@ -284,6 +314,15 @@ th {
   .mat-form-field {
     font-size: 12px;
     width: 100%;
+  }
+
+
+  .cli-input-white {
+    height: 30px;
+    background-color: #fff;
+    border-radius: 2px;
+
+    margin: 0px -8px;
   }
 
   .cli-table {

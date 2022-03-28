@@ -25,6 +25,7 @@ export class CompanyListComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'nombre',
+    'emailRep',
     'correo',
     'ruc',
     'nContacto',

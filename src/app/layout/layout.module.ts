@@ -18,8 +18,8 @@ import { BlockUIModule } from 'ng-block-ui';
 import { ComponentsModule } from '../components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { CompanyListComponent } from './company-list/company-list.component';
-import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
+import { CompanyListComponent } from './mantenimiento/company-list/company-list.component';
+import { UsuariosListComponent } from './mantenimiento/usuarios-list/usuarios-list.component';
 import { UserSurveyComponent } from './user-survey/user-survey.component';
 
 
