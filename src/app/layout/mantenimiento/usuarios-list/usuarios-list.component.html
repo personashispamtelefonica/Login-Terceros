@@ -3,10 +3,10 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">
-          Colaboradores registrados ({{ totalUsuarios }})
+          Colaboradores registrados en la Web de Terceros
         </h4>
         <h5 class="card-subtitlte">
-          Colaboradores registrados en la Web de Terceros
+          Total Colaboradores registrados ({{ totalUsuarios }})
         </h5>
 
         <div class="row">
@@ -23,7 +23,9 @@
           </div>
 
           <div class="cli-formd-element">
-            <label for="" style="margin: 10px 12px; font-size: 12px;">Selecione la empresa</label>
+            <label for="" style="margin: 10px 12px; font-size: 12px"
+              >Selecione la empresa</label
+            >
             <select class="cli-input-white" [formControl]="companyValue">
               <option value="" disabled>-- Seleccionar --</option>
               <option value="">Todas</option>
@@ -33,8 +35,6 @@
               <option value="ALICORP">Alicorp</option>
             </select>
           </div>
-
-
 
           <div>
             <button
@@ -87,6 +87,18 @@
             <ng-container matColumnDef="empresa">
               <th mat-header-cell *matHeaderCellDef>Empresa</th>
               <td mat-cell *matCellDef="let row">{{ row.empresa }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="rol">
+              <th mat-header-cell *matHeaderCellDef>Rol</th>
+              <td mat-cell *matCellDef="let row">
+                <span *ngIf="row.rol == 'GESTOR'" class="label label-danger"
+                  >GESTOR</span
+                >
+                <span *ngIf="row.rol == 'USER'" class="label label-info"
+                  >USER</span
+                >
+              </td>
             </ng-container>
 
             <ng-container matColumnDef="action">

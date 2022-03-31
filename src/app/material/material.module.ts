@@ -16,7 +16,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-// import { MatTabsModule } from '@angular/material/tabs';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 @NgModule({
   declarations: [],
   exports: [
@@ -34,7 +35,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSortModule,
     MatInputModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+
+    MatProgressBarModule
   ],
 })
 export class MaterialModule { }

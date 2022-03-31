@@ -10,9 +10,10 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-company-list',
   templateUrl: './company-list.component.html',
-  styleUrls: ['./company-list.component.scss']
+  styleUrls: ['./company-list.component.scss'],
 })
 export class CompanyListComponent implements OnInit {
+  totalEmp: number = 0;
   loading: boolean = false;
   fixedAside: boolean = false;
   loadingItem = false;
@@ -29,7 +30,7 @@ export class CompanyListComponent implements OnInit {
     'correo',
     'ruc',
     'nContacto',
-    'action'
+    'action',
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -46,7 +47,9 @@ export class CompanyListComponent implements OnInit {
   }
 
   createCompany() {
-    const dialogRef = this.dialog.open(ModalCompaniesComponent, { width: '525px' });
+    const dialogRef = this.dialog.open(ModalCompaniesComponent, {
+      width: '525px',
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
@@ -67,6 +70,7 @@ export class CompanyListComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.totalEmp = res.length;
       },
       error: (err) => {
         Swal.fire('Error', 'No se pudo cargar la lista de Empresas', 'warning');
@@ -123,5 +127,4 @@ export class CompanyListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
 }

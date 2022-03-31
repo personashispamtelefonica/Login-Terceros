@@ -7,6 +7,7 @@
       "genero": "F",
       "cargo": "analista",
       "empresa": "EXPERIS",
+      "rol": "GESTOR",
       "id": 1
     },
     {
@@ -16,6 +17,7 @@
       "genero": "F",
       "cargo": "Diseño UI",
       "empresa": "MBL",
+      "rol": "USER",
       "id": 2
     },
     {
@@ -25,6 +27,7 @@
       "genero": "M",
       "cargo": "Analista",
       "empresa": "EXPERIS",
+      "rol": "USER",
       "id": 3
     },
     {
@@ -34,6 +37,7 @@
       "genero": "M",
       "cargo": "scrum",
       "empresa": "INDRA",
+      "rol": "GESTOR",
       "id": 4
     },
     {
@@ -43,6 +47,7 @@
       "genero": "F",
       "cargo": "Desarrollador Back",
       "empresa": "INDRA",
+      "rol": "USER",
       "id": 5
     },
     {
@@ -52,6 +57,7 @@
       "genero": "M",
       "cargo": "Diseño UI",
       "empresa": "MBL",
+      "rol": "USER",
       "id": 6
     },
     {
@@ -61,15 +67,17 @@
       "genero": "M",
       "cargo": "Scrum",
       "empresa": "EXPERIS",
+      "rol": "USER",
       "id": 7
     },
     {
       "nombre": "Mariana Cuenca Ch.",
       "correo": "LADY@experis.com",
-      "pais": "ESP",
+      "pais": "CHI",
       "genero": "F",
       "cargo": "PIO",
-      "empresa": "EXPERIS",
+      "empresa": "USER",
+      "rol": "GESTOR",
       "id": 8
     },
     {
@@ -79,6 +87,7 @@
       "genero": "F",
       "cargo": "Diseño UI",
       "empresa": "MBL",
+      "rol": "USER",
       "id": 9
     },
     {
@@ -88,6 +97,7 @@
       "genero": "F",
       "cargo": "Analista",
       "empresa": "EXPERIS",
+      "rol": "USER",
       "id": 10
     },
     {
@@ -97,6 +107,7 @@
       "genero": "F",
       "cargo": "PIO",
       "empresa": "EXPERIS",
+      "rol": "USER",
       "id": 11
     },
     {
@@ -106,6 +117,7 @@
       "genero": "F",
       "cargo": "Diseñador UI",
       "empresa": "INDRA",
+      "rol": "USER",
       "id": 12
     },
     {
@@ -115,7 +127,28 @@
       "genero": "M",
       "cargo": "Scrum Master",
       "empresa": "ALICORP",
+      "rol": "USER",
       "id": 13
+    },
+    {
+      "nombre": "karina Castillo",
+      "correo": "DANIEL@indracompanyl.com",
+      "pais": "PER",
+      "genero": "F",
+      "cargo": "Frontend",
+      "empresa": "INDRA",
+      "rol": "USER",
+      "id": 14
+    },
+    {
+      "nombre": "Pamela Estrada",
+      "correo": "MELISA@alicorp.com",
+      "pais": "ARG",
+      "genero": "F",
+      "cargo": "Scrum",
+      "empresa": "GESTOR",
+      "rol": "USER",
+      "id": 15
     }
   ],
   "CompanyList": [
@@ -166,6 +199,48 @@
       "ruc": "12344532113",
       "nContacto": "9200801039",
       "id": 6
+    }
+  ],
+  "listPases": [
+    {
+      "id": 1,
+      "date": "20-03-2022",
+      "enable": false
+    },
+    {
+      "id": 2,
+      "date": "20-03-2022",
+      "enable": false
+    },
+    {
+      "id": 3,
+      "date": "20-02-2022",
+      "enable": true
+    },
+    {
+      "id": 4,
+      "date": "4-03-2022",
+      "enable": false
+    },
+    {
+      "id": 5,
+      "date": "10-03-2022",
+      "enable": false
+    },
+    {
+      "id": 6,
+      "date": "25-03-2022",
+      "enable": false
+    },
+    {
+      "id": 7,
+      "date": "20-03-2022",
+      "enable": true
+    },
+    {
+      "id": 8,
+      "date": "24-03-2022",
+      "enable": false
     }
   ],
   "profile": {

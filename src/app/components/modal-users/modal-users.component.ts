@@ -21,7 +21,7 @@ export class ModalUsersComponent implements OnInit {
     private fb: FormBuilder,
     private modalServices: ModalUserService,
     private dialogRef: MatDialogRef<ModalUsersComponent>,
-    @Inject(MAT_DIALOG_DATA) public editData: {id:number,nombre:string, correo:string, pais:string[], genero:string[],cargo:string, empresa:string[]}
+    @Inject(MAT_DIALOG_DATA) public editData: {id:number,nombre:string, correo:string, pais:string[], genero:string[],cargo:string,rol:string, empresa:string[]}
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +32,7 @@ export class ModalUsersComponent implements OnInit {
       genero: ['', Validators.required],
       cargo:  ['', Validators.required],
       empresa:['', Validators.required],
+      rol:    ['USER',Validators.required]
     });
 
     console.log('Data Modal', this.editData);
@@ -44,6 +45,7 @@ export class ModalUsersComponent implements OnInit {
       this.usuariosForm.controls['genero'].setValue(this.editData.genero);
       this.usuariosForm.controls['cargo'].setValue(this.editData.cargo);
       this.usuariosForm.controls['empresa'].setValue(this.editData.empresa);
+      this.usuariosForm.controls['rol'].setValue(this.editData.rol)
     }
   }
 

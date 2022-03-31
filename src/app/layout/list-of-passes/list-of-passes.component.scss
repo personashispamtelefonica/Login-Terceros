@@ -1,0 +1,181 @@
+
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.titulo-modal {
+  color: #019df4;
+  font-size: 30px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
+.icon-btn {
+  padding: 2px;
+  border: none;
+  display: flex;
+  align-items: baseline;
+  margin: 0 2px;
+  border-radius: 2px;
+  margin-top: 1px;
+  cursor: pointer;
+  &:disabled {
+    background-color: #f4f4f3;
+    color: #fff;
+  }
+}
+.btn-trans {
+  background-color: transparent;
+  transition: ease 0.3s;
+  &:hover:enabled {
+    background-color: #00000014;
+  }
+  &:hover:enabled:active {
+    background-color: #00000044;
+  }
+}
+
+.c-fucsia {
+  color: #ff4081;
+  background-color: rgb(240, 239, 239);
+  border: solid 0.5px #ff4081;
+}
+
+.cli-table {
+  width: 100%;
+
+  &-actions {
+    // display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* ADMIN */
+.table {
+  border-spacing: 0 3px;
+  // border-collapse: separate;
+}
+
+.w100{
+  width: 100px;
+  text-align: center;
+}
+
+.w150{
+  width: 150px;
+  text-align: center;
+}
+.table tbody tr td {
+  vertical-align: middle;
+
+}
+.table td, .table th {
+  padding: 0.45rem;
+}
+
+.table-bordered td,
+.table-bordered th {
+  border: 0.5px solid #dee6de;
+}
+
+.table-bordered thead th {
+  background: #00bec091;
+  color: #FFF;
+  font-weight: 400;
+}
+
+.card {
+  margin-bottom: 30px;
+}
+.card .card-subtitle {
+  font-weight: 300;
+  margin-bottom: 15px;
+  color: #99abb4;
+  font-size: 15px;
+}
+.card .card-title {
+  position: relative;
+  color: #00bec0;
+  font-size: 25px;
+}
+
+.label {
+  padding: 3px 10px;
+  line-height: 13px;
+  color: #ffffff;
+  font-weight: 400;
+  border-radius: 4px;
+  font-size: 75%;
+}
+
+.label-info {
+  background-color: #398bf7;
+}
+
+.label-danger {
+  background-color: #ef5350;
+}
+
+.label-success {
+  background-color: #06d79c;
+}
+.rows {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cli-btn {
+  border: none;
+  border-radius: 2px;
+  margin: 0 5px;
+  height: 30px;
+  padding: 0 10px;
+  font-family: "Telefonica-Bold" !important;
+  display: flex;
+  align-items: center;
+
+  border: solid 0.5px;
+  cursor: pointer;
+  width: 100px;
+  & mat-icon {
+    margin: 0 5px;
+  }
+  &:disabled {
+    background-color: #f4f4f3;
+    color: #fff;
+  }
+}
+
+.icon-18{
+  width: 18px !important;
+  height: 18px !important;
+  font-size: 18px !important;
+}
+
+.btn-grey {
+  background-color: #f5f5f5;
+  transition: ease 0.3s;
+  &:hover:enabled {
+    background-color: #f4f4f3;
+  }
+  &:hover:enabled:active {
+    color: #FFF;
+    background-color: #2b3447;
+    // background-color: #d3d4d3;F
+  }
+}
+
+
+@media (max-width: 850px) {
+
+  .w100{
+    width: 50px;
+    text-align: center;
+  }
+
+  .w150{
+    width: 80px;
+    text-align: center;
+  }
+}

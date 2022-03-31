@@ -61,7 +61,7 @@
 }
 
 .col-f-2 {
-  width: 100%;
+  width: 50%;
   padding: 5px 10px;
 }
 
@@ -169,4 +169,14 @@
     justify-content: center;
     margin: auto 5px;
   }
+}
+
+
+
+@media (max-width: 856px) {
+
+.col-f-2 {
+  width: 100%;
+  padding: 5px 2px;
+}
 }

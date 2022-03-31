@@ -80,6 +80,12 @@ export class BaseComponent implements OnInit {
           name: 'Encuesta de colaboradores',
           info: 'Confirmación de encuestas',
         },
+        {
+          icon: 'checklist_rtl',
+          link: 'pases',
+          name: 'lissta de pases',
+          info: 'Pase de colaboradores',
+        },
       ],
     },
   ];

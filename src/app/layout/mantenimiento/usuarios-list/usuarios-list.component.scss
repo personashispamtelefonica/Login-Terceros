@@ -222,7 +222,7 @@ th {
   }
   & th {
     padding: 3px;
-    font-weight: 600;
+    font-weight: 400;
     text-align: center;
     background-color: #00bec0;
     color: #fff;
@@ -299,7 +299,25 @@ th {
   padding: 5px 10px;
 }
 
+/* Styles ROL */
+.label {
+  padding: 3px 10px;
+  line-height: 13px;
+  color: #fff;
+  font-weight: 400;
+  border-radius: 4px;
+  font-size: 75%;
+  background-color: #398bf7;
+  width: 190px;
+}
 
+.label-danger {
+  background-color: #ef5350;
+}
+
+.label-info {
+  background-color: #398bf7;
+}
 
 @media (max-width: 850px) {
   th.mat-header-cell {
@@ -315,7 +333,6 @@ th {
     font-size: 12px;
     width: 100%;
   }
-
 
   .cli-input-white {
     height: 30px;

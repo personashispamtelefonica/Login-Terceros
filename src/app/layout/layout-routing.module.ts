@@ -5,6 +5,7 @@ import { CompanyListComponent } from './mantenimiento/company-list/company-list.
 import { MainComponent } from './main/main.component';
 import { UserSurveyComponent } from './user-survey/user-survey.component';
 import { UsuariosListComponent } from './mantenimiento/usuarios-list/usuarios-list.component';
+import { ListOfPassesComponent } from './list-of-passes/list-of-passes.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'usuarios', component: UsuariosListComponent },
       { path: 'company', component: CompanyListComponent },
       { path: 'encuesta', component: UserSurveyComponent },
+      { path: 'pases', component: ListOfPassesComponent },
       { path: '**', redirectTo: 'inicio' },
     ],
   },

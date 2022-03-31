@@ -16,7 +16,9 @@ import Swal from 'sweetalert2';
 export class UsuariosListComponent implements OnInit {
   companyValue = new FormControl();
 
-  totalUsuarios: number = 13;
+  rolUser: string = '';
+
+  totalUsuarios: number = 0;
   loading: boolean = false;
   fixedAside: boolean = false;
   loadingItem = false;
@@ -34,6 +36,7 @@ export class UsuariosListComponent implements OnInit {
     'pais',
     'cargo',
     'empresa',
+    'rol',
     'action',
   ];
   dataSource!: MatTableDataSource<any>;
@@ -48,17 +51,12 @@ export class UsuariosListComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarUsuarios();
-    this.companyValue.valueChanges.subscribe(company=>{
-      console.log('COMPAN',company)
-      console.log('DDAT',this.dataSource)
+    this.companyValue.valueChanges.subscribe((company) => {
+      console.log('Usuarios', company);
 
-    this.dataSource.filter = company.trim().toLowerCase();
-
-
-    })
+      this.dataSource.filter = company.trim().toLowerCase();
+    });
   }
-
-
 
   createUser() {
     const dialogRef = this.dialog.open(ModalUsersComponent, { width: '525px' });
@@ -82,6 +80,7 @@ export class UsuariosListComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.totalUsuarios = res.length;
       },
       error: (err) => {
         Swal.fire('Error', 'No se pudo cargar los Usuarios', 'warning');
@@ -131,7 +130,7 @@ export class UsuariosListComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    console.log('AAAA',filterValue)
+    console.log('AAAA', filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {

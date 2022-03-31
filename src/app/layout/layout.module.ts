@@ -21,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { CompanyListComponent } from './mantenimiento/company-list/company-list.component';
 import { UsuariosListComponent } from './mantenimiento/usuarios-list/usuarios-list.component';
 import { UserSurveyComponent } from './user-survey/user-survey.component';
+import { ListOfPassesComponent } from './list-of-passes/list-of-passes.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { UserSurveyComponent } from './user-survey/user-survey.component';
     CompanyListComponent,
     UsuariosListComponent,
     UserSurveyComponent,
+    ListOfPassesComponent,
   ],
 
   exports: [

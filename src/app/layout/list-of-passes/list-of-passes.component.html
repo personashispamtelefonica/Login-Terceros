@@ -1,0 +1,86 @@
+<!-- <h4 class="modalheader mb-2 d-flex justify-content-between align-items-center">
+  <span style="flex: 1 1 auto"></span>
+  <span (click)="closeModal()" class="modalclosebutton d-flex align-items-center justify-content-center" >
+    <mat-icon matSuffix>cancel</mat-icon>
+  </span>
+</h4> -->
+<!-- <td>{{item.updatedAt | date: 'dd-MM-yyyy h:mm:ss a'}}</td> -->
+
+<!-- TABLA ADMIN -->
+<div class="row" style="margin-top: 20px" *ngIf="cargando">
+  <div class="col-12">
+    <div class="alert alert-info text-center">
+      <h4 class="alert-heading">Cargando</h4>
+      <!-- <i class="fa fa-spin fa-refresh fa-2x"></i> -->
+      <!-- <mat-spinner diameter="20"></mat-spinner> -->
+      <p class="mb-0">Por favor espere</p>
+    </div>
+  </div>
+</div>
+
+<!-- *ngIf="!cargando" -->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista de pases registrados</h4>
+        <h6 class="card-subtitle">Total de pases ({{listPasses.length}})</h6>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="w100">N°</th>
+                <th>Fecha</th>
+                <th class="w150">Estado</th>
+                <th class="w100">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let list of listPasses">
+                <td style="text-align: center;">{{list.id}}</td>
+                <td>{{list.date}}</td>
+                <td style="text-align: center">
+                  <span *ngIf="!list.enable" class="label label-danger">INACTIVO</span>
+                  <span *ngIf="list.enable" class="label label-success">ACTIVO</span>
+                </td>
+
+                <td>
+                  <div class="cli-table-actions">
+                    <button
+                      (click)="eliminarPase()"
+                      style="margin-left: 35px"
+                      matTooltip="Eliminar"
+                      class="icon-btn btn-trans c-fucsia"
+                    >
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <div class="rows">
+            <button
+              type="submit"
+              class="cli-btn btn-grey mb-2"
+              (click)="cambiarPagina(-5)"
+            >
+              <mat-icon class="icon-18">arrow_back_ios</mat-icon>Anterior
+            </button>
+
+            <button
+              type="submit"
+              class="cli-btn btn-grey"
+              (click)="cambiarPagina(+5)"
+            >
+              Siguiente
+              <mat-icon class="icon-18">arrow_forward_ios</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

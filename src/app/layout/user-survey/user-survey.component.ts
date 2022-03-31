@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Encuesta } from 'src/app/models/usuario.models';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
@@ -21,7 +21,7 @@ export class UserSurveyComponent implements OnInit {
   encuestaList: Encuesta[] = [];
   validForm: boolean = false;
 
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private usuarioService: UsuarioService, private router: Router) {}
 
   ngOnInit(): void {
     this.obternerEncuesta();
@@ -53,18 +53,42 @@ export class UserSurveyComponent implements OnInit {
         enable: item.enable,
       };
     });
-    Swal.fire(
-      'Guardar Encuesta!',
-      'La encuesta de guardo con éxito',
-      'success'
-    );
-    this.usuarioService.saveEncuesta(request).subscribe((res: any) => {
-      console.log(res);
-      if (res) {
-        console.log('COMPANY', res);
+
+    this.usuarioService.saveEncuesta(request)
+        .subscribe((res: any) => {
+          if (res) {
+            const isInvalid = this.encuestaList.find((item) => item.enable);
+            console.log(isInvalid);
+
+            Swal.fire(
+              'Encuesta guardada!',
+              'Su pase es exitoso..Felicidades',
+              'success'
+            );
+            // console.log('ENCUESTA', res);
+
+            if (isInvalid) {
+              Swal.fire('Error', 'Faltan requisitos por completar', 'error');
+
+              this.router.navigateByUrl('/public/qr');
+            } else {
+              this.router.navigateByUrl('');
+            }
       }
     });
 
     console.log(request);
   }
 }
+/* findTrueSurvey(i: number): boolean {
+    const hasATrue = this.listUsuario[0][1].restrictions.find(
+      (restriction) => !restriction.value
+    );
+    return hasATrue ? false : true;
+  } */
+
+/* findTrueSurvey(){
+    const hasATrue = this.encuestaList.map(item=> item.enable)
+    console.log('VERDADERO',hasATrue)
+  }
+ */

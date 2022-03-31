@@ -27,16 +27,15 @@
 
 .user-form {
   display: flex;
-  align-items:baseline;
+  align-items: baseline;
   flex-direction: column;
-  width: 100%;
-
-  margin-left: 0px;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .user-form-qr {
   display: flex;
-  align-items:center;
+  align-items: center;
   flex-direction: column;
   margin-left: 0px;
 }
@@ -90,6 +89,26 @@
     color: #fff;
   }
 }
+
+.cli-btn-mobile {
+  border: none;
+  border-radius: 2px;
+  margin: 0 4px;
+  padding: 0 6px;
+  font-family: "Telefonica-Bold" !important;
+  display: flex;
+  align-items: center;
+  height: 30px;
+
+  & mat-icon {
+    margin: 0 5px;
+  }
+  &:disabled {
+    background-color: #b4dee6;
+    color: #fff;
+  }
+}
+
 .cli-input {
   border: solid 0.5px #78cccc;
   background-color: #f4f4f3;
@@ -173,27 +192,26 @@
 }
 
 .c-male {
-  color: #FF4081;
+  color: #ff4081;
   margin-left: -65px;
 }
 
-
-@media screen and (max-width: 856px) {
+@media (max-width: 856px) {
   .qrcode-wrapper {
     width: 260px;
-    margin: 2px;
     padding: auto;
+    margin-bottom: 15px;
   }
 
   .user-form-qr {
     display: flex;
-    align-items:center;
+    align-items: center;
     flex-direction: column;
     margin-left: 15%;
   }
   .user-form {
     display: flex;
-    align-items:baseline;
+    align-items: baseline;
     flex-direction: column;
     width: 100%;
 
