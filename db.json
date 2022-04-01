@@ -17,7 +17,7 @@
       "genero": "F",
       "cargo": "Diseño UI",
       "empresa": "MBL",
-      "rol": "USER",
+      "rol": "GESTOR",
       "id": 2
     },
     {
@@ -149,6 +149,16 @@
       "empresa": "GESTOR",
       "rol": "USER",
       "id": 15
+    },
+    {
+      "nombre": "Manuel Romero",
+      "correo": "Lady@experis.com",
+      "pais": "URU",
+      "genero": "M",
+      "cargo": "UX-UI",
+      "empresa": "EXPERIS",
+      "rol": "GESTOR",
+      "id": 16
     }
   ],
   "CompanyList": [

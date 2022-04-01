@@ -10,6 +10,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 export interface qrvalidator {
   valid: boolean;
@@ -45,7 +46,7 @@ export class UsersQrComponent implements OnInit {
     codeType: ['RE'],
   });
 
-  constructor(private http: HttpClient, private fb: FormBuilder) {}
+  constructor(private http: HttpClient, private fb: FormBuilder, private router:Router) {}
 
   ngOnInit(): void {
     this.initializeCodeList();
@@ -206,4 +207,12 @@ export class UsersQrComponent implements OnInit {
       return false;
     }
   }
+
+
+
+  irEncuesta() {
+    this.router.navigateByUrl('dashboard/encuesta');
+
+  }
+
 }

@@ -72,6 +72,21 @@
   }
 }
 
+.btn-yellow {
+  background-color: #007bffb3;
+  color: #fff;
+  transition: ease 0.3s;
+  cursor: pointer;
+  &:hover:enabled {
+    background-color: #007bff4f;
+    color: #fff;
+  }
+  &:hover:enabled:active {
+    background-color: #007bffcf;
+    color: ·fff;
+  }
+}
+
 .cli-btn {
   border: none;
   border-radius: 2px;

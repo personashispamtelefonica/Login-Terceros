@@ -7,7 +7,7 @@
 .modal-title {
   font-size: 1.7rem;
   font-weight: 400;
-  color: #0066ff;
+  color: #00bec0;
   margin: 10px 0;
   text-align: center;
 }
@@ -72,15 +72,32 @@
   padding: 5px 10px;
   transition: ease 0.3s;
   &:hover:enabled {
-    border-color: #0066ff;
+    border-color: #00bec0;
   }
   &:focus:enabled {
-    border-color: #0066ff;
+    border-color: #00bec0;
   }
   &:disabled {
     background-color: #f8f8f8;
     color: #86888c;
   }
+}
+
+
+.cli-input-group{
+
+  /* display: -webkit-box; */
+  display: -ms-flexbox;
+  display: flex;
+  /* -webkit-box-align: center; */
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  /* margin-bottom: 0; */
+  /* font-size: 1rem; */
+  /* font-weight: 400; */
+  /* line-height: 1.5; */
+  color: #34dc2f;
 }
 
 .cli-btn {
@@ -113,7 +130,7 @@
 }
 
 .btn-blue {
-  background-color: #0066ff;
+  background-color: #00bec0;
   color: #fff;
   transition: ease 0.3s;
   &:hover:enabled {
@@ -159,7 +176,7 @@
       font-size: 0.9rem;
     }
     &:focus-within label {
-      color: #0066ff;
+      color: #00bec0;
     }
   }
 

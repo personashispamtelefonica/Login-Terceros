@@ -83,7 +83,7 @@ export class BaseComponent implements OnInit {
         {
           icon: 'checklist_rtl',
           link: 'pases',
-          name: 'lissta de pases',
+          name: 'Lista de pases',
           info: 'Pase de colaboradores',
         },
       ],

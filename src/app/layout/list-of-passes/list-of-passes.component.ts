@@ -19,12 +19,15 @@ export class ListOfPassesComponent implements OnInit {
   }
 
   getListOfPasses() {
+    this.cargando = true
     this.listPassesService.getListOfPasses()
         .subscribe(
-          (res) =>
+          (res) =>{
             // console.log('PASES', res)
-            (this.listPasses = res)
-        );
+            (this.listPasses = res);
+            this.cargando =false
+          }
+        )
   }
 
   eliminarPase() {}

@@ -2,12 +2,11 @@
   display: block;
   position: relative;
   padding: 0 20px;
-  // width: 500px;
 }
 .modal-title {
   font-size: 1.7rem;
   font-weight: 400;
-  color: #0066ff;
+  color: #00bec0;
   margin: 10px 0;
   text-align: center;
 }
@@ -36,8 +35,6 @@
   }
 }
 
-
-
 .c-orange {
   color: #e66c64;
 }
@@ -49,38 +46,37 @@
   z-index: 20;
 }
 
-.cli-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.cli-form-element {
-  margin-bottom: 0 !important;
-}
 
 .col-f-2 {
-  width: 50%;
-  padding: 5px 10px;
+  width: 100%;
+  padding: 5px 5px;
 }
 
-.cli-input-white {
+.cli-input-emerald {
   border: solid 1px #b6b7b7;
   background-color: #fff;
   border-radius: 2px;
   padding: 5px 10px;
   transition: ease 0.3s;
+
+  width: 84%;
   &:hover:enabled {
-    border-color: #0066ff;
+    border-color: #00bec0;
   }
   &:focus:enabled {
-    border-color: #0066ff;
+    border-color: #00bec0;
   }
   &:disabled {
     background-color: #f8f8f8;
     color: #86888c;
   }
+}
+
+.cli-input-group {
+  align-items: center;
+  padding: 0.375rem 0.45rem;
+  // color: #495057;
+  color: #9ae2f1;
 }
 
 .cli-btn {
@@ -104,31 +100,54 @@
 .btn-grey {
   background-color: #e9eae8;
   transition: ease 0.3s;
+  color: rgb(118, 118, 118);
+
+  cursor: pointer;
   &:hover:enabled {
     background-color: #f4f4f3;
+    color: #4e4d4d;
   }
   &:hover:enabled:active {
     background-color: #d3d4d3;
   }
 }
 
-.btn-blue {
-  background-color: #0066ff;
+.btn-emerald {
+  background-color: #00bec0;
   color: #fff;
   transition: ease 0.3s;
   &:hover:enabled {
-    background-color: #80b0ff;
+    background-color: #b4dee6;
   }
   &:hover:enabled:active {
-    background-color: #003180;
+    background-color: #b4dee6;
+  }
+  &:disabled {
+    background-color: #b4dee6;
+    color: #fff;
+  }
+}
+
+
+.btn-turquey {
+  background-color: #00bec0;
+  color: #fff;
+  transition: ease 0.3s;
+  cursor: pointer;
+  &:hover:enabled {
+    background-color: #b4dee6;
+    // color: #495057;
+  }
+  &:hover:enabled:active {
+    background-color: #b4dee6;
   }
 }
 
 /* FOMR SYLES */
 .cli-form {
-  width: 100%;
+  // width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   &-title {
     width: 100%;
     font-family: "Telefonica-Bold";
@@ -141,7 +160,6 @@
     margin-right: 100px;
     display: flex;
   }
-
   &-buttons {
     width: 100%;
     display: flex;
@@ -152,14 +170,16 @@
   &-element {
     display: flex;
     margin-bottom: 10px;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
     & label {
       padding: 0;
       margin: 0 2px;
       font-size: 0.9rem;
     }
     &:focus-within label {
-      color: #0066ff;
+      color: #00bec0;
     }
   }
 
@@ -171,12 +191,28 @@
   }
 }
 
-
-
 @media (max-width: 856px) {
+  .col-f-2 {
+    // width: 100%;
+    padding: 5px 2px;
+  }
 
-.col-f-2 {
-  width: 100%;
-  padding: 5px 2px;
+  .cli-form {
+    // width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    &-element {
+      display: flex;
+      margin-bottom: 6px;
+      // flex-direction: row;
+      align-items: center;
+      display: flex;
+      & label {
+        // padding: 0;
+        // margin: 0 2px;
+        font-size: 12px;
+      }
+    }
 }
 }

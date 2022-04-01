@@ -7,72 +7,110 @@
 </div>
 
 <form class="cli-row" [formGroup]="usuariosForm">
-  <div class="cli-form-element col-f-2">
-    <label>Nombres y apellidos:</label>
-    <input class="cli-input-white" formControlName="nombre" />
+  <div class="input-groupff cli-form-element col-f-2">
+    <label class="col-sm-4">Nombre y apellido</label>
+
+    <div class="col-sm-8">
+      <span class="cli-input-group"><mat-icon>person</mat-icon> </span>
+      <input
+        type="text"
+        formControlName="nombre"
+        class="form-control"
+        class="cli-input-emerald"
+        placeholder="Nombre del colaborador"
+      />
+    </div>
   </div>
-  <div class="cli-form-element col-f-2">
-    <label>Correo del representante</label>
-    <input class="cli-input-white" formControlName="correo" />
+
+  <div class="input-groupff cli-form-element col-f-2">
+    <label class="col-sm-4">Correo del representante</label>
+    <div class="col-sm-8">
+      <span class="cli-input-group"><mat-icon>email</mat-icon> </span>
+      <input
+        type="text"
+        formControlName="correo"
+        class="form-control"
+        class="cli-input-emerald"
+        placeholder="Correo del representante"
+      />
+    </div>
+  </div>
+
+  <div class="input-groupff cli-form-element col-f-2">
+    <label class="col-sm-4">Rol del colaborador</label>
+    <div class="col-sm-8">
+      <span class="cli-input-group"><mat-icon>manage_accounts</mat-icon> </span>
+      <select class="cli-input-emerald" formControlName="rol">
+        <option value="" disabled>Seleccionar</option>
+        <option value="USER">User</option>
+        <option value="GESTOR">Gestor</option>
+      </select>
+    </div>
   </div>
 
   <div class="cli-form-element col-f-2">
-    <label>Seleccione el Rol</label>
-    <select class="cli-input-white" formControlName="empresa">
-      <option value="" disabled>-- Seleccionar --</option>
-      <option value="USER">User</option>
-      <option value="GESTOR">Gestor</option>
-    </select>
-  </div>
-  <div class="cli-form-element col-f-2">
-    <label>Género:</label>
-    <select class="cli-input-white" formControlName="genero">
-      <option value="" disabled>-- Seleccionar --</option>
-      <option value="M">Masculino</option>
-      <option value="F">Femenino</option>
-    </select>
+    <label class="col-sm-4">Genero</label>
+    <div class="col-sm-8">
+      <span class="cli-input-group"><mat-icon>person_search </mat-icon> </span>
+      <select class="cli-input-emerald" formControlName="genero">
+        <option value="" disabled>Seleccionar</option>
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+      </select>
+    </div>
   </div>
 
   <div class="cli-form-element col-f-2">
-    <label>País</label>
-    <select class="cli-input-white" formControlName="pais">
-      <option value="" disabled>-- Seleccionar --</option>
-      <option value="ARG">Argentina</option>
-      <option value="CHI">Chile</option>
-      <option value="COL">Colombia</option>
-      <option value="URU">Uruguay</option>
-      <option value="MEX">Mexico</option>
-      <option value="PER">Peru</option>
-      <option value="ECU">Ecuador</option>
-    </select>
+    <label class="col-sm-4">País</label>
+    <div class="col-sm-8">
+      <span class="cli-input-group"><mat-icon>flag</mat-icon> </span>
+      <select class="cli-input-emerald" formControlName="pais">
+        <option value="" disabled>Seleccionar</option>
+
+        <option value="ARG">Argentina</option>
+        <option value="CHI">Chile</option>
+        <option value="COL">Colombia</option>
+        <option value="URU">Uruguay</option>
+        <option value="MEX">Mexico</option>
+        <option value="PER">Peru</option>
+        <option value="ECU">Ecuador</option>
+      </select>
+    </div>
   </div>
 
   <div class="cli-form-element col-f-2">
-    <label>Cargo:</label>
-    <input
-      class="cli-input-white"
-      formControlName="cargo"
-      placeholder="Ingrese el cargo del colaborador"
-    />
+    <label class="col-sm-4">Cargo</label>
+    <div class="col-sm-8">
+      <span class="cli-input-group"><mat-icon>attribution</mat-icon> </span>
+      <input
+        class="cli-input-emerald"
+        formControlName="cargo"
+        placeholder="Ingrese el cargo"
+      />
+    </div>
   </div>
 
   <div class="cli-form-element col-f-2">
-    <label>Empresa</label>
-    <select class="cli-input-white" formControlName="empresa">
-      <option value="" disabled>-- Seleccionar --</option>
-      <option value="EXPERIS">Experis</option>
-      <option value="INDRA">Indra</option>
-      <option value="CENTHOS">Centhos</option>
-      <option value="ALICORP">Alicorp</option>
-      <option value="INGENUA">Ingenua</option>
-      <option value="MBL">MBL</option>
-    </select>
+    <label class="col-sm-4">Empresa</label>
+    <div class="col-sm-8">
+      <span class="cli-input-group"><mat-icon>business</mat-icon> </span>
+      <select class="cli-input-emerald" formControlName="empresa">
+        <option value="" disabled>Seleccionar</option>
+        <option value="EXPERIS">Experis</option>
+        <option value="INDRA">Indra</option>
+        <option value="ALICORP">Alicorp</option>
+        <option value="INGENUA">Ingenua</option>
+        <option value="MBL">MBL</option>
+      </select>
+    </div>
   </div>
 </form>
 
 <div class="cli-form-buttons">
-  <button (click)="close()" class="cli-btn btn-grey">Cancelar</button>
-  <button (click)="agregarUsuario()" class="cli-btn btn-blue">
-    {{ actionBtn }}
+  <button (click)="close()" class="cli-btn btn-grey"><mat-icon>cancel</mat-icon>Cancelar</button>
+  <button (click)="agregarUsuario()"
+          class="cli-btn btn-l btn-emerald my-4"
+          [disabled]="usuariosForm.invalid">
+    <mat-icon>save</mat-icon>{{ actionBtn }}
   </button>
 </div>

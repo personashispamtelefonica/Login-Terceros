@@ -1,3 +1,16 @@
+<div class="row" style="margin-top: 20px" *ngIf="cargando">
+  <div class="col-12">
+
+    <div class="alert alert-info text-center">
+      <h4 class="alert-heading">Cargando</h4>
+      <mat-spinner diameter="30" style="margin: 5px auto;"></mat-spinner>
+      <!-- <i class="fa fa-spin fa-refresh fa-2x"></i> -->
+      <!-- <mat-spinner diameter="20"></mat-spinner> -->
+      <p class="mb-0">Por favor espere</p>
+    </div>
+  </div>
+</div>
+
 <div class="global-content">
   <div class="cli-card">
     <div class="cli-card-body">
@@ -7,8 +20,12 @@
       <h4 style="color: #ff4081" class="cli-subtitle">
         Por favor marque el siguiente cuestionario
       </h4>
+
+
+
+
       <form>
-        <table class="cli-table">
+        <table class="cli-table" *ngIf="!cargando">
           <thead>
             <tr>
               <th class="w30">N°</th>

@@ -15,6 +15,7 @@ export interface UserRestriction {
   styleUrls: ['./user-survey.component.scss'],
 })
 export class UserSurveyComponent implements OnInit {
+  cargando:boolean = true;
   usuario: any = {
     acepta: '',
   };
@@ -28,10 +29,12 @@ export class UserSurveyComponent implements OnInit {
   }
 
   obternerEncuesta() {
+    this.cargando = true
     this.usuarioService.getEncuesta().subscribe((res: any) => {
       if (res && res.length) {
         this.encuestaList = res;
         console.log('COMPANY', res);
+        this.cargando = false
       }
     });
   }
@@ -61,7 +64,7 @@ export class UserSurveyComponent implements OnInit {
             console.log(isInvalid);
 
             Swal.fire(
-              'Encuesta guardada!',
+              'Encuesta completada!',
               'Su pase es exitoso..Felicidades',
               'success'
             );
@@ -72,7 +75,7 @@ export class UserSurveyComponent implements OnInit {
 
               this.router.navigateByUrl('/public/qr');
             } else {
-              this.router.navigateByUrl('');
+              this.router.navigateByUrl('dashboard/pases');
             }
       }
     });
@@ -80,15 +83,3 @@ export class UserSurveyComponent implements OnInit {
     console.log(request);
   }
 }
-/* findTrueSurvey(i: number): boolean {
-    const hasATrue = this.listUsuario[0][1].restrictions.find(
-      (restriction) => !restriction.value
-    );
-    return hasATrue ? false : true;
-  } */
-
-/* findTrueSurvey(){
-    const hasATrue = this.encuestaList.map(item=> item.enable)
-    console.log('VERDADERO',hasATrue)
-  }
- */
