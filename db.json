@@ -17,7 +17,7 @@
       "genero": "F",
       "cargo": "Diseño UI",
       "empresa": "MBL",
-      "rol": "GESTOR",
+      "rol": "USER",
       "id": 2
     },
     {
@@ -76,7 +76,7 @@
       "pais": "CHI",
       "genero": "F",
       "cargo": "PIO",
-      "empresa": "USER",
+      "empresa": "EXPERIS",
       "rol": "GESTOR",
       "id": 8
     },
@@ -127,7 +127,7 @@
       "genero": "M",
       "cargo": "Scrum Master",
       "empresa": "ALICORP",
-      "rol": "USER",
+      "rol": "GESTOR",
       "id": 13
     },
     {
@@ -240,16 +240,6 @@
     {
       "id": 6,
       "date": "25-03-2022",
-      "enable": false
-    },
-    {
-      "id": 7,
-      "date": "20-03-2022",
-      "enable": true
-    },
-    {
-      "id": 8,
-      "date": "24-03-2022",
       "enable": false
     }
   ],

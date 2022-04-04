@@ -6,7 +6,7 @@
   justify-content: center;
 }
 .titulo-modal {
-  color: #019df4;
+  color: #00bec0;
   font-size: 30px;
   padding-top: 30px;
   padding-bottom: 25px;
@@ -47,7 +47,7 @@
   width: 100%;
 
   &-actions {
-    // display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -81,9 +81,9 @@
 }
 
 .table-bordered thead th {
-  background: #00bec091;
+  background: #00bec0;
   color: #FFF;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .card {
