@@ -27,6 +27,9 @@
 .hlogo {
   height: 30px;
 }
+.toolbar-header {
+  background-color: #00bec0;
+}
 
 .logo-let {
   display: flex;
@@ -50,7 +53,6 @@
 .mat-icon {
   margin: auto;
   font-size: 26px;
-  // margin-right: 10px;
 }
 
 .btn-header {
@@ -64,91 +66,10 @@
     background-color: #b0b2b1;
   }
 }
-
-/* .mat-menu-header {
-  padding-top: 0px;
-  padding-bottom: 0px;
-} */
 .toolbar-header {
   background-color: #00bec0;
 }
 
-.menu-icon {
-  position: relative;
-  top: 7px;
-
-  flex: 0 0 35px;
-  font-size: 1.5rem;
-  color: #00bec0;
-}
-.submenu-link{
-  padding: 0 2px 1px 15px;
-  color: #5ac1d6;
-  cursor: pointer;
-  // min-height: 40px;
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  margin: 0;
-  text-decoration: none;
-  position: relative;
-  transition: 0.3s ease;
-}
-
-.submenu-link:hover{
-  color: #2B3447;
-  text-decoration: none;
-  background-color: #b4dee6;
-}
-
-.submenu-icon{
-  text-align: left;
-  flex: 0 0 35px;
-}
-
-.menu-link {
-  padding: 7px 10px;
-  cursor: pointer;
-  // min-height: 44px;
-  display: flex;
-  flex-grow: 1;
-  align-items: stretch;
-  margin: 0;
-  text-decoration: none;
-  position: relative;
-  transition: 0.3s ease;
-  background-color: #f2f4ff;
-  color: #00bec0;
-  border-bottom: 1px solid #b4dee6;
-  border-top: 1px solid #b4dee6;
-}
-
-.menu-link:hover {
-  text-decoration: none;
-  background-color: #b4dee6;
-  color: #fff;
-}
-
-.active-link{
-  color: #FFF !important;
-  background-color: #B4DEE6;
-  border-right: 4px #00bec0 solid;
-}
-
-.mat-expansion-panel-header {
-  // height: 45px;
-  padding: 0 !important;
-}
-
-
-/* .pad {
-  padding: 0 2px 2px !important;
-}
- */
-.mat-expansion-panel-body {
-  padding: 0 2px 2px;
-  background: #2B3447;
-}
 
 /* Burbuja */
 .cli-aside{
@@ -166,13 +87,7 @@
   box-shadow: 0 1px 1px 0 #0000004d, 0 2px 5px 0 #00000036 ;
 }
 
-.cli-aside-container{
-    flex:  1;
-}
-
-
 .aside-btn-float{
-  // position: absolute;
   z-index: 60;
   background-color: rgb(146, 30, 30) ;
   box-shadow: #b4dee6;
@@ -191,7 +106,6 @@
 }
 .aside-btn-float:hover{
   cursor: pointer;
-  // background-color: $color-secondary;
 }
 @media (max-width: 850px) {
   .title-header {
@@ -202,9 +116,9 @@
     margin-left: 0px;
   }
 
-  .personname {
+ /*  .personname {
     font-size: 10px;
-  }
+  } */
 
   .personname {
     font-size: 0px;
@@ -222,18 +136,6 @@
   .toolbar-header {
     padding: 0 4px;
   }
-
-  .side-height{
-    height: 744px;
-    margin-top: 56px;
-  }
-
-  .submenu-link{
-    color: #5ac1d6;
-    cursor: pointer;
-    min-height: 30px;
-  }
-
   .cli-aside{
     top: 56px;
   }

@@ -6,52 +6,28 @@
   right: 0;
   background: #eee;
 }
-.mat-form-field + .mat-form-field {
-  margin-left: 8px;
-}
-
-.mat-expansion-panel-spacing {
-  margin: 0px !important;
-}
-.sinenav-expanded {
-  background: #fff;
-  border: 0;
-  border-radius: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
-  bottom: 0;
-  height: 55px;
-  position: absolute;
-  text-align: center;
-  vertical-align: middle;
-  width: 100%;
-  &.opened {
-    text-align: right;
-    .mat-icon {
-      margin: 10px;
-    }
-  }
-  .mat-icon {
-    font-weight: 700;
-  }
-}
 
 .menu-icon {
   position: relative;
   top: 7px;
+
+  flex: 0 0 35px;
+  font-size: 1.5rem;
+  color: #00bec0;
 }
 
-.active {
-  background-color: silver;
+
+.menu-link:hover {
+  text-decoration: none;
+  background-color: #b4dee6;
+  color: #fff;
 }
 
-:host {
-  ::ng-deep {
-    .mat-expansion-panel-spacing {
-      margin: 0px 0 !important;
-    }
-  }
+.active-link{
+  color: #FFF !important;
+  background-color: #B4DEE6;
+  border-right: 4px #00bec0 solid;
 }
-
 .menu-link {
   padding: 9px 25px;
   cursor: pointer;
@@ -70,35 +46,54 @@
 }
 .menu-link:hover {
   text-decoration: none;
-  background-color: #99c0ff;
+  background-color: #b4dee6;
   color: #fff;
 }
 
-::ng-deep .mat-expansion-indicator {
-  height: 100%;
-  padding: 5px;
-
-  position: absolute;
-  right: 0px;
+.cli-aside-container{
+  flex:  1;
 }
-
-.main-sidenav {
-  &.opened {
-    .mat-sidenav {
-      width: 300px;
-    }
-  }
-}
-
-.mat-expansion-panel-header {
-  padding: 10px;
-}
-
-.sub-menu-icon {
+.menu-icon {
   position: relative;
   top: 7px;
+
+  flex: 0 0 35px;
+  font-size: 1.5rem;
+  color: #00bec0;
+}
+.submenu-link{
+  padding: 0 2px 1px 15px;
+  color: #5ac1d6;
+  cursor: pointer;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.submenu-link:hover{
+  color: #2B3447;
+  text-decoration: none;
+  background-color: #b4dee6;
+}
+
+.submenu-icon{
+  text-align: left;
+  flex: 0 0 35px;
 }
 .menu-info {
   padding-top: 2px;
   margin-left: 9px;
+}
+
+
+@media (max-width: 850px) {
+ .submenu-link{
+    color: #5ac1d6;
+    cursor: pointer;
+    min-height: 30px;
+  }
+
 }

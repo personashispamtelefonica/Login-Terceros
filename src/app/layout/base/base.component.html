@@ -1,8 +1,14 @@
-<mat-sidenav-container fullscreen>
+<mat-sidenav-container fullscreen  style="background:#f2f4ff">
+
   <mat-toolbar class="toolbar-header">
-    <button mat-icon-button (click)="sidenav.toggle()" style="color: #fff">
+    <button
+    (click)="sidenav.toggle()"
+      mat-icon-button
+      style="color: #fff"
+    >
       <mat-icon mat-list-icon>menu</mat-icon>
     </button>
+
 
     <div class="logoheader">
       <img
@@ -14,7 +20,6 @@
       </div>
     </div>
 
-    <!-- User Secction -->
     <div style="flex: 1 1 auto"></div>
     <div class="personname">{{ fullName | uppercase }}</div>
     <app-user-section
@@ -22,84 +27,31 @@
       class="user-bag"
     ></app-user-section>
 
-    <mat-icon class="menu-icon-header" [matMenuTriggerFor]="menu"
-      >keyboard_arrow_down</mat-icon
-    >
+    <mat-icon class="menu-icon-header"
+            [matMenuTriggerFor]="menu"
+    >keyboard_arrow_down
+  </mat-icon>
 
     <mat-menu class="mat-menu-header" #menu="matMenu">
-      <button mat-menu-item>
+      <button>
         <mat-icon>person</mat-icon>
         <span class="userName">{{ fullName | uppercase }}</span>
       </button>
+
       <hr />
-      <button mat-menu-item (click)="logout()" class="btn-header">
+      <button (click)="logout()" class="btn-header">
         <mat-icon>close</mat-icon>
         <span>Cerrar Sesión</span>
       </button>
     </mat-menu>
+    <!-- <app-header></app-header> -->
+
   </mat-toolbar>
 
-  <mat-sidenav #sidenav class="cli-aside">
-    <mat-toolbar style="background-color: #2b3447">
-      <span style="text-align: center; color: #fff"
-        >Menú
-        <div
-          [ngClass]="{ opened: sideNavState }"
-          mat-button
-          (click)="onSidenavToggle()"
-        >
-          <mat-icon *ngIf="sideNavState">chevron_left</mat-icon>
-          <mat-icon *ngIf="!sideNavState">chevron_right</mat-icon>
-        </div>
-      </span>
-    </mat-toolbar>
 
-    <mat-accordion>
-      <mat-expansion-panel
-        style="cursor: pointer"
-        [hideToggle]="!sideNavState"
-        *ngFor="let menu of menuList; let i = index"
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
-        <mat-expansion-panel-header  class="cli-aside-container">
-          <mat-panel-title class="menu-link" (click)="setMenuIndex(i)">
-            <!-- [ngClass]="{'menu-link-open' : item.displayed}" -->
-            <a
-            [ngClass]="{ active: menuSelected == i }"
-            >
-            <i class="menu-icon">
-              <mat-icon [matTooltip]="menu.info">
-                {{ menu.icon }}
-              </mat-icon>
-            </i>
-              <span *ngIf="sideNavState">
-                {{ menu.name }}
-              </span>
-            </a>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-
-
-        <div *ngFor="let subMenu of menu.subMenuList"
-        >
-          <a class="submenu-link" [routerLink]="subMenu.link"
-          routerLinkActive="active-link"
-
-          >
-            <i class="submenu-icon">
-              <mat-icon [matTooltip]="subMenu.info">
-                {{ subMenu.icon }}</mat-icon
-              >
-            </i>
-            <span *ngIf="sideNavState">
-              {{ subMenu.name }}
-            </span>
-          </a>
-        </div>
-
-      </mat-expansion-panel>
-    </mat-accordion>
+  <mat-sidenav mode="sideX"
+        #sidenav class="cli-aside">
+    <app-sidebar ></app-sidebar>
   </mat-sidenav>
 
   <div class="container">
@@ -107,4 +59,5 @@
   </div>
 
   <app-footer></app-footer>
+
 </mat-sidenav-container>

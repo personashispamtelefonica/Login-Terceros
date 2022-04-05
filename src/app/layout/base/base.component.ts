@@ -1,12 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/views/auth/services/auth.service';
-export interface Menu {
-  icon: string;
-  name: string;
-  info: string;
-  subMenuList: Menu[];
-  displayed?: boolean;
-}
+
 
 @Component({
   selector: 'app-base',
@@ -17,11 +11,10 @@ export class BaseComponent implements OnInit {
   hasphoto = false;
   fullName: string = '';
   userAbbreviation = ''; //input user-section
-  fixedAside: boolean = false;
+  // fixedAside: boolean = false;
   sideNavState = false;
-  menuConfig!: Menu[];
 
-  menuList = [
+ /*  menuList = [
     {
       icon: 'home',
       link: '',
@@ -89,18 +82,18 @@ export class BaseComponent implements OnInit {
       ],
     },
   ];
-
+ */
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.initializeUser();
   }
 
-  clickLinkMenu() {
+ /*  clickLinkMenu() {
     this.menuConfig.forEach((item) => {
       item.displayed = false;
     });
-  }
+  } */
 
   initializeUser() {
     this.fullName = this.authService.getUsername();
@@ -111,9 +104,10 @@ export class BaseComponent implements OnInit {
       this.userAbbreviation = fullNameToArray.join('');
     }
   }
-  onSidenavToggle() {
+
+ /*  onSidenavToggle() {
     this.sideNavState = !this.sideNavState;
-  }
+  } */
 
   logout() {
     this.authService.logout();
