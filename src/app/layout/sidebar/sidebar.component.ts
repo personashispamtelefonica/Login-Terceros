@@ -8,7 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SidebarComponent {
   @Output() generalFixedAside = new EventEmitter<Boolean>();
 
-  fixedAside = true;
+  fixedAside=false;
+
   sideNavState:boolean = true;
   menuSelected: any = null;
   panelOpenState = true;

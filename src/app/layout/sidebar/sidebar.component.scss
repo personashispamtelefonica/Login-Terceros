@@ -15,7 +15,34 @@
   font-size: 1.5rem;
   color: #00bec0;
 }
+.cli-aside{
+  position: fixed;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  background-color: #F2F4FF;
 
+  color: #132A34;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 1px 0 #0000004d, 0 2px 5px 0 #00000036 ;
+}
+/* .cli-aside-fixed{
+  width: 265px;
+}
+.cli-aside-hover{
+  width: 70px;
+} */
+
+.cli-aside-fixed{
+  width: 265px;
+}
+.cli-aside-hover{
+  width: 70px;
+
+  // background: #2b3447;
+}
 
 .menu-link:hover {
   text-decoration: none;

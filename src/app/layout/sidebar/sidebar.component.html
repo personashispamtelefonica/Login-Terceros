@@ -1,61 +1,68 @@
-<mat-toolbar style="background-color: #2b3447">
-  <span style="text-align: center; color: #fff"
-    >Menús A
 
-    <!-- <button
-        mat-icon-button
-        (click)="sidenav.toggle()"
-        style="color: #fff"
+<div class="cli-aside"
+[ngClass]="{ 'cli-aside-fixed': fixedAside, 'cli-aside-hover': !fixedAside }"
+
+>
+  <mat-toolbar style="background-color: #2b3447">
+    <span style="text-align: center; color: #fff"
+      >Menús A
+
+      <!-- <button
+          mat-icon-button
+          (click)="sidenav.toggle()"
+          style="color: #fff"
+        >
+          <mat-icon mat-list-icon>menu</mat-icon>
+        </button> -->
+
+      <div
+        [ngClass]="{ opened: sideNavState }"
+        mat-button
+        (click)="onSidenavToggle()"
       >
-        <mat-icon mat-list-icon>menu</mat-icon>
-      </button> -->
+        <mat-icon *ngIf="sideNavState">chevron_left</mat-icon>
+        <mat-icon *ngIf="!sideNavState">chevron_right</mat-icon>
+      </div>
+    </span>
+  </mat-toolbar>
 
-    <div
-      [ngClass]="{ opened: sideNavState }"
-      mat-button
-      (click)="onSidenavToggle()"
+  <mat-accordion>
+    <mat-expansion-panel
+      [hideToggle]="!sideNavState"
+      *ngFor="let menu of menuList; let i = index"
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
     >
-      <mat-icon *ngIf="sideNavState">chevron_left</mat-icon>
-      <mat-icon *ngIf="!sideNavState">chevron_right</mat-icon>
-    </div>
-  </span>
-</mat-toolbar>
+      <mat-expansion-panel-header class="cli-aside-container">
+        <mat-panel-title class="menu-link" (click)="setMenuIndex(i)">
+          <a [ngClass]="{ active: menuSelected == i }">
+            <i class="menu-icon">
+              <mat-icon [matTooltip]="menu.info">
+                {{ menu.icon }}
+              </mat-icon>
+            </i>
+            <span *ngIf="sideNavState">
+              {{ menu.name }}
+            </span>
+          </a>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
-<mat-accordion>
-  <mat-expansion-panel
-    [hideToggle]="!sideNavState"
-    *ngFor="let menu of menuList; let i = index"
-    (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false"
-  >
-    <mat-expansion-panel-header class="cli-aside-container">
-      <mat-panel-title class="menu-link" (click)="setMenuIndex(i)">
-        <a [ngClass]="{ active: menuSelected == i }">
-          <i class="menu-icon">
-            <mat-icon [matTooltip]="menu.info">
-              {{ menu.icon }}
-            </mat-icon>
+      <div *ngFor="let subMenu of menu.subMenuList">
+        <a
+          class="submenu-link"
+          [routerLink]="subMenu.link"
+          routerLinkActive="active-link"
+        >
+          <i class="submenu-icon">
+            <mat-icon [matTooltip]="subMenu.info"> {{ subMenu.icon }}</mat-icon>
           </i>
           <span *ngIf="sideNavState">
-            {{ menu.name }}
+            {{ subMenu.name }}
           </span>
         </a>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
 
-    <div *ngFor="let subMenu of menu.subMenuList">
-      <a
-        class="submenu-link"
-        [routerLink]="subMenu.link"
-        routerLinkActive="active-link"
-      >
-        <i class="submenu-icon">
-          <mat-icon [matTooltip]="subMenu.info"> {{ subMenu.icon }}</mat-icon>
-        </i>
-        <span *ngIf="sideNavState">
-          {{ subMenu.name }}
-        </span>
-      </a>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion>
+</div>
