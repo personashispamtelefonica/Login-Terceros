@@ -31,7 +31,7 @@
 
 
 .header-icon{
-  // display: none;
+  display: none;
   align-items: center;
   width: 48px;
   transition: .3s ease;
@@ -46,6 +46,9 @@
 
 .toolbar-header {
   background-color: #00bec0;
+
+  position:fixed;
+
 }
 .menu-icon-header {
   font-size: 25px;

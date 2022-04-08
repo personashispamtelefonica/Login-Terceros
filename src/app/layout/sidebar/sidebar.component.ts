@@ -62,17 +62,23 @@ export class SidebarComponent {
       ],
     },
     {
-      icon: 'groups',
+      icon: 'home',
       name: 'Encuestas',
       link: '',
-      info: 'Encuestas a colaboradores',
+      info: 'Retorno a oficina',
       subMenuList: [
         {
+          icon: 'groups',
+          link: 'encuesta',
+          name: 'Pase de reunión',
+          info: 'Confirmación de encuestas',
+        },
+        /* {
           icon: 'person',
           link: 'encuesta',
           name: 'Encuesta de colaboradores',
           info: 'Confirmación de encuestas',
-        },
+        }, */
         {
           icon: 'checklist_rtl',
           link: 'pases',

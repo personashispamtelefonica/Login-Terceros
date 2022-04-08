@@ -210,9 +210,5 @@ export class UsersQrComponent implements OnInit {
 
 
 
-  irEncuesta() {
-    this.router.navigateByUrl('dashboard/encuesta');
-
-  }
 
 }
