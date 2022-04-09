@@ -1,82 +1,47 @@
 :host {
   height: 100vh;
   width: 100%;
-  position: absolute;
+}
+.error-message{
+	margin: auto;
+    max-width: 300px;
+    text-align: center;
 }
 
-.logoheader {
-  overflow: hidden;
-  height: 56px;
-  display: flex;
-  color: #e9e1db;
-  font-size: 1.1rem;
-  align-items: center;
-  margin-left: 10px;
+.error-icon{
+	display: block;
+	margin: auto;
 }
 
-.personname {
-  // color: #fff;
-  line-height: 56px;
-  margin: 0 5px;
-  text-shadow: 0 1px 3px #0000002a;
-
-}
-
-/* .userName {
-  margin: 0 0px;
-} */
-
-.hlogo {
-  height: 30px;
-}
-.toolbar-header {
-  background-color: #00bec0;
-}
-
-.logo-let {
+.cli-body{
+  font-family: "Telefonica";
+  height: 100%;
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  margin: 0 10px;
-  color: white;
+}
+.cli-canvas{
+  padding-top: 56px;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.cli-canvas-fixedaside{
+  padding-left: 265px;
+}
+.cli-canvas-hiddenaside{
+  padding-left: 70px;
+}
+.cli-content{
+  padding: 20px;
+  flex: 1 0 auto;
 }
 
-.menu-icon-header {
-  font-size: 35px;
-  margin-right: 15px;
-  cursor: pointer;
-  color: #ffffff;
-}
-
-
-.mat-icon {
-  margin: auto;
-  font-size: 26px;
-}
-
-.btn-header {
-  background-color: #f3f3f3;
-  color: rgb(128, 125, 125);
-  transition: ease 0.3s;
-  &:hover:enabled {
-    background-color: #f8e7e5;
-  }
-  &:hover:enabled:active {
-    background-color: #b0b2b1;
-  }
-}
-.toolbar-header {
-  background-color: #00bec0;
-}
 
 
 /* Burbuja */
-.cli-aside{
+/* .cli-aside{
   position: fixed;
-  /* top: 0; */
   top: 64px;
   bottom: 0;
   left: 0;
@@ -88,8 +53,8 @@
   flex-direction: column;
   box-shadow: 0 1px 1px 0 #0000004d, 0 2px 5px 0 #00000036 ;
 }
-
-.aside-btn-float{
+ */
+/* .aside-btn-float{
   z-index: 60;
   background-color: rgb(146, 30, 30) ;
   box-shadow: #b4dee6;
@@ -105,24 +70,24 @@
   justify-content: center;
   align-items: center;
   transition:  0.3s ease;
-}
-.aside-btn-float:hover{
+} */
+/* .aside-btn-float:hover{
   cursor: pointer;
-}
+} */
 @media (max-width: 850px) {
-  .title-header {
+/*   .title-header {
     font-size: 13px;
-  }
+  } */
 
-  .logoheader {
+/*   .logoheader {
     margin-left: 0px;
-  }
+  } */
 
  /*  .personname {
     font-size: 10px;
   } */
 
-  .personname {
+/*   .personname {
     font-size: 0px;
   }
 
@@ -140,6 +105,6 @@
   }
   .cli-aside{
     top: 56px;
-  }
+  } */
 }
 

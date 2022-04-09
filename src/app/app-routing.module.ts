@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path:'public',
     loadChildren:()=> import('./public/public.module').then((m)=>m.PublicModule),
-    // canActivate:[NoAuthGuard]
+    canActivate:[NoAuthGuard]
   },
   {
     path: 'login',

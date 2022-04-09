@@ -1,19 +1,10 @@
-
-<div class="cli-aside"
-[ngClass]="{ 'cli-aside-fixed': fixedAside, 'cli-aside-hover': !fixedAside }"
-
+<div
+  class="cli-aside"
+  [ngClass]="{ 'cli-aside-fixed': fixedSide, 'cli-aside-hover': !fixedSide }"
 >
-  <mat-toolbar style="background-color: #2b3447">
+  <!-- <mat-toolbar style="background-color: #2b3447">
     <span style="text-align: center; color: #fff"
       >Menús A
-
-      <!-- <button
-          mat-icon-button
-          (click)="sidenav.toggle()"
-          style="color: #fff"
-        >
-          <mat-icon mat-list-icon>menu</mat-icon>
-        </button> -->
 
       <div
         [ngClass]="{ opened: sideNavState }"
@@ -24,9 +15,52 @@
         <mat-icon *ngIf="!sideNavState">chevron_right</mat-icon>
       </div>
     </span>
-  </mat-toolbar>
+  </mat-toolbar> -->
 
-  <mat-accordion>
+
+  <!-- MENÚ -->
+  <div
+    [ngClass]="{ 'cli-aside-overflow': fixedSide }"
+    class="cli-aside-container"
+  >
+    <div style="height: 40px"></div>
+    <ul class="cli-aside-menu">
+      <li>
+        <a
+          (click)="clickLinkMenu()"
+          class="menu-link"
+          [routerLink]="'/home'"
+          routerLinkActive="active-link"
+        >
+          <i class="submenu-icon">
+            <mat-icon>home</mat-icon>
+          </i>
+
+          <span *ngIf="fixedSide">{{ "ASIDE.HOME" | translate }}</span>
+        </a>
+      </li>
+      <li>
+        <a
+          (click)="clickLinkMenu()"
+          class="menu-link"
+          [routerLink]="'/company'"
+          routerLinkActive="active-link"
+        >
+          <i class="submenu-icon">
+            <mat-icon>label_important</mat-icon>
+          </i>
+          <span *ngIf="fixedSide">Portal de atención</span>
+        </a>
+      </li>
+      <ng-container
+        *ngFor="let menu of menuList"
+        [ngTemplateOutlet]="menuItem"
+        [ngTemplateOutletContext]="{ item: menu }"
+      ></ng-container>
+    </ul>
+  </div>
+
+ <!--  <mat-accordion>
     <mat-expansion-panel
       [hideToggle]="!sideNavState"
       *ngFor="let menu of menuList; let i = index"
@@ -63,6 +97,59 @@
         </a>
       </div>
     </mat-expansion-panel>
-  </mat-accordion>
-
+  </mat-accordion> -->
 </div>
+
+
+<!-- MENUS -->
+<ng-template #menuItem let-item="item">
+  <!-- MENUS CON SUB MENUS-->
+  <li *ngIf="item.type == 'PAREN'" class="cli-menu-item">
+    <div
+      (click)="clickToggleMenu(item)"
+      [ngClass]="{ 'menu-link-open': item.displayed }"
+      class="menu-link"
+    >
+      <i class="menu-icon"
+        ><mat-icon>{{ item.icon }}</mat-icon></i
+      >
+      <span *ngIf="fixedAside">{{ item.text }}</span>
+      <i
+        *ngIf="fixedAside"
+        [ngClass]="{ 'menu-arrow-open': item.displayed }"
+        class="menu-arrow"
+        ><mat-icon aria-hidden="false" aria-label="Example home icon"
+          >keyboard_arrow_right</mat-icon
+        ></i
+      >
+    </div>
+    <!-- SUB MENUS -->
+    <ng-container
+      *ngIf="fixedAside"
+      [ngTemplateOutlet]="subMenuItems"
+      [ngTemplateOutletContext]="{ item: item }"
+    ></ng-container>
+    <ng-container *ngIf="!fixedAside">
+      <div class="aside-hover-menu">
+        <ng-container
+          [ngTemplateOutlet]="subMenuItemsHover"
+          [ngTemplateOutletContext]="{ item: item }"
+        ></ng-container>
+      </div>
+    </ng-container>
+  </li>
+  <!-- MENUS DIRECTO-->
+  <li *ngIf="item.type == 'ALONE'">
+    <a
+      (click)="clickLinkMenu()"
+      class="menu-link"
+      [routerLink]="item.link"
+      routerLinkActive="active-link"
+    >
+      <i class="submenu-icon">
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </i>
+      <span *ngIf="fixedAside">{{ item.text }}</span>
+    </a>
+  </li>
+</ng-template>

@@ -10,8 +10,13 @@ import { AuthService } from 'src/app/views/auth/services/auth.service';
 export class BaseComponent implements OnInit {
   hasphoto = false;
   fullName: string = '';
+  loading:boolean = true;
   userAbbreviation = ''; //input user-section
-  // fixedAside: boolean = false;
+  fixedAside:boolean = false;
+  menuError:boolean = false;
+  message:string = "Preparando contenido...";
+
+
   sideNavState = false;
 
 
@@ -21,6 +26,9 @@ export class BaseComponent implements OnInit {
     this.initializeUser();
   }
 
+  changeSideFixed(event:boolean){
+    this.fixedAside = event;
+  }
 
   initializeUser() {
     this.fullName = this.authService.getUsername();
@@ -35,6 +43,8 @@ export class BaseComponent implements OnInit {
  /*  onSidenavToggle() {
     this.sideNavState = !this.sideNavState;
   } */
+
+
 
   logout() {
     this.authService.logout();

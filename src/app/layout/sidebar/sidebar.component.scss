@@ -28,16 +28,20 @@
   flex-direction: column;
   box-shadow: 0 1px 1px 0 #0000004d, 0 2px 5px 0 #00000036 ;
 }
-/* .cli-aside-fixed{
+.cli-aside-fixed{
   width: 265px;
 }
 .cli-aside-hover{
   width: 70px;
-} */
-
-.cli-aside-fixed{
-  width: 265px;
 }
+.cli-aside-menu{
+  margin: 0;
+  list-style: none;
+  padding: 15px 0;
+}
+/* .cli-aside-fixed{
+  width: 265px;
+} */
 .cli-aside-hover{
   /* width: 70px; */
 

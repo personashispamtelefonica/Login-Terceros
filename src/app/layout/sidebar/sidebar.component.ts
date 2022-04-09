@@ -6,13 +6,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  @Output() generalFixedAside = new EventEmitter<Boolean>();
+  @Output() generalFixeSIde = new EventEmitter<Boolean>()
 
-  fixedAside=false;
+  fixedSide=false;
 
   sideNavState:boolean = true;
   menuSelected: any = null;
   panelOpenState = true;
+  displayed?: boolean;
+
 
   menuList = [
     {
@@ -20,6 +22,7 @@ export class SidebarComponent {
       link: '',
       name: 'Inicio',
       info: 'Inicio',
+      displayed:true,
       subMenuList: [
         {
           icon: 'engineering',
@@ -40,6 +43,8 @@ export class SidebarComponent {
       name: 'Mantenimiento',
       link: '',
       info: 'Mantenimiento',
+      displayed:true,
+
       subMenuList: [
         {
           icon: 'business',
@@ -66,6 +71,8 @@ export class SidebarComponent {
       name: 'Encuestas',
       link: '',
       info: 'Retorno a oficina',
+      displayed:false,
+
       subMenuList: [
         {
           icon: 'groups',
@@ -91,6 +98,13 @@ export class SidebarComponent {
 
   constructor() {}
 
+
+  clickLinkMenu(){
+    this.menuList.forEach(item => {
+      item.displayed = false
+    });
+  }
+
   setMenuIndex(index: number) {
     this.menuSelected = index;
     console.log(this.menuSelected);
@@ -101,8 +115,8 @@ export class SidebarComponent {
   }
 
   toggleAside(e: boolean) {
-    this.fixedAside = e;
-    this.generalFixedAside.emit(this.fixedAside);
+    this.fixedSide = e;
+    this.generalFixeSIde.emit(this.fixedSide);
   }
 
   onSidenavToggle() {
