@@ -1,40 +1,39 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
-export class SidebarComponent {
-  @Output() generalFixeSIde = new EventEmitter<Boolean>()
+export class SidebarComponent implements OnInit {
+  @Output() generalfixedAside = new EventEmitter<Boolean>();
 
-  fixedSide=false;
-
-  sideNavState:boolean = true;
+  fixedAside = false;
+  sideNavState: boolean = true;
   menuSelected: any = null;
   panelOpenState = true;
-  displayed?: boolean;
-
 
   menuList = [
     {
-      icon: 'home',
-      link: '',
+      icon: 'folder_special',
+      link: 'nmj',
       name: 'Inicio',
       info: 'Inicio',
-      displayed:true,
+      displayed: false,
       subMenuList: [
         {
           icon: 'engineering',
           name: 'Listas',
-          link: 'abcd',
+          link: 'abc',
           info: 'usuarios guardados',
+          displayed: false,
         },
         {
           icon: 'search',
           name: 'codigos',
-          link: 'abc',
+          link: 'xyz',
           info: 'Coóigos guardados',
+          displayed: false,
         },
       ],
     },
@@ -43,42 +42,44 @@ export class SidebarComponent {
       name: 'Mantenimiento',
       link: '',
       info: 'Mantenimiento',
-      displayed:true,
-
+      displayed: false,
       subMenuList: [
         {
           icon: 'business',
           link: 'company',
           name: 'Empresa',
           info: 'Lista empresas',
+          displayed: false,
         },
         {
           icon: 'people',
           link: 'usuarios',
           name: 'Colaboradores',
           info: 'Lista de colaboradores',
+          displayed: false,
         },
         {
           icon: 'search',
-          link: 'xyz',
+          link: 'abd',
           name: 'Todo',
           info: 'Coóigos guardados',
+          displayed: false,
         },
       ],
     },
     {
-      icon: 'home',
-      name: 'Encuestas',
-      link: '',
+      icon: 'person',
+      name: 'Pase de colaborador',
+      link: 'mnp',
       info: 'Retorno a oficina',
-      displayed:false,
-
+      displayed: false,
       subMenuList: [
         {
           icon: 'groups',
           link: 'encuesta',
           name: 'Pase de reunión',
           info: 'Confirmación de encuestas',
+          displayed: false,
         },
         /* {
           icon: 'person',
@@ -91,6 +92,7 @@ export class SidebarComponent {
           link: 'pases',
           name: 'Lista de pases',
           info: 'Pase de colaboradores',
+          displayed: false,
         },
       ],
     },
@@ -98,28 +100,27 @@ export class SidebarComponent {
 
   constructor() {}
 
+  ngOnInit(): void {}
 
-  clickLinkMenu(){
-    this.menuList.forEach(item => {
-      item.displayed = false
+  clickLinkMenu() {
+    this.menuList.forEach((item) => {
+      item.displayed = false;
     });
   }
 
-  setMenuIndex(index: number) {
-    this.menuSelected = index;
-    console.log(this.menuSelected);
-  }
-
-  onSinenavToggle() {
-    this.sideNavState = !this.sideNavState;
+  clickToggleMenu(item: any) {
+    const final = !item.displayed;
+    if (!(this.fixedAside == false && final == false)) {
+      this.menuList.map((item) => {
+        item.displayed = false;
+      });
+      item.displayed = final;
+    }
+    this.toggleAside(true);
   }
 
   toggleAside(e: boolean) {
-    this.fixedSide = e;
-    this.generalFixeSIde.emit(this.fixedSide);
-  }
-
-  onSidenavToggle() {
-    this.sideNavState = !this.sideNavState;
+    this.fixedAside = e;
+    this.generalfixedAside.emit(this.fixedAside);
   }
 }

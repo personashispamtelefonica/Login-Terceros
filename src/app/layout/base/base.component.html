@@ -1,7 +1,6 @@
 <div *ngIf="loading" class="cli-body">
-
   <app-header></app-header>
-  <app-sidebar (generalFixedSide)="changeSideFixed($event)"></app-sidebar>
+  <app-sidebar (generalfixedAside)="changeSideFixed($event)"></app-sidebar>
 
   <div
     [ngClass]="{
@@ -17,9 +16,7 @@
     </div>
     <app-footer></app-footer>
   </div>
-
 </div>
-
 
 <div *ngIf="!loading" class="cli-body">
   <div class="error-message">

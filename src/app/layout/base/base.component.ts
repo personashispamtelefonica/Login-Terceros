@@ -1,24 +1,19 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/views/auth/services/auth.service';
 
-
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
   styleUrls: ['./base.component.scss'],
 })
 export class BaseComponent implements OnInit {
-  hasphoto = false;
+  fixedAside: boolean = false;
+  menuError: boolean = false;
+  message: string = 'Preparando contenido...';
+  loading: boolean = true;
   fullName: string = '';
-  loading:boolean = true;
-  userAbbreviation = ''; //input user-section
-  fixedAside:boolean = false;
-  menuError:boolean = false;
-  message:string = "Preparando contenido...";
-
-
+  userAbbreviation = '';
   sideNavState = false;
-
 
   constructor(private authService: AuthService) {}
 
@@ -26,7 +21,7 @@ export class BaseComponent implements OnInit {
     this.initializeUser();
   }
 
-  changeSideFixed(event:boolean){
+  changeSideFixed(event: boolean) {
     this.fixedAside = event;
   }
 
@@ -40,13 +35,5 @@ export class BaseComponent implements OnInit {
     }
   }
 
- /*  onSidenavToggle() {
-    this.sideNavState = !this.sideNavState;
-  } */
 
-
-
-  logout() {
-    this.authService.logout();
-  }
 }
