@@ -1,21 +1,15 @@
-.cli-footer {
-  padding: 12px;
-  background-color: #2b3447;
+.cli-footer{
+  padding: 20px;
+  background-color: #2B3447;
   color: #b6b7b7;
   display: flex;
-
-  bottom: 0;
-  position: fixed;
-  right: 0;
-  left: 0px;
   letter-spacing: 2px;
+
+  right: 0;
+  bottom: 0;
+
 }
 
-.cli-footer {
-  text-decoration: none;
-  color: #c3c5ca;
-  z-index: 1000;
-}
 
 @media (max-width: 850px) {
   .cli-footer {

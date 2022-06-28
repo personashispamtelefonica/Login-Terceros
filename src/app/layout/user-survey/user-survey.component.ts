@@ -82,4 +82,12 @@ export class UserSurveyComponent implements OnInit {
 
     console.log(request);
   }
+
+
+
+
+  irEncuesta() {
+    this.router.navigateByUrl('dashboard/encuesta');
+
+  }
 }

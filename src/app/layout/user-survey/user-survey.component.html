@@ -1,11 +1,8 @@
 <div class="row" style="margin-top: 20px" *ngIf="cargando">
   <div class="col-12">
-
     <div class="alert alert-info text-center">
       <h4 class="alert-heading">Cargando</h4>
-      <mat-spinner diameter="30" style="margin: 5px auto;"></mat-spinner>
-      <!-- <i class="fa fa-spin fa-refresh fa-2x"></i> -->
-      <!-- <mat-spinner diameter="20"></mat-spinner> -->
+      <mat-spinner diameter="30" style="margin: 5px auto"></mat-spinner>
       <p class="mb-0">Por favor espere</p>
     </div>
   </div>
@@ -14,15 +11,32 @@
 <div class="global-content">
   <div class="cli-card">
     <div class="cli-card-body">
-      <h4 class="cli-title-center c-male">Acceso a la encuesta</h4>
+      <h4 class="cli-title-center c-male">Pase de acceso a la encuesta</h4>
+      <h5 class="cli-subtitle">
+        Aquí puede generar un pase de acceso a la encuesta
+      </h5>
+      <div class="qr-input">
+        <button
+          class="cli-btn btn-l btn-blue my-4"
+          type="submit"
+          (click)="irEncuesta()"
+        >
+          <mat-icon class="icon-cent">checklist_rtl</mat-icon> Ir encuesta
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="global-content">
+  <div class="cli-card">
+    <div class="cli-card-body">
+      <h4 class="cli-title-center c-male">Pase de acceso a la encuesta</h4>
       <h5 class="cli-subtitle">Ficha de sistematología de COVID-19</h5>
 
       <h4 style="color: #ff4081" class="cli-subtitle">
         Por favor marque el siguiente cuestionario
       </h4>
-
-
-
 
       <form>
         <table class="cli-table" *ngIf="!cargando">
@@ -40,7 +54,7 @@
               <td>
                 <div class="cli-form-buttons">
                   <button
-                    class="cli-btn btn-l btn-magenta"
+                    class="cli-btn btn-enc btn-magenta"
                     (click)="changeAnswerValue(i, true)"
                     [ngClass]="{
                       'enabled-button': encuesta.responseValue == 'S'
@@ -49,7 +63,7 @@
                     Si
                   </button>
                   <button
-                    class="cli-btn btn-l btn-magenta"
+                    class="cli-btn btn-enc btn-magenta"
                     (click)="changeAnswerValue(i, false)"
                     [ngClass]="{
                       'enabled-button': encuesta.responseValue == 'N'
@@ -71,9 +85,18 @@
           (click)="guardar()"
           [disabled]="!validForm"
         >
-          <mat-icon class="icon-18">save</mat-icon> Guardar encuesta
+          <mat-icon class="icon-18">save</mat-icon> Confirmar pase
         </button>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="global-content">
+  <div class="cli-card">
+    <div class="cli-card-body">
+      <h4 class="cli-title-center c-male">Pase de acceso a la encuesta</h4>
+      <h5 class="cli-subtitle">acceso limitado para la reunión</h5>
     </div>
   </div>
 </div>

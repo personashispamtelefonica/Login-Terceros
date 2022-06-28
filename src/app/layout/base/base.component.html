@@ -1,63 +1,31 @@
-<mat-sidenav-container fullscreen  style="background:#f2f4ff">
-
- <!--  <mat-toolbar class="toolbar-header">
-    <button
-    (click)="sidenav.toggle()"
-      mat-icon-button
-      style="color: #fff"
-    >
-      <mat-icon mat-list-icon>menu</mat-icon>
-    </button>
-
-
-    <div class="logoheader">
-      <img
-        class="hlogo"
-        src="../../../assets/images/logos/tercerosLogoHeader.svg"
-      />
-      <div class="logo-let">
-        <div style="font-weight: bold">Emp. colaboradoras</div>
-      </div>
-    </div>
-
-    <div style="flex: 1 1 auto"></div>
-    <div class="personname">{{ fullName | uppercase }}</div>
-    <app-user-section
-      [nameini]="userAbbreviation"
-      class="user-bag"
-    ></app-user-section>
-
-    <mat-icon class="menu-icon-header"
-            [matMenuTriggerFor]="menu"
-    >keyboard_arrow_down
-  </mat-icon>
-
-    <mat-menu class="mat-menu-header" #menu="matMenu">
-      <button>
-        <mat-icon>person</mat-icon>
-        <span class="personname">{{ fullName | uppercase }}</span>
-      </button>
-
-      <hr />
-      <button (click)="logout()" class="btn-header">
-        <mat-icon>close</mat-icon>
-        <span>Cerrar Sesión</span>
-      </button>
-    </mat-menu>
-
-  </mat-toolbar> -->
-
+<div *ngIf="loading" class="cli-body">
   <app-header></app-header>
+  <app-sidebar (generalfixedAside)="changeSideFixed($event)"></app-sidebar>
 
-  <!-- <mat-sidenav mode="sideX"
-        #sidenav class="cli-aside">
-      </mat-sidenav> -->
-      <app-sidebar  ></app-sidebar>
-
-  <div class="container">
-    <router-outlet></router-outlet>
+  <div
+    [ngClass]="{
+      'cli-canvas-fixedaside': fixedAside,
+      'cli-canvas-hiddenaside': !fixedAside
+    }"
+    class="cli-canvas"
+  >
+    <div class="cli-content">
+      <block-ui>
+        <router-outlet></router-outlet>
+      </block-ui>
+    </div>
+    <app-footer></app-footer>
   </div>
+</div>
 
-  <app-footer></app-footer>
-
-</mat-sidenav-container>
+<div *ngIf="!loading" class="cli-body">
+  <div class="error-message">
+    <mat-spinner
+      *ngIf="loading && !menuError"
+      diameter="30"
+      style="margin: 5px auto"
+    ></mat-spinner>
+    <mat-icon class="error-icon" *ngIf="menuError">error</mat-icon>
+    {{ message }}
+  </div>
+</div>
