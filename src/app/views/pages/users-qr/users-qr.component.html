@@ -1,18 +1,17 @@
 <div class="user-form" style="margin-top: 15px">
   <h1>Validar pase de Ingreso</h1>
   <br />
-  <h3 class="user-form" style="color: dodgerblue">
+  <!-- <h3 class="user-form" style="color: dodgerblue">
     Usted tiene 3 opciones de validar su pase
-  </h3>
+  </h3> -->
 
   <ng-container>
-    <span class="c-male">Opción 1: </span>
+    <!-- <span class="c-male">Opción 1: </span> -->
     <label style="margin-left: 0px">Ingresar su código</label>
     <div class="qr-input">
       <input #searcher class="cli-input"
-             type="text" [formControl]="code"
-             placeholder="RE-000,000,012"
-             />
+            type="text" [formControl]="code"
+            placeholder="RE-000,000,012"/>
 
       <button
         (click)="callApi(searcher.value)"
@@ -23,7 +22,7 @@
       </button>
     </div>
 
-    <br />
+    <!-- <br />
     <span class="c-male">Opción 2: </span>
     <label style="margin-left: 0px"
       >Selecione el tipo e ingrese su código</label
@@ -67,12 +66,11 @@
       <small class="form-text text-danger" *ngIf="campoNoValido('value')">
         * Debe de ingresar todos los caracteres
       </small>
-    </form>
+    </form> -->
 
 
     <br />
-    <span class="c-male">Opción 3: </span>
-    <label style="margin-left: 0px">Escanear QR:</label>
+    <label style="margin-left: 0px">O escanear QR:</label>
 
     <div class="user-form-qr">
       <div class="qrcode-wrapper">
@@ -121,7 +119,7 @@
 
 
      <!-- Boton encuesta-->
-     <div class="form-group text-center" style="margin: 0 auto;">
+    <!--  <div class="form-group text-center" style="margin: 0 auto;">
       <button
         class="cli-btn btn-l btn-yellow my-4"
         type="submit"
@@ -129,6 +127,6 @@
       >
         <mat-icon class="icon-cent">checklist_rtl</mat-icon> Ir encuesta
       </button>
-    </div>
+    </div> -->
   </ng-container>
 </div>

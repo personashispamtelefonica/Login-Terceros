@@ -122,7 +122,7 @@ export class UsersQrComponent implements OnInit {
     this.blockUI.start('Validando');
     this.http
       .get<qrvalidator>(
-        'https://aks-hispam-prod.eastus.cloudapp.azure.com/workstationsapi/v1/check-qr?code=' +
+        'https://ms-reservation-web.azurewebsites.net/workstationsapi/v1/check-qr?code=' +
           result
       )
       .subscribe(
