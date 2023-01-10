@@ -9,3 +9,49 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-top: 30px;
 }
 
+// BUTONS
+.btn{
+  border: none;
+  border-radius: 2px;
+  margin: 0 5px;
+  height: 38px;
+  padding: 0 15px;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  & mat-icon{
+      margin: 0 5px;
+  }
+  &:disabled{
+      background-color: #4C5568;
+      color: #fff;
+  }
+}
+
+.btn-green{
+  background-color: #5CB615;
+  color: #fff;
+  transition: ease .3s;
+  &:hover:enabled{
+      background-color: #BDE4A4;
+  }
+  &:hover:enabled:active{
+      background-color: #3C7521;
+  }
+}
+
+.btn-grey{
+  background-color: #bdc1c8;
+  color: #323232;
+  transition: ease .3s;
+  &:hover:enabled{
+      background-color: #e5e7ef;
+  }
+  &:hover:enabled:active{
+      background-color: #8c95a8;
+  }
+}
+.bold{
+  font-weight: 500 !important;
+  color: #0066ff;
+}

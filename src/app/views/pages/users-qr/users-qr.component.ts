@@ -112,9 +112,9 @@ export class UsersQrComponent implements OnInit {
     console.log(splited);
     if (splited.length != 4) return false;
     if (splited[0] !== 'TELHIS') return false;
-    if (parseInt(splited[1]) == NaN) return false;
-    if (parseInt(splited[2]) == NaN) return false;
-    if (parseInt(splited[3]) == NaN) return false;
+    if (Number.isNaN(parseInt(splited[1]))) return false;
+    if (Number.isNaN(parseInt(splited[2]))) return false;
+    if (Number.isNaN(parseInt(splited[3]))) return false;
     return true;
   }
 

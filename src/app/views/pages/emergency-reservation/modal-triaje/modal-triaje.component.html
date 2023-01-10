@@ -1,0 +1,90 @@
+
+<ng-container *ngIf="showqr">
+
+    <h1 class="center bold">RESERVA ACTIVADA</h1>
+    <h4 class="center">El código Qr de ingreso se generó correctamente:</h4>
+    <div class="qrcode">
+        <qr-code value="RE-{{indata.reservation.id | number:'9.0'}}"></qr-code>
+        <div >RE-{{indata.reservation.id | number:'9.0'}}</div>
+        <div >{{indata.reservation.rdate | date: 'dd/MM/yyyy'}} - Día completo</div>
+        <div >{{indata.reservation.campus}} </div>
+    </div>
+    <h4 class="center">Este código ya fue activado, no es necesario escanear.</h4>
+    <div class="okqr">
+        <mat-icon>check</mat-icon> Puede ingresar
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="showtriaje">
+    <h1 class="center bold">Declaración de salud</h1>
+    <div class="triaje">
+        Declaro que en los últimos 7 día no he tenido contacto con ningun caso confirmado de COVID-19 y además no presento nunguno de los siguietes síntomas:
+        <ul>
+            <li>Fiebre o malestar</li>
+            <li>Dolor de garganta, tos, estornudos o dificultad para respirar</li>
+            <li>Dolor de cabeza, diarrea o congestión nasal</li>
+            <li>Pérdida del gusto y/o del olfato</li>
+        </ul>
+    </div>
+    <div class="emergencyform-btns">
+        <button class="btn btn-grey">No, cancelar</button>
+        <button class="btn btn-green" (click)="showQRCode()">Sí, continuar</button>
+    </div>
+
+</ng-container>
+
+
+<ng-container *ngIf="showForm" >
+    <h1 class="center bold">RESERVA DE EMERGENCIA</h1>
+    <div class="emergencyform">
+        <div class="emergencyform-item">
+            <label for="">Sede</label>
+            <select disabled>
+                <option value="2" selected >{{fltdata.campusname}}</option>
+            </select>
+        </div>
+    
+        <div class="emergencyform-loader" *ngIf="loadingTowers">Cargando torres...</div>
+        <div class="emergencyform-item" *ngIf="towers.length > 1 && !loadingTowers">
+            <label for="">Torre</label>
+            <select [(ngModel)]="newreservationData.tower" (ngModelChange)="pickTower($event)">
+                <option disabled value="">-Seleccionar-</option>
+                <option *ngFor="let t of towers" [value]="t.name">{{t.name}}</option>
+            </select>
+        </div>
+    
+        <div class="emergencyform-item" *ngIf="newreservationData.tower!='' || towers.length == 1">
+            <label for="">Piso</label>
+            <select [(ngModel)]="newreservationData.flatId" (ngModelChange)="pickFlat($event)">
+                <option disabled value="0">-Seleccionar-</option>
+                <ng-container *ngFor="let f of flats" >
+                    <option [disabled]="!recurrence && f.availableSites == 0"  
+                        [value]="f.id">
+                        {{f.name}} ({{f.typeCod}}) {{ !recurrence ? " - " + f.availableSites + " disp." : ""}} 
+                    </option>
+                </ng-container>
+            </select>
+        </div>
+    
+        <div class="emergencyform-item" *ngIf="newreservationData.flatId!=0 && newreservationData.typeCode=='FIX'" >
+            <label>Lugar/silla</label>
+            <select *ngIf="!siteLodear" [(ngModel)]="newreservationData.siteId" 
+            (ngModelChange)="pickSite($event)">
+                <option disabled value="0">-Seleccionar-</option>
+                <ng-container *ngFor="let s of sites">
+                    <option *ngIf="s.available"  [value]="s.id" >{{s.code}}</option>
+                </ng-container>
+            </select>
+            <div *ngIf="siteLodear"  class="emergencyform-loader">
+                Cargando lugares... 
+            </div>
+        </div>
+    </div>  
+    <div class="emergencyform-btns">
+        <button class="btn btn-grey" (click)="close()">Cerrar</button>
+        <button (click)="showTriaje()" [disabled]="newreservationData.flatId==0 || (newreservationData.typeCode == 'FIX' && newreservationData.siteId==0)" 
+        class="btn btn-green">Confirmar reserva</button>
+    </div>
+</ng-container>
+

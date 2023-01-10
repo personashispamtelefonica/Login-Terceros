@@ -15,8 +15,6 @@ import { LayoutModule } from '../layout/layout.module';
     CommonModule,
     PublicRoutingModule,
     LayoutModule,
-
-
     MaterialModule
   ]
 })

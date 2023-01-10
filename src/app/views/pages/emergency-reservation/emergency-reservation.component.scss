@@ -1,0 +1,35 @@
+.emergencia{
+    max-width: 900px;
+    margin: 20px auto;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-dni{
+        & input{
+            margin: 10px;
+            padding: 10px;
+            border-radius: 3px;
+            border: none;
+            border: solid 1px lightblue;
+            transition: ease .3s;
+            outline: none;
+            letter-spacing: 8px;
+            text-align: center;
+            width: 270px;
+            &:hover{
+                border-color: skyblue;
+            }
+            &:focus{
+                border-color: rgb(39, 105, 181);
+            }
+        }
+    }
+    &-btn{
+        margin: 10px;
+        padding: 5px 10px;
+        border:  solid 1px rgb(21, 75, 136);
+        background-color:  rgb(39, 105, 181);
+        color: #fff;
+    }
+}

@@ -1,0 +1,11 @@
+<div class="emergencia"> 
+    <h1 style="margin-bottom: 50px;" class="bold">QR de Emergencia</h1>
+    <div>Número de DNI:</div>
+    <div class="emergencia-dni"> 
+        <input #dni type="number" maxlength="8"> 
+    </div>
+    <div style="display: flex;">
+        <button (click)="dni.value=''" class="btn btn-grey"> <mat-icon>clear</mat-icon> Limpiar</button>
+        <button (click)="validateDNI(dni.value)" class="btn btn-green"> <mat-icon>search</mat-icon> Validar</button>
+    </div>
+</div>
