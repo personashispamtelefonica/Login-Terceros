@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { reservationStatus } from './emergency-reservation.component';
 
 @Injectable({
   providedIn: 'root'
@@ -51,14 +52,8 @@ export class ServService {
   }
 
   addNewReservation$(req:requestReservation){
-    return this.http.post<responseReservation>(this.API_RESERVAS + "reservations/new-reservation",req, this.httpOptions);
+    return this.http.post<reservationStatus>(this.API_RESERVAS + "reservations/new-reservation",req, this.httpOptions);
   }
-}
-
-export interface responseReservation {
-  done: boolean;
-  idmap: { id: number; date: Date }[];
-  message: string;
 }
 
 export interface FlatDTO {

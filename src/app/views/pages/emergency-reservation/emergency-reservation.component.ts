@@ -37,6 +37,9 @@ export interface reservationStatus{
   status      : boolean;
   message     : string;
   reservation : reservation;
+  userEnable  : boolean;
+  userExist   : boolean;
+  email       : string;
 }
 
 export interface reservation{

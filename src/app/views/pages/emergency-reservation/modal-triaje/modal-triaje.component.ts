@@ -154,7 +154,7 @@ export class ModalTriajeComponent implements OnInit {
       type:       this.newreservationData.typeCode,
       datefrom:   this.fltdata.date,
       dates:      [this.fltdata.date],
-      useremail:  'antony.becerravargas@telefonica.com',
+      useremail:  this.indata.email,
       period:     "FULLD",
       start:      "09:00",
       end:        "18:30",
@@ -168,12 +168,15 @@ export class ModalTriajeComponent implements OnInit {
     this.block.start("Validando reservación...");
     this.serv.addNewReservation$(request).subscribe(r=>{
       this.block.stop();
-      if (r.done){
+      if (r.status){
         this.indata = {
           status:  true,
           message: "",
+          email: this.indata.email,
+          userEnable: true,
+          userExist: true,
           reservation: {
-            id: r.idmap[0].id,
+            id: r.reservation.id,
             rdate: this.fltdata.date,
             campus: this.fltdata.campusname,
             surveyresult: false
