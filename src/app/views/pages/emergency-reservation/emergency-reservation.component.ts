@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import Swal from 'sweetalert2';
 import { ModalTriajeComponent } from './modal-triaje/modal-triaje.component';
 
 @Component({
@@ -27,7 +28,13 @@ export class EmergencyReservationComponent implements OnInit {
     this.block.start("Validando...");
     this.http.get<reservationStatus>(this.API_RESERVAS + 'reservations/search-reservation?filter='+filter,this.httpOptions).subscribe(resp=>{
       this.block.stop();
-      this.dialog.open(ModalTriajeComponent,{data:{resstatus:resp},width:'80%', height:'80%'});
+      if (!resp.userExist){
+        Swal.fire("DNI Erroneo","El DNI es incorrecto o el usuario no está registrado","warning");
+      }else if (!resp.userEnable){
+        Swal.fire("Usuario bloqueado","El usuario no está habilitado para acceder a oficina","error");
+      }else{
+        this.dialog.open(ModalTriajeComponent,{data:{resstatus:resp},width:'80%', height:'80%'});
+      }
     });
   }
 

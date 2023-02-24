@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { QrScannerComponent } from 'angular2-qrscanner';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
@@ -11,6 +11,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { API_RESERVAS } from '../emergency-reservation/serv.service';
 
 export interface qrvalidator {
   valid: boolean;
@@ -120,11 +121,14 @@ export class UsersQrComponent implements OnInit {
 
   callApi(result: string) {
     this.blockUI.start('Validando');
+    const httpOptions = {
+    headers: new HttpHeaders({
+      "Ocp-Apim-Subscription-Key": 'f60aac663e674ad1a899993ae09c41e9',
+      user: 'antony'
+    })
+  };
     this.http
-      .get<qrvalidator>(
-        'https://ms-reservation-web.azurewebsites.net/workstationsapi/v1/check-qr?code=' +
-          result
-      )
+      .get<qrvalidator>(API_RESERVAS +  '/check-qr?code=' + result, httpOptions)
       .subscribe(
         (resp) => {
           this.blockUI.stop();

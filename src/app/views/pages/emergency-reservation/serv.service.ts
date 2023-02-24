@@ -3,12 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { reservationStatus } from './emergency-reservation.component';
 
+
+export const API_RESERVAS = 'https://apimngr-hispam-prod.azure-api.net/workstationsapi/v1/';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class ServService {
 
-  API_RESERVAS = 'https://apimngr-hispam-prod.azure-api.net/workstationsapi/v1/';
   httpOptions = {
     headers: new HttpHeaders({
       "Ocp-Apim-Subscription-Key": 'f60aac663e674ad1a899993ae09c41e9',
@@ -26,7 +29,7 @@ export class ServService {
       params = params + "&period=" + period;
     }
 
-    return this.http.get<FlatDTO[]>(this.API_RESERVAS + "flats" + params, this.httpOptions).pipe(
+    return this.http.get<FlatDTO[]>(API_RESERVAS + "flats" + params, this.httpOptions).pipe(
       map(resp=>{
         const towers:towerMod[] = [];
         resp.forEach( f => {
@@ -48,11 +51,11 @@ export class ServService {
       params = params + "&date=" + date;
       params = params + "&period=" + period;
     }
-    return this.http.get<ChairDTO[]>(this.API_RESERVAS + "chairs" + params, this.httpOptions);
+    return this.http.get<ChairDTO[]>(API_RESERVAS + "chairs" + params, this.httpOptions);
   }
 
   addNewReservation$(req:requestReservation){
-    return this.http.post<reservationStatus>(this.API_RESERVAS + "reservations/new-reservation",req, this.httpOptions);
+    return this.http.post<reservationStatus>(API_RESERVAS + "reservations/new-reservation",req, this.httpOptions);
   }
 }
 
