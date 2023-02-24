@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { reservationStatus } from './emergency-reservation.component';
 
 
-export const API_RESERVAS = 'https://apimngr-hispam-prod.azure-api.net/workstationsapi/v1/';
+export const API_RESERVAS = 'https://apimngr-hispam-prod.azure-api.net/workstationsapi/v1';
 
 
 @Injectable({

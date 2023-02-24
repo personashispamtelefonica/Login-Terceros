@@ -1,76 +1,10 @@
-<div class="user-form" style="margin-top: 15px">
+<div class="user-form" style="margin-top: 15px; display: flex; flex-direction: column; align-items: center;">
   <h1>Validar pase de Ingreso</h1>
-  <br />
-  <!-- <h3 class="user-form" style="color: dodgerblue">
-    Usted tiene 3 opciones de validar su pase
-  </h3> -->
-
+  
   <ng-container>
-    <!-- <span class="c-male">Opción 1: </span> -->
-    <label style="margin-left: 0px">Ingresar su código</label>
-    <div class="qr-input">
-      <input #searcher class="cli-input"
-            type="text" [formControl]="code"
-            placeholder="RE-000,000,012"/>
-
-      <button
-        (click)="callApi(searcher.value)"
-        class="cli-btn btn-emerald"
-        [disabled]="!code.value"
-      >
-        <mat-icon>search</mat-icon>
-      </button>
-    </div>
-
-    <!-- <br />
-    <span class="c-male">Opción 2: </span>
-    <label style="margin-left: 0px"
-      >Selecione el tipo e ingrese su código</label
-    >
-
-    <form
-      class="row row-cols-lg-auto g-3 align-items-center"
-      [formGroup]="myInputCodForm"
-    >
-      <div>
-        <div class="cli-form-element col-f-2">
-          <select class="cli-input-white"
-          formControlName="codeType"
-          >
-            <option value="RE">RE</option>
-            <option value="MP">MP</option>
-          </select>
-        </div>
-      </div>
-      <span>-</span>
-
-      <ng-container formArrayName="codeList">
-        <ng-container *ngFor="let codeForm of codeList.controls; let i = index">
-          <div [formGroup]="codeForm">
-            <input
-              class="cli-input input-codigo"
-              placeholder="0"
-              formControlName="codeValue"
-              maxlength="1"
-            />
-          </div>
-          <span *ngIf="i==2 || i==5" class="spacer-input">,</span>
-        </ng-container>
-      </ng-container>
-      <button
-        class="cli-btn btn-emerald"
-        (click)="viewValues()"
-        [disabled]="myInputCodForm.invalid"
-      ><mat-icon>search</mat-icon>
-      </button>
-      <small class="form-text text-danger" *ngIf="campoNoValido('value')">
-        * Debe de ingresar todos los caracteres
-      </small>
-    </form> -->
-
-
-    <br />
-    <label style="margin-left: 0px">O escanear QR:</label>
+    
+    
+    <h3 style="margin-left: 0px">Escanear QR:</h3>
 
     <div class="user-form-qr">
       <div class="qrcode-wrapper">
@@ -116,5 +50,23 @@
         </button>
       </div>
     </div>
+
+    <h3  style="margin-top:40px">Validar por DNI</h3>
+    <p>En caso la lectura de QR no funcione, también puedes validar la reserva con el DNI del empleado</p>
+    <div class="qr-input" >
+      
+      <input #searcher class="cli-input"
+            type="text" [formControl]="code"
+            placeholder="NRO DE DNI"/>
+
+      <button
+        (click)="callApi(searcher.value)"
+        class="cli-btn btn-emerald"
+        [disabled]="!code.value"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+
   </ng-container>
 </div>

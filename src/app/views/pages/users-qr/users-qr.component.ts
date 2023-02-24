@@ -145,6 +145,7 @@ export class UsersQrComponent implements OnInit {
                   ' </div><div> <b>Fecha:</b> ' +
                   resp.string.substring(0, 10) +
                   ' </div> ',
+                  icon: 'success'
               });
             } else {
               Swal.fire('', 'Esta reserva es para otro día', 'warning');
@@ -154,7 +155,7 @@ export class UsersQrComponent implements OnInit {
           }
         },
         () => {
-          Swal.fire('Código inválido', 'No se pudo leer', 'error');
+          Swal.fire('Error inesperado', 'Hay problemas para identificar el código.', 'error');
           this.blockUI.stop();
         }
       );
