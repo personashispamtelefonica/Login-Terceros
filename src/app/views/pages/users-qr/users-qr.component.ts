@@ -21,6 +21,7 @@ export interface qrvalidator {
   string: string;
   period: string;
   place: string;
+  placa: string;
 }
 
 export interface Codigos {
@@ -142,6 +143,9 @@ export class UsersQrComponent implements OnInit {
                   resp.user +
                   ' </div><div> <b>Sede:</b> ' +
                   place +
+                  ' </div><div> <b>Estacionamiento Reservado</b> ' +
+                  ' </div><div> <b>Placa:</b> ' +
+                  resp.placa +
                   ' </div><div> <b>Fecha:</b> ' +
                   resp.string.substring(0, 10) +
                   ' </div> ',
