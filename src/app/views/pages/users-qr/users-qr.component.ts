@@ -45,12 +45,13 @@ export class UsersQrComponent implements OnInit {
   scanningQR = false;
   myInputCodForm: FormGroup = this.fb.group({
     codeList: this.fb.array([]),
-    codeType: ['RE'],
+    codeType: [['RE','SA']],
   });
 
   constructor(private http: HttpClient, private fb: FormBuilder, private router:Router) {}
 
   ngOnInit(): void {
+   
     this.initializeCodeList();
   }
 
@@ -134,7 +135,7 @@ export class UsersQrComponent implements OnInit {
         (resp) => {
           this.blockUI.stop();
           if (resp.valid) {
-            if (this.getTodayDateAsString() == resp.string.substring(0, 10)) {
+            if (this.restDate(resp.string.substring(0, 10))) {
               const place = resp.place != null ? resp.place : 'cualquiera';
               Swal.fire({
                 title: 'Código válido',
@@ -151,9 +152,10 @@ export class UsersQrComponent implements OnInit {
                   ' </div> ',
                   icon: 'success'
               });
-            } else {
-              Swal.fire('', 'Esta reserva es para otro día', 'warning');
-            }
+             } 
+             //else {
+            //   Swal.fire('', 'Esta reserva es para otro día', 'warning');
+            // }
           } else {
             Swal.fire('Código inválido', resp.message, 'error');
           }
@@ -215,6 +217,19 @@ export class UsersQrComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  restDate(date:string):boolean{
+    const vdate= new Date(date).getTime();
+    const now = new Date(this.getTodayDateAsString()).getTime();
+    var diff = now - vdate;
+    var cant =diff/(1000*60*60*24);
+    if(cant<=1 && cant>=0 ){
+      console.log('ok')
+        return true;
+    }
+    console.log('bad')
+  return false;
   }
 
 
