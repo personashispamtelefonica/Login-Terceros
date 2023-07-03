@@ -144,9 +144,9 @@ export class UsersQrComponent implements OnInit {
                   resp.user +
                   ' </div><div> <b>Sede:</b> ' +
                   place +
-                  ' </div><div> <b>Estacionamiento Reservado</b> ' +
-                  ' </div><div> <b>Placa:</b> ' +
-                  resp.placa +
+                  // ' </div><div> <b>Estacionamiento Reservado</b> ' +
+                  // ' </div><div> <b>Placa:</b> ' +
+                  // resp.placa +
                   ' </div><div> <b>Fecha:</b> ' +
                   resp.string.substring(0, 10) +
                   ' </div> ',
