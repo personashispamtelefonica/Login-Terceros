@@ -9,12 +9,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmergencyReservationComponent } from './emergency-reservation/emergency-reservation.component';
 import { ModalTriajeComponent } from './emergency-reservation/modal-triaje/modal-triaje.component';
 import { QRCodeModule } from 'angular2-qrcode';
+import { DisneyComponent } from './disney/disney.component';
 
 @NgModule({
   declarations: [
     UsersQrComponent,
     EmergencyReservationComponent,
     ModalTriajeComponent,
+    DisneyComponent,
   ],
   imports: [
     CommonModule,

@@ -22,7 +22,7 @@ export class AuthService {
 
   login(username: string, password: string) {
     const url =
-      'https://aks-hispam-dev.eastus.cloudapp.azure.com/third/v1/api/login';
+      'http://aks-hispam-prd.eastus.cloudapp.azure.com/third/v1/login';
     const body = { username, password };
 
     return this.http.post<AuthResponse>(url, body).pipe(

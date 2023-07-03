@@ -1,0 +1,53 @@
+<div class="user-form" style="margin-top: 15px; display: flex; flex-direction: column; align-items: center;">
+    <h1>Qr Disney</h1>
+    <ng-container>
+        <h3 style="margin-left: 0px">Escanear QR:</h3>
+
+        <div class="user-form-qr">
+            <div class="qrcode-wrapper">
+                <ng-container *ngIf="!scanningQR">
+                </ng-container>
+
+                <qr-scanner
+                *ngIf="scanningQR"
+                [debug]="false"
+                [canvasWidth]="320"
+                [canvasHeight]="320"
+                [stopAfterScan]="true"
+                [updateTime]="500"
+                >
+                </qr-scanner>   
+                <select
+                *ngIf="scanningQR"
+                style="width: 180px"
+                class="cli-input-white"
+                (change)="chooseCamera($event.target.value)"
+                >
+                    <option *ngFor="let d of videoDevices" [value]="d.deviceId">
+                    {{ d.label }}
+                    </option>
+                </select>                             
+            </div>
+            <div style="display: flex; justify-content: center">
+                <button
+                  *ngIf="!scanningQR"
+                  class="cli-btn btn-emerald"
+                  (click)="scanSiteQrCode()"
+                >
+                  <mat-icon class="icon-18">qr_code_scanner</mat-icon>
+                  Scanea tu código
+                </button>
+                <button
+                  *ngIf="scanningQR"
+                  class="cli-btn btn-orange"
+                  (click)="stopScanningQr()"
+                >
+                  Dejar de escanear
+                </button>
+            </div>            
+        </div>
+
+
+
+    </ng-container>
+</div>  
