@@ -10,6 +10,7 @@ import { EmergencyReservationComponent } from './emergency-reservation/emergency
 import { ModalTriajeComponent } from './emergency-reservation/modal-triaje/modal-triaje.component';
 import { QRCodeModule } from 'angular2-qrcode';
 import { DisneyComponent } from './disney/disney.component';
+import { FirmasComponent } from './firmas/firmas.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DisneyComponent } from './disney/disney.component';
     EmergencyReservationComponent,
     ModalTriajeComponent,
     DisneyComponent,
+    FirmasComponent,
   ],
   imports: [
     CommonModule,
