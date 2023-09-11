@@ -4,6 +4,7 @@ import { EmergencyReservationComponent } from '../views/pages/emergency-reservat
 import { UsersQrComponent } from '../views/pages/users-qr/users-qr.component';
 import { PublicComponent } from './validate-qr/public.component';
 import { DisneyComponent } from '../views/pages/disney/disney.component';
+import { FirmasComponent } from '../views/pages/firmas/firmas.component';
 
 const routes: Routes = [
   {path:'', component:PublicComponent,
@@ -11,6 +12,7 @@ const routes: Routes = [
     {path:'qr', component: UsersQrComponent},
     {path:'disney', component: DisneyComponent},
     {path:'emergencia', component: EmergencyReservationComponent},
+    {path:'firmas', component: FirmasComponent},
     {path:'**', redirectTo:'qr'}
   ]
 },
