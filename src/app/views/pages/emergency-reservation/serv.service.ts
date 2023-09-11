@@ -4,8 +4,8 @@ import { map } from 'rxjs/operators';
 import { reservationStatus } from './emergency-reservation.component';
 
 
-export const API_RESERVAS = 'https://apimngr-hispam-prod.azure-api.net/workstationsapi/v1';
-// export const API_RESERVAS = 'https://ms-reservation-back.azurewebsites.net/workstationsapi/v1';
+// export const API_RESERVAS = 'https://apimngr-hispam-prod.azure-api.net/workstationsapi/v1';
+export const API_RESERVAS = 'https://ms-reservation-back.azurewebsites.net/workstationsapi/v1';
 export const API_DISNEY = 'https://apimngr-hispam-prod.azure-api.net/disney/v1';
 
 @Injectable({
@@ -30,7 +30,7 @@ export class ServService {
       params = params + "&period=" + period;
     }
 
-    return this.http.get<FlatDTO[]>(API_RESERVAS + "flats" + params, this.httpOptions).pipe(
+    return this.http.get<FlatDTO[]>(API_RESERVAS + "/flats" + params, this.httpOptions).pipe(
       map(resp=>{
         const towers:towerMod[] = [];
         resp.forEach( f => {
@@ -56,7 +56,7 @@ export class ServService {
   }
 
   addNewReservation$(req:requestReservation){
-    return this.http.post<reservationStatus>(API_RESERVAS + "reservations/new-reservation",req, this.httpOptions);
+    return this.http.post<reservationStatus>(API_RESERVAS + "/reservations/new-reservation",req, this.httpOptions);
   }
 }
 
