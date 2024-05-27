@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'', component:PublicComponent,
   children:[
     {path:'qr', component: UsersQrComponent},
-    // {path:'disney', component: DisneyComponent},
+    {path:'registro', component: DisneyComponent},
     {path:'emergencia', component: EmergencyReservationComponent},
     {path:'firmas', component: FirmasComponent},
     {path:'**', redirectTo:'qr'}
