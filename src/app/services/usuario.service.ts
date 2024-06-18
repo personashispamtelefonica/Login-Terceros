@@ -12,7 +12,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) {}
 
   getEncuesta():Observable<any> {
-    const url_encuesta = 'https://aks-hispam-dev.eastus.cloudapp.azure.com/workstationsapi/v1/healthsurvey?country=PER&type=ACCESS&all=false';
+    const url_encuesta = 'https://aks-hispam-dev.eastus.cloudapp.azure.com/secret/v1/healthsurvey?country=PER&type=ACCESS&all=false';
 
     return this.http.get(url_encuesta);
   }

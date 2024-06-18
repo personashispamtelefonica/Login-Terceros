@@ -12,7 +12,7 @@ import { ModalTriajeComponent } from './modal-triaje/modal-triaje.component';
 })
 export class EmergencyReservationComponent implements OnInit {
   @BlockUI() block!:NgBlockUI;
-  API_RESERVAS = 'https://apimngr-hispam-prod.azure-api.net/workstationsapi/v1/';
+  API_RESERVAS = 'https://apimngr-hispam-prod.azure-api.net/secret/v1/';
   httpOptions = {
     headers: new HttpHeaders({
       "Ocp-Apim-Subscription-Key": 'f60aac663e674ad1a899993ae09c41e9',
